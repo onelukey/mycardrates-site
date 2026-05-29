@@ -1,9 +1,1112 @@
-index.html
-
 <!DOCTYPE html>
-<html>
-<head><title>MyCardRates.com — Coming Soon</title></head>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyCardRates.com — Find the Best Credit Card for You</title>
+<meta name="description" content="Compare credit cards, calculate your payoff date, and find expert guides on rewards, balance transfers, and building credit. Plain-English advice for every US cardholder.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+<!-- GA4 — replace GA4-MEASUREMENT-ID with your real ID -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA4-MEASUREMENT-ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA4-MEASUREMENT-ID');
+</script>
+-->
+
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723787015797542" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --navy:       #0f2557;
+    --navy-mid:   #1a3a6b;
+    --navy-light: #e8eef7;
+    --gold:       #c9a84c;
+    --gold-dark:  #a07c28;
+    --gold-light: #f5ecd4;
+    --bg:         #f9f8f6;
+    --text:       #1a1a2e;
+    --text-muted: #5f5e5a;
+    --white:      #ffffff;
+    --radius:     10px;
+    --shadow:     0 4px 24px rgba(15,37,87,0.10);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    background: var(--navy);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  }
+
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem;
+    color: var(--white);
+    white-space: nowrap;
+  }
+  .logo span { color: var(--gold); }
+
+  .top-nav { display: flex; gap: 2rem; align-items: center; }
+  .top-nav a {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .top-nav a:hover { color: var(--gold); }
+
+  .top-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    font-weight: 700 !important;
+    padding: 0.55rem 1.25rem;
+    border-radius: 6px;
+    transition: background 0.2s !important;
+    white-space: nowrap;
+  }
+  .top-cta:hover { background: var(--gold-dark) !important; color: var(--white) !important; }
+
+  /* ── SECONDARY NAV ── */
+  .sec-nav {
+    background: var(--white);
+    border-bottom: 2px solid var(--navy-light);
+    padding: 0 2rem;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .sec-nav::-webkit-scrollbar { display: none; }
+
+  .sec-nav a {
+    padding: 0.85rem 1.1rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    margin-bottom: -2px;
+  }
+  .sec-nav a:hover { color: var(--navy); border-bottom-color: var(--gold); }
+  .sec-nav a.active { color: var(--navy); border-bottom-color: var(--gold); font-weight: 700; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 4rem 2rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 0%, rgba(201,168,76,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-inner { max-width: 820px; margin: 0 auto; position: relative; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border: 1.5px solid rgba(201,168,76,0.5);
+    border-radius: 999px;
+    padding: 0.4rem 1.1rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+  .hero-badge i { color: var(--gold); font-size: 1rem; }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 .accent { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  /* ── CALCULATOR ── */
+  .calc-wrap {
+    background: var(--white);
+    border-radius: var(--radius) var(--radius) 0 0;
+    box-shadow: var(--shadow);
+    max-width: 720px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .calc-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px solid var(--navy-light);
+  }
+
+  .calc-tab {
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    background: var(--navy-light);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .calc-tab i { font-size: 1.1rem; }
+  .calc-tab.active {
+    background: var(--white);
+    color: var(--navy);
+    border-bottom: 3px solid var(--gold);
+    margin-bottom: -2px;
+  }
+
+  .calc-body { padding: 1.75rem; }
+  .calc-panel { display: none; }
+  .calc-panel.active { display: block; }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  @media(max-width:560px){ .calc-grid { grid-template-columns: 1fr; } }
+
+  .field label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .input-prefix {
+    position: absolute;
+    left: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    pointer-events: none;
+  }
+  .input-suffix {
+    position: absolute;
+    right: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    pointer-events: none;
+  }
+  .field input {
+    width: 100%;
+    padding: 0.7rem 2rem 0.7rem 1.75rem;
+    border: 1.5px solid var(--navy-light);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--bg);
+    transition: border-color 0.2s;
+  }
+  .field input:focus { outline: none; border-color: var(--gold); }
+
+  .calc-btn {
+    width: 100%;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    padding: 0.85rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .calc-btn:hover { background: var(--navy-mid); }
+
+  .calc-result {
+    display: none;
+    margin-top: 1.25rem;
+    background: var(--navy-light);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .calc-result.show { display: block; }
+  .result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  @media(max-width:480px){ .result-grid { grid-template-columns: 1fr; } }
+
+  .result-item { text-align: center; }
+  .result-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+  }
+  .result-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--navy);
+  }
+  .result-value.highlight { color: var(--gold-dark); }
+  .result-note {
+    margin-top: 0.85rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+    border-top: 1px solid rgba(15,37,87,0.1);
+    padding-top: 0.75rem;
+  }
+
+  /* ── SECTION SHARED ── */
+  .section { padding: 4rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold-dark);
+    margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── PILLAR GRID ── */
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .pillar-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1.5px solid var(--navy-light);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .pillar-card:hover {
+    box-shadow: var(--shadow);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .pillar-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.4rem;
+  }
+  .ic-blue   { background: var(--navy-light); color: var(--navy); }
+  .ic-gold   { background: var(--gold-light); color: var(--gold-dark); }
+  .ic-green  { background: #e6f4ec; color: #2d7a4f; }
+  .ic-red    { background: #fdecea; color: #c0392b; }
+  .ic-teal   { background: #e4f4f4; color: #1a7a7a; }
+  .ic-purple { background: #f0eaf8; color: #6b3fa0; }
+
+  .pillar-content h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+  }
+  .pillar-content p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 0.6rem;
+  }
+  .pillar-link {
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: var(--gold-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: gap 0.2s;
+  }
+  .pillar-card:hover .pillar-link { gap: 0.55rem; }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip {
+    background: var(--navy);
+    padding: 2.5rem 2rem;
+  }
+  .trust-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+  }
+  .trust-item i {
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .trust-item strong {
+    display: block;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+  .trust-item span {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ── BLOG CARDS ── */
+  .blog-section { background: var(--white); }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .blog-card {
+    border: 1.5px solid var(--navy-light);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .blog-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+
+  .blog-thumb {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+  .bt1 { background: var(--navy-light); color: var(--navy); }
+  .bt2 { background: var(--gold-light); color: var(--gold-dark); }
+  .bt3 { background: #e6f4ec; color: #2d7a4f; }
+  .bt4 { background: #fdecea; color: #c0392b; }
+
+  .blog-body { padding: 1.1rem; flex: 1; display: flex; flex-direction: column; }
+  .blog-meta {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .blog-cat {
+    font-size: 0.73rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold-dark);
+    background: var(--gold-light);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+  }
+  .blog-date, .blog-read {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .blog-body h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+    line-height: 1.35;
+  }
+  .blog-body p { font-size: 0.85rem; color: var(--text-muted); flex: 1; margin-bottom: 0.75rem; }
+  .blog-link {
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: var(--gold-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .view-all-wrap { text-align: center; }
+  .view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--navy);
+    color: var(--white);
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+  }
+  .view-all-btn:hover { background: var(--navy-mid); }
+
+  /* ── CALCULATOR CTA STRIP ── */
+  .calc-cta {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    padding: 3.5rem 2rem;
+    text-align: center;
+  }
+  .calc-cta h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+  .calc-cta p { color: rgba(255,255,255,0.7); font-size: 0.97rem; margin-bottom: 1.5rem; }
+  .calc-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    padding: 0.85rem 2rem;
+    border-radius: 6px;
+    font-size: 0.97rem;
+    transition: background 0.2s;
+  }
+  .calc-cta a:hover { background: var(--gold-dark); color: var(--white); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.65);
+    padding: 3rem 2rem 1.5rem;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  @media(max-width:700px){ .footer-top { grid-template-columns: 1fr; } }
+
+  .footer-brand .logo { font-size: 1.15rem; display: block; margin-bottom: 0.75rem; }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.65; }
+
+  .footer-col h4 {
+    color: var(--white);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.85rem;
+  }
+  .footer-col a {
+    display: block;
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 0.45rem;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.78rem;
+  }
+  .footer-legal { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+  .footer-legal a { color: rgba(255,255,255,0.45); transition: color 0.2s; }
+  .footer-legal a:hover { color: var(--gold); }
+
+  /* ── DISCLAIMER BANNER ── */
+  .disclaimer-bar {
+    background: var(--gold-light);
+    border-top: 2px solid var(--gold);
+    padding: 0.85rem 2rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:768px){
+    .top-nav { display: none; }
+    .hero { padding: 2.5rem 1.25rem 0; }
+    .section { padding: 2.5rem 1.25rem; }
+  }
+</style>
+</head>
+
 <body>
-<h1>Coming Soon</h1>
+
+<!-- TOP BAR -->
+<header class="top-bar">
+  <a href="/index.html" class="logo">MyCard<span>Rates</span>.com</a>
+  <nav class="top-nav">
+    <a href="/best-credit-cards.html">Best Cards</a>
+    <a href="/credit-card-rewards.html">Rewards</a>
+    <a href="/balance-transfer-cards.html">Balance Transfer</a>
+    <a href="/blog/index.html">Blog</a>
+    <a href="/about.html">About</a>
+    <a href="/credit-card-calculator.html" class="top-cta"><i class="ti ti-calculator"></i> Card Calculator</a>
+  </nav>
+</header>
+
+<!-- SECONDARY NAV -->
+<nav class="sec-nav">
+  <a href="/index.html" class="active">Home</a>
+  <a href="/best-credit-cards.html">Best Credit Cards</a>
+  <a href="/credit-card-rewards.html">Rewards Cards</a>
+  <a href="/balance-transfer-cards.html">Balance Transfer</a>
+  <a href="/credit-cards-for-bad-credit.html">Bad Credit</a>
+  <a href="/how-credit-cards-work.html">How They Work</a>
+  <a href="/credit-card-interest-explained.html">Interest Explained</a>
+  <a href="/credit-card-glossary.html">Glossary</a>
+  <a href="/credit-card-calculator.html">Calculator</a>
+  <a href="/blog/index.html">Blog</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <i class="ti ti-calculator"></i>
+      Free Credit Card Calculator — No Sign Up Required
+    </div>
+    <h1>Find Out What Your Credit Card<br>Is Really <span class="accent">Costing You</span></h1>
+    <p class="hero-sub">
+      Calculate your payoff date in seconds, then find the right card to cut your costs.
+      Plain-English guides for every US cardholder.
+    </p>
+
+    <!-- CALCULATOR -->
+    <div class="calc-wrap">
+      <div class="calc-tabs">
+        <button class="calc-tab active" onclick="switchTab('payoff')" id="tab-payoff">
+          <i class="ti ti-calendar-due"></i> Payoff Timeline
+        </button>
+        <button class="calc-tab" onclick="switchTab('payment')" id="tab-payment">
+          <i class="ti ti-currency-dollar"></i> Monthly Payment
+        </button>
+      </div>
+
+      <div class="calc-body">
+
+        <!-- TAB 1: How long to pay off? -->
+        <div class="calc-panel active" id="panel-payoff">
+          <div class="calc-grid">
+            <div class="field">
+              <label>Current Balance</label>
+              <div class="input-wrap">
+                <span class="input-prefix">$</span>
+                <input type="number" id="p-balance" placeholder="3,500" min="0">
+              </div>
+            </div>
+            <div class="field">
+              <label>Interest Rate (APR)</label>
+              <div class="input-wrap">
+                <input type="number" id="p-apr" placeholder="22.99" min="0" max="100" style="padding-left:0.75rem;padding-right:1.75rem;">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label>Monthly Payment</label>
+              <div class="input-wrap">
+                <span class="input-prefix">$</span>
+                <input type="number" id="p-payment" placeholder="150" min="0">
+              </div>
+            </div>
+          </div>
+          <button class="calc-btn" onclick="calcPayoff()">
+            <i class="ti ti-calculator"></i> Calculate Payoff Timeline
+          </button>
+          <div class="calc-result" id="result-payoff">
+            <div class="result-grid">
+              <div class="result-item">
+                <div class="result-label">Months to Pay Off</div>
+                <div class="result-value" id="r-months">—</div>
+              </div>
+              <div class="result-item">
+                <div class="result-label">Total Interest Paid</div>
+                <div class="result-value highlight" id="r-interest">—</div>
+              </div>
+              <div class="result-item">
+                <div class="result-label">Total Amount Paid</div>
+                <div class="result-value" id="r-total">—</div>
+              </div>
+              <div class="result-item">
+                <div class="result-label">Debt-Free Date</div>
+                <div class="result-value" id="r-date">—</div>
+              </div>
+            </div>
+            <p class="result-note">Results are estimates based on fixed APR and consistent monthly payments. Actual amounts may vary.</p>
+          </div>
+        </div>
+
+        <!-- TAB 2: What payment do I need? -->
+        <div class="calc-panel" id="panel-payment">
+          <div class="calc-grid">
+            <div class="field">
+              <label>Current Balance</label>
+              <div class="input-wrap">
+                <span class="input-prefix">$</span>
+                <input type="number" id="m-balance" placeholder="3,500" min="0">
+              </div>
+            </div>
+            <div class="field">
+              <label>Interest Rate (APR)</label>
+              <div class="input-wrap">
+                <input type="number" id="m-apr" placeholder="22.99" min="0" max="100" style="padding-left:0.75rem;padding-right:1.75rem;">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label>Target Months to Pay Off</label>
+              <div class="input-wrap">
+                <input type="number" id="m-months" placeholder="24" min="1" style="padding-left:0.75rem;">
+              </div>
+            </div>
+          </div>
+          <button class="calc-btn" onclick="calcPayment()">
+            <i class="ti ti-calculator"></i> Calculate Required Payment
+          </button>
+          <div class="calc-result" id="result-payment">
+            <div class="result-grid">
+              <div class="result-item">
+                <div class="result-label">Required Monthly Payment</div>
+                <div class="result-value highlight" id="m-r-payment">—</div>
+              </div>
+              <div class="result-item">
+                <div class="result-label">Total Interest Paid</div>
+                <div class="result-value" id="m-r-interest">—</div>
+              </div>
+              <div class="result-item">
+                <div class="result-label">Total Amount Paid</div>
+                <div class="result-value" id="m-r-total">—</div>
+              </div>
+              <div class="result-item">
+                <div class="result-label">Debt-Free Date</div>
+                <div class="result-value" id="m-r-date">—</div>
+              </div>
+            </div>
+            <p class="result-note">Results are estimates based on fixed APR and consistent monthly payments. Actual amounts may vary.</p>
+          </div>
+        </div>
+
+      </div><!-- /calc-body -->
+    </div><!-- /calc-wrap -->
+  </div><!-- /hero-inner -->
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <i class="ti ti-pencil"></i>
+      <strong>Plain-English Guides</strong>
+      <span>No jargon — just clear, honest advice</span>
+    </div>
+    <div class="trust-item">
+      <i class="ti ti-shield-check"></i>
+      <strong>Editorially Independent</strong>
+      <span>We don't take money to push specific cards</span>
+    </div>
+    <div class="trust-item">
+      <i class="ti ti-refresh"></i>
+      <strong>Regularly Updated</strong>
+      <span>Rates and guides reviewed monthly</span>
+    </div>
+    <div class="trust-item">
+      <i class="ti ti-users"></i>
+      <strong>Built for US Cardholders</strong>
+      <span>All advice tailored to the US market</span>
+    </div>
+  </div>
+</div>
+
+<!-- PILLAR PAGES -->
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label">Core Guides</p>
+    <h2 class="section-title">Everything You Need to Know About Credit Cards</h2>
+    <p class="section-sub">Whether you're comparing cards, managing debt, or rebuilding credit — start here.</p>
+
+    <div class="pillar-grid">
+
+      <a class="pillar-card" href="/best-credit-cards.html">
+        <div class="pillar-icon ic-blue"><i class="ti ti-cards"></i></div>
+        <div class="pillar-content">
+          <h3>Best Credit Cards</h3>
+          <p>Our top picks across every category — rewards, cashback, travel, and more.</p>
+          <span class="pillar-link">Read guide <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="pillar-card" href="/credit-card-rewards.html">
+        <div class="pillar-icon ic-gold"><i class="ti ti-star"></i></div>
+        <div class="pillar-content">
+          <h3>Credit Card Rewards</h3>
+          <p>How points, miles, and cashback work — and how to get the most from them.</p>
+          <span class="pillar-link">Read guide <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="pillar-card" href="/balance-transfer-cards.html">
+        <div class="pillar-icon ic-green"><i class="ti ti-transfer"></i></div>
+        <div class="pillar-content">
+          <h3>Balance Transfer Cards</h3>
+          <p>Move high-interest debt to 0% APR and pay it off faster. Here's how.</p>
+          <span class="pillar-link">Read guide <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="pillar-card" href="/credit-cards-for-bad-credit.html">
+        <div class="pillar-icon ic-red"><i class="ti ti-heart-rate-monitor"></i></div>
+        <div class="pillar-content">
+          <h3>Cards for Bad Credit</h3>
+          <p>The best options if your credit score needs work — and how to rebuild fast.</p>
+          <span class="pillar-link">Read guide <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="pillar-card" href="/how-credit-cards-work.html">
+        <div class="pillar-icon ic-teal"><i class="ti ti-info-circle"></i></div>
+        <div class="pillar-content">
+          <h3>How Credit Cards Work</h3>
+          <p>The fundamentals every cardholder should understand — billing cycles, limits, and more.</p>
+          <span class="pillar-link">Read guide <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="pillar-card" href="/credit-card-interest-explained.html">
+        <div class="pillar-icon ic-purple"><i class="ti ti-percentage"></i></div>
+        <div class="pillar-content">
+          <h3>Credit Card Interest Explained</h3>
+          <p>APR, daily rates, grace periods — understand exactly what interest costs you.</p>
+          <span class="pillar-link">Read guide <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="pillar-card" href="/credit-card-glossary.html">
+        <div class="pillar-icon ic-blue"><i class="ti ti-book-2"></i></div>
+        <div class="pillar-content">
+          <h3>Credit Card Glossary</h3>
+          <p>Every term explained in plain English — from APR to utilisation rate.</p>
+          <span class="pillar-link">Browse glossary <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="pillar-card" href="/credit-card-calculator.html">
+        <div class="pillar-icon ic-gold"><i class="ti ti-calculator"></i></div>
+        <div class="pillar-content">
+          <h3>Credit Card Calculator</h3>
+          <p>Full standalone calculator — payoff timelines, payment targets, and interest totals.</p>
+          <span class="pillar-link">Open calculator <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- BLOG PREVIEW -->
+<section class="section blog-section">
+  <div class="section-inner">
+    <p class="section-label">Latest Guides</p>
+    <h2 class="section-title">From the MyCardRates Blog</h2>
+    <p class="section-sub">In-depth guides to help you choose smarter, spend wiser, and pay less interest.</p>
+
+    <div class="blog-grid">
+
+      <a class="blog-card" href="/blog/blog-post-1-what-is-a-credit-card.html">
+        <div class="blog-thumb bt1"><i class="ti ti-credit-card"></i></div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat">CC Basics</span>
+            <span class="blog-date"><i class="ti ti-calendar"></i> <span class="dyn-monthyear">May 2026</span></span>
+            <span class="blog-read"><i class="ti ti-clock"></i> 6 min read</span>
+          </div>
+          <h3>What is a Credit Card?</h3>
+          <p>Everything a first-time cardholder needs to know — how they work, what they cost, and how to use one wisely.</p>
+          <span class="blog-link">Read guide <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="blog-card" href="/blog/blog-post-3-best-rewards-credit-cards.html">
+        <div class="blog-thumb bt2"><i class="ti ti-star"></i></div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat">Rewards</span>
+            <span class="blog-date"><i class="ti ti-calendar"></i> <span class="dyn-monthyear">May 2026</span></span>
+            <span class="blog-read"><i class="ti ti-clock"></i> 8 min read</span>
+          </div>
+          <h3>Best Rewards Credit Cards in <span class="dyn-year">2026</span></h3>
+          <p>The top rewards cards ranked — points, miles, and cashback compared side by side.</p>
+          <span class="blog-link">Read guide <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="blog-card" href="/blog/blog-post-5-best-balance-transfer-cards.html">
+        <div class="blog-thumb bt3"><i class="ti ti-transfer"></i></div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat">Balance Transfer</span>
+            <span class="blog-date"><i class="ti ti-calendar"></i> <span class="dyn-monthyear">May 2026</span></span>
+            <span class="blog-read"><i class="ti ti-clock"></i> 7 min read</span>
+          </div>
+          <h3>Best Balance Transfer Cards in <span class="dyn-year">2026</span></h3>
+          <p>The top 0% APR balance transfer offers available now — ranked and compared.</p>
+          <span class="blog-link">Read guide <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="blog-card" href="/blog/blog-post-7-credit-cards-for-bad-credit.html">
+        <div class="blog-thumb bt4"><i class="ti ti-heart-rate-monitor"></i></div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat">Bad Credit</span>
+            <span class="blog-date"><i class="ti ti-calendar"></i> <span class="dyn-monthyear">May 2026</span></span>
+            <span class="blog-read"><i class="ti ti-clock"></i> 7 min read</span>
+          </div>
+          <h3>Best Credit Cards if You Have Bad Credit</h3>
+          <p>Secured cards, credit-builder options, and the steps to get back on track.</p>
+          <span class="blog-link">Read guide <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="view-all-wrap">
+      <a href="/blog/index.html" class="view-all-btn">
+        View All Guides <i class="ti ti-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR CTA -->
+<div class="calc-cta">
+  <h2>Not Sure Which Card Is Right for You?</h2>
+  <p>Use our free standalone calculator to model your payoff plan before you apply.</p>
+  <a href="/credit-card-calculator.html">
+    <i class="ti ti-calculator"></i> Open Full Calculator
+  </a>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer-bar">
+  <strong>Editorial Disclaimer:</strong> MyCardRates.com is an independent publisher. Content is for informational purposes only and does not constitute financial advice.
+  Always review the full terms of any credit card before applying. <a href="/disclaimer.html" style="color:var(--gold-dark);font-weight:600;">Full Disclaimer</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">MyCard<span>Rates</span>.com</span>
+        <p>Independent credit card guides and tools for US consumers. Plain-English advice — no jargon, no pressure.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <a href="/best-credit-cards.html">Best Credit Cards</a>
+        <a href="/credit-card-rewards.html">Rewards Cards</a>
+        <a href="/balance-transfer-cards.html">Balance Transfer</a>
+        <a href="/credit-cards-for-bad-credit.html">Bad Credit Cards</a>
+        <a href="/how-credit-cards-work.html">How They Work</a>
+        <a href="/credit-card-glossary.html">Glossary</a>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <a href="/credit-card-calculator.html">Calculator</a>
+        <a href="/blog/index.html">Blog</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/terms-of-use.html">Terms of Use</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="dyn-year">2026</span> MyCardRates.com — All rights reserved</span>
+      <div class="footer-legal">
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/terms-of-use.html">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Dynamic date
+(function(){
+  var now = new Date();
+  var year = now.getFullYear();
+  var month = now.toLocaleString("en-US", {month:"long"});
+  document.querySelectorAll(".dyn-year").forEach(function(el){ el.textContent = year; });
+  document.querySelectorAll(".dyn-monthyear").forEach(function(el){ el.textContent = month + " " + year; });
+})();
+
+// ── Tab switcher
+function switchTab(tab) {
+  document.querySelectorAll('.calc-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.calc-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.getElementById('panel-' + tab).classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+}
+
+// ── Helpers
+function fmt(n){ return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+function fmtInt(n){ return '$' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+
+function debtFreeDate(months){
+  var d = new Date();
+  d.setMonth(d.getMonth() + Math.ceil(months));
+  return d.toLocaleString("en-US", {month:"long", year:"numeric"});
+}
+
+// ── Tab 1: Payoff Timeline
+function calcPayoff(){
+  var balance = parseFloat(document.getElementById('p-balance').value);
+  var apr     = parseFloat(document.getElementById('p-apr').value);
+  var payment = parseFloat(document.getElementById('p-payment').value);
+  var result  = document.getElementById('result-payoff');
+
+  if(!balance || !apr || !payment){ alert('Please fill in all three fields.'); return; }
+
+  var monthlyRate = (apr / 100) / 12;
+  if(payment <= balance * monthlyRate){
+    result.classList.add('show');
+    document.getElementById('r-months').textContent   = '∞';
+    document.getElementById('r-interest').textContent = '—';
+    document.getElementById('r-total').textContent    = '—';
+    document.getElementById('r-date').textContent     = 'Never — increase your payment';
+    return;
+  }
+
+  var months = Math.ceil(-Math.log(1 - (monthlyRate * balance) / payment) / Math.log(1 + monthlyRate));
+  var totalPaid = payment * months;
+  var totalInterest = totalPaid - balance;
+
+  document.getElementById('r-months').textContent   = months + ' months';
+  document.getElementById('r-interest').textContent = fmtInt(totalInterest);
+  document.getElementById('r-total').textContent    = fmtInt(totalPaid);
+  document.getElementById('r-date').textContent     = debtFreeDate(months);
+  result.classList.add('show');
+}
+
+// ── Tab 2: Required Payment
+function calcPayment(){
+  var balance = parseFloat(document.getElementById('m-balance').value);
+  var apr     = parseFloat(document.getElementById('m-apr').value);
+  var months  = parseFloat(document.getElementById('m-months').value);
+  var result  = document.getElementById('result-payment');
+
+  if(!balance || !apr || !months){ alert('Please fill in all three fields.'); return; }
+
+  var monthlyRate = (apr / 100) / 12;
+  var payment = (balance * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+  var totalPaid = payment * months;
+  var totalInterest = totalPaid - balance;
+
+  document.getElementById('m-r-payment').textContent  = fmt(payment);
+  document.getElementById('m-r-interest').textContent = fmtInt(totalInterest);
+  document.getElementById('m-r-total').textContent    = fmtInt(totalPaid);
+  document.getElementById('m-r-date').textContent     = debtFreeDate(months);
+  result.classList.add('show');
+}
+</script>
+
 </body>
 </html>
