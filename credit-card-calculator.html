@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Credit Card Payoff Calculator — MyCardRates.com</title>
+<meta name="description" content="Free credit card payoff calculator — find out how long it takes to clear your balance, how much interest you'll pay, and what monthly payment you need. No sign-up required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPBDSS7G07"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QPBDSS7G07');
+</script>
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723787015797542" crossorigin="anonymous"></script>
+<style>
+  :root {
+    --navy:#0f2557; --navy-mid:#1a3a6b; --navy-light:#e8eef7;
+    --gold:#c9a84c; --gold-dark:#a07c28; --gold-light:#f5ecd4;
+    --bg:#f9f8f6; --text:#1a1a2e; --text-muted:#5f5e5a; --white:#ffffff;
+    --radius:10px; --shadow:0 4px 24px rgba(15,37,87,0.10);
+    --green:#2d7a4f; --green-light:#e6f4ec;
+    --red:#c0392b; --red-light:#fdecea;
+  }
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+  a { color:inherit; text-decoration:none; }
+  .top-bar { background:var(--navy); padding:0 2rem; display:flex; align-items:center; justify-content:space-between; min-height:64px; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,0.18); }
+  .logo { font-family:'DM Serif Display',serif; font-size:1.35rem; color:var(--white); }
+  .logo span { color:var(--gold); }
+  .top-nav { display:flex; gap:2rem; align-items:center; }
+  .top-nav a { color:rgba(255,255,255,0.85); font-size:0.92rem; font-weight:500; transition:color 0.2s; }
+  .top-nav a:hover { color:var(--gold); }
+  .top-cta { background:var(--gold); color:var(--navy) !important; font-weight:700 !important; padding:0.55rem 1.25rem; border-radius:6px; white-space:nowrap; }
+  .top-cta:hover { background:var(--gold-dark) !important; color:var(--white) !important; }
+  .sec-nav { background:var(--white); border-bottom:2px solid var(--navy-light); padding:0 2rem; display:flex; overflow-x:auto; scrollbar-width:none; }
+  .sec-nav::-webkit-scrollbar { display:none; }
+  .sec-nav a { padding:0.85rem 1.1rem; font-size:0.88rem; font-weight:500; color:var(--text-muted); white-space:nowrap; border-bottom:3px solid transparent; transition:color 0.2s,border-color 0.2s; margin-bottom:-2px; }
+  .sec-nav a:hover,.sec-nav a.active { color:var(--navy); border-bottom-color:var(--gold); font-weight:700; }
+
+  /* HERO */
+  .page-hero { background:var(--navy); padding:3.5rem 2rem 3rem; position:relative; overflow:hidden; }
+  .page-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 60% 0%,rgba(201,168,76,0.12) 0%,transparent 65%); pointer-events:none; }
+  .post-hero-inner { max-width:820px; margin:0 auto; text-align:center; position:relative; }
+  .breadcrumb { display:flex; align-items:center; justify-content:center; gap:0.5rem; font-size:0.8rem; color:rgba(255,255,255,0.55); margin-bottom:1rem; }
+  .breadcrumb a { color:rgba(255,255,255,0.55); transition:color 0.2s; }
+  .breadcrumb a:hover { color:var(--gold); }
+  .breadcrumb i { font-size:0.75rem; }
+  .page-hero h1 { font-family:'DM Serif Display',serif; font-size:clamp(1.75rem,4vw,2.5rem); color:var(--white); line-height:1.2; margin-bottom:1rem; text-align:center; }
+  .page-hero h1 .accent { color:var(--gold); }
+  .post-meta-bar { display:flex; flex-wrap:wrap; gap:1.25rem; align-items:center; justify-content:center; margin-top:1.25rem; }
+  .post-meta-bar span { font-size:0.83rem; color:rgba(255,255,255,0.65); display:flex; align-items:center; gap:0.35rem; }
+  .post-meta-bar i { color:var(--gold); }
+  .hero-intro { font-size:1.05rem; color:rgba(255,255,255,0.75); max-width:580px; margin:1rem auto 0; line-height:1.7; }
+
+  /* MAIN LAYOUT */
+  .calc-page-wrap { max-width:1100px; margin:0 auto; padding:3rem 2rem; display:grid; grid-template-columns:1fr 300px; gap:2.5rem; align-items:start; }
+  @media(max-width:900px){ .calc-page-wrap { grid-template-columns:1fr; } }
+
+  /* TAB SYSTEM */
+  .calc-container { background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; border:1.5px solid var(--navy-light); }
+
+  .calc-tabs { display:grid; grid-template-columns:1fr 1fr 1fr; }
+  .calc-tab { padding:1rem 0.75rem; text-align:center; cursor:pointer; font-weight:600; font-size:0.88rem; color:var(--text-muted); background:var(--navy-light); border:none; font-family:'DM Sans',sans-serif; display:flex; align-items:center; justify-content:center; gap:0.4rem; transition:all 0.2s; border-bottom:3px solid transparent; }
+  .calc-tab i { font-size:1rem; }
+  .calc-tab.active { background:var(--white); color:var(--navy); border-bottom-color:var(--gold); font-weight:700; }
+  .calc-tab:hover:not(.active) { background:#dde5f3; color:var(--navy); }
+
+  .calc-body { padding:2rem; }
+  .calc-panel { display:none; }
+  .calc-panel.active { display:block; }
+
+  .panel-intro { font-size:0.9rem; color:var(--text-muted); margin-bottom:1.5rem; line-height:1.6; padding-bottom:1.25rem; border-bottom:1.5px solid var(--navy-light); }
+
+  /* FORM FIELDS */
+  .fields-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; margin-bottom:1.25rem; }
+  @media(max-width:580px){ .fields-grid { grid-template-columns:1fr; } }
+  .fields-grid.three-col { grid-template-columns:1fr 1fr 1fr; }
+  @media(max-width:680px){ .fields-grid.three-col { grid-template-columns:1fr 1fr; } }
+  @media(max-width:480px){ .fields-grid.three-col { grid-template-columns:1fr; } }
+
+  .field label { display:block; font-size:0.8rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem; }
+  .input-wrap { position:relative; display:flex; align-items:center; }
+  .input-prefix, .input-suffix { position:absolute; font-weight:700; font-size:0.95rem; color:var(--text-muted); pointer-events:none; }
+  .input-prefix { left:0.85rem; }
+  .input-suffix { right:0.85rem; }
+  .field input, .field select {
+    width:100%; padding:0.75rem 2rem 0.75rem 1.75rem;
+    border:1.5px solid var(--navy-light); border-radius:6px;
+    font-family:'DM Sans',sans-serif; font-size:1rem; color:var(--text);
+    background:var(--bg); transition:border-color 0.2s;
+  }
+  .field input.no-prefix { padding-left:0.85rem; }
+  .field input.has-suffix { padding-right:2.25rem; padding-left:0.85rem; }
+  .field input:focus, .field select:focus { outline:none; border-color:var(--gold); }
+  .field select { padding-left:0.85rem; cursor:pointer; }
+
+  /* CALC BUTTON */
+  .calc-btn { width:100%; background:var(--navy); color:var(--white); border:none; border-radius:6px; padding:0.9rem; font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; transition:background 0.2s; display:flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:0.25rem; }
+  .calc-btn:hover { background:var(--navy-mid); }
+
+  /* RESULTS */
+  .result-panel { display:none; margin-top:1.75rem; }
+  .result-panel.show { display:block; }
+
+  .result-header { display:flex; align-items:center; gap:0.6rem; font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--navy); margin-bottom:1.1rem; padding-bottom:0.75rem; border-bottom:2px solid var(--navy-light); }
+  .result-header i { color:var(--gold); }
+
+  .result-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1rem; margin-bottom:1rem; }
+  .result-card { background:var(--navy-light); border-radius:8px; padding:1rem; text-align:center; }
+  .result-card.highlight { background:var(--gold-light); border:1.5px solid var(--gold); }
+  .result-card.alert { background:var(--red-light); border:1.5px solid var(--red); }
+  .result-card.good  { background:var(--green-light); border:1.5px solid var(--green); }
+  .r-label { font-size:0.73rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:0.35rem; }
+  .r-value { font-family:'DM Serif Display',serif; font-size:1.55rem; color:var(--navy); line-height:1.1; }
+  .result-card.highlight .r-value { color:var(--gold-dark); }
+  .result-card.alert .r-value { color:var(--red); }
+  .result-card.good .r-value  { color:var(--green); }
+  .r-sub { font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem; }
+
+  .result-note { font-size:0.82rem; color:var(--text-muted); text-align:center; padding:0.85rem 1rem; background:var(--bg); border-radius:6px; line-height:1.55; }
+
+  /* AMORTISATION TABLE */
+  .amort-toggle { background:none; border:1.5px solid var(--navy-light); border-radius:6px; padding:0.6rem 1rem; font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:600; color:var(--navy); cursor:pointer; display:flex; align-items:center; gap:0.4rem; transition:all 0.2s; margin-top:1rem; }
+  .amort-toggle:hover { border-color:var(--gold); color:var(--gold-dark); }
+  .amort-wrap { display:none; margin-top:1rem; overflow-x:auto; }
+  .amort-wrap.show { display:block; }
+  .amort-table { width:100%; border-collapse:collapse; font-size:0.83rem; }
+  .amort-table th { background:var(--navy); color:var(--white); padding:0.6rem 0.85rem; text-align:right; font-weight:600; font-size:0.78rem; }
+  .amort-table th:first-child { text-align:left; border-radius:6px 0 0 0; }
+  .amort-table th:last-child { border-radius:0 6px 0 0; }
+  .amort-table td { padding:0.55rem 0.85rem; border-bottom:1px solid var(--navy-light); text-align:right; color:var(--text); }
+  .amort-table td:first-child { text-align:left; font-weight:600; color:var(--navy); }
+  .amort-table tr:last-child td { border-bottom:none; font-weight:700; background:var(--navy-light); }
+  .amort-table tr:nth-child(even) td { background:var(--bg); }
+  .amort-table tr:last-child td { background:var(--navy-light) !important; }
+
+  /* BT COMPARISON */
+  .bt-comparison { background:var(--navy); border-radius:8px; padding:1.25rem; margin-top:1rem; }
+  .bt-comparison h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--white); margin-bottom:1rem; }
+  .bt-row { display:grid; grid-template-columns:1fr 1fr; gap:0.85rem; }
+  .bt-col { background:rgba(255,255,255,0.08); border-radius:6px; padding:0.85rem; text-align:center; }
+  .bt-col.better { background:rgba(201,168,76,0.18); border:1px solid rgba(201,168,76,0.4); }
+  .bt-col-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:rgba(255,255,255,0.55); margin-bottom:0.35rem; }
+  .bt-col-value { font-family:'DM Serif Display',serif; font-size:1.25rem; color:var(--white); }
+  .bt-col.better .bt-col-value { color:var(--gold); }
+  .bt-col-sub { font-size:0.75rem; color:rgba(255,255,255,0.5); margin-top:0.2rem; }
+  .bt-saving { text-align:center; margin-top:0.85rem; font-size:0.85rem; color:rgba(255,255,255,0.75); }
+  .bt-saving strong { color:var(--gold); }
+
+  /* INFO CARDS BELOW CALCULATOR */
+  .how-it-works { margin-top:2.5rem; }
+  .how-it-works h2 { font-family:'DM Serif Display',serif; font-size:1.35rem; color:var(--navy); margin-bottom:1.25rem; }
+  .how-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1rem; }
+  .how-card { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.25rem; }
+  .how-icon { width:42px; height:42px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:0.75rem; }
+  .hi-blue   { background:var(--navy-light); color:var(--navy); }
+  .hi-gold   { background:var(--gold-light); color:var(--gold-dark); }
+  .hi-green  { background:var(--green-light); color:var(--green); }
+  .how-card h4 { font-family:'DM Serif Display',serif; font-size:0.97rem; color:var(--navy); margin-bottom:0.3rem; }
+  .how-card p { font-size:0.83rem; color:var(--text-muted); line-height:1.55; }
+
+  .tip-box { background:var(--gold-light); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; padding:1.1rem 1.25rem; margin-top:1.75rem; }
+  .tip-box strong { display:block; color:var(--gold-dark); font-size:0.88rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem; }
+  .tip-box p { font-size:0.9rem; color:var(--text); margin:0; }
+
+  /* SIDEBAR */
+  .sidebar { display:flex; flex-direction:column; gap:1.5rem; }
+  .sidebar-box { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.35rem; }
+  .sidebar-box h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.85rem; padding-bottom:0.6rem; border-bottom:2px solid var(--navy-light); }
+  .sidebar-box ul { list-style:none; padding:0; }
+  .sidebar-box ul li { padding:0.45rem 0; border-bottom:1px solid var(--navy-light); font-size:0.88rem; }
+  .sidebar-box ul li:last-child { border-bottom:none; }
+  .sidebar-box ul li a { color:var(--navy-mid); font-weight:500; transition:color 0.2s; display:flex; align-items:center; gap:0.4rem; }
+  .sidebar-box ul li a:hover { color:var(--gold-dark); }
+  .sidebar-box ul li a i { font-size:0.85rem; color:var(--gold); }
+  .quick-facts { background:var(--navy); border-radius:var(--radius); padding:1.35rem; }
+  .quick-facts h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--white); margin-bottom:1rem; }
+  .qf-item { padding:0.6rem 0; border-bottom:1px solid rgba(255,255,255,0.1); }
+  .qf-item:last-child { border-bottom:none; }
+  .qf-label { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:rgba(255,255,255,0.5); margin-bottom:0.15rem; }
+  .qf-value { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--gold); }
+  .qf-note { font-size:0.75rem; color:rgba(255,255,255,0.45); }
+
+  .disclaimer-bar { background:var(--gold-light); border-top:2px solid var(--gold); padding:0.85rem 2rem; font-size:0.8rem; color:var(--text-muted); text-align:center; line-height:1.5; }
+  footer { background:var(--text); color:rgba(255,255,255,0.65); padding:3rem 2rem 1.5rem; }
+  .footer-inner { max-width:1100px; margin:0 auto; }
+  .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:2.5rem; margin-bottom:2rem; padding-bottom:2rem; border-bottom:1px solid rgba(255,255,255,0.1); }
+  @media(max-width:700px){ .footer-top { grid-template-columns:1fr; } }
+  .footer-brand .logo { font-size:1.15rem; display:block; margin-bottom:0.75rem; }
+  .footer-brand p { font-size:0.85rem; line-height:1.65; }
+  .footer-col h4 { color:var(--white); font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.85rem; }
+  .footer-col a { display:block; font-size:0.83rem; color:rgba(255,255,255,0.55); margin-bottom:0.45rem; transition:color 0.2s; }
+  .footer-col a:hover { color:var(--gold); }
+  .footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; font-size:0.78rem; }
+  .footer-legal { display:flex; gap:1.25rem; flex-wrap:wrap; }
+  .footer-legal a { color:rgba(255,255,255,0.45); transition:color 0.2s; }
+  .footer-legal a:hover { color:var(--gold); }
+  @media(max-width:768px){ .top-nav { display:none; } }
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <a href="/index.html" class="logo">MyCard<span>Rates</span>.com</a>
+  <nav class="top-nav">
+    <a href="/best-credit-cards.html">Best Cards</a>
+    <a href="/credit-card-rewards.html">Rewards</a>
+    <a href="/balance-transfer-cards.html">Balance Transfer</a>
+    <a href="/blog/index.html">Blog</a>
+    <a href="/about.html">About</a>
+    <a href="/credit-card-calculator.html" class="top-cta"><i class="ti ti-calculator"></i> Card Calculator</a>
+  </nav>
+</header>
+
+<nav class="sec-nav">
+  <a href="/index.html">Home</a>
+  <a href="/best-credit-cards.html">Best Credit Cards</a>
+  <a href="/credit-card-rewards.html">Rewards Cards</a>
+  <a href="/balance-transfer-cards.html">Balance Transfer</a>
+  <a href="/credit-cards-for-bad-credit.html">Bad Credit</a>
+  <a href="/how-credit-cards-work.html">How They Work</a>
+  <a href="/credit-card-interest-explained.html">Interest Explained</a>
+  <a href="/credit-card-glossary.html">Glossary</a>
+  <a href="/credit-card-calculator.html" class="active">Calculator</a>
+  <a href="/blog/index.html">Blog</a>
+</nav>
+
+<section class="page-hero">
+  <div class="post-hero-inner">
+    <div class="breadcrumb">
+      <a href="/index.html">Home</a>
+      <i class="ti ti-chevron-right"></i>
+      <span>Credit Card Calculator</span>
+    </div>
+    <h1>Free Credit Card <span class="accent">Payoff Calculator</span></h1>
+    <p class="hero-intro">Three calculators in one — find your payoff date, calculate the payment you need, or compare your savings with a balance transfer. No sign-up required.</p>
+    <div class="post-meta-bar">
+      <span><i class="ti ti-calculator"></i> 3 calculators</span>
+      <span><i class="ti ti-lock"></i> No sign-up required</span>
+      <span><i class="ti ti-refresh"></i> Instant results</span>
+    </div>
+  </div>
+</section>
+
+<div class="calc-page-wrap">
+  <main>
+
+    <!-- CALCULATOR -->
+    <div class="calc-container">
+      <div class="calc-tabs">
+        <button class="calc-tab active" onclick="switchTab('payoff')" id="tab-payoff">
+          <i class="ti ti-calendar-due"></i> Payoff Timeline
+        </button>
+        <button class="calc-tab" onclick="switchTab('payment')" id="tab-payment">
+          <i class="ti ti-currency-dollar"></i> Monthly Payment
+        </button>
+        <button class="calc-tab" onclick="switchTab('transfer')" id="tab-transfer">
+          <i class="ti ti-transfer"></i> Balance Transfer
+        </button>
+      </div>
+
+      <div class="calc-body">
+
+        <!-- TAB 1: PAYOFF TIMELINE -->
+        <div class="calc-panel active" id="panel-payoff">
+          <p class="panel-intro">Enter your balance, APR, and monthly payment to see exactly how long it will take to clear your debt — and how much interest you'll pay in total.</p>
+          <div class="fields-grid">
+            <div class="field">
+              <label>Current Balance</label>
+              <div class="input-wrap"><span class="input-prefix">$</span>
+                <input type="number" id="p-balance" placeholder="3,500" min="1">
+              </div>
+            </div>
+            <div class="field">
+              <label>Interest Rate (APR)</label>
+              <div class="input-wrap">
+                <input type="number" id="p-apr" placeholder="22.99" min="0.01" max="99" class="has-suffix">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label>Monthly Payment</label>
+              <div class="input-wrap"><span class="input-prefix">$</span>
+                <input type="number" id="p-payment" placeholder="150" min="1">
+              </div>
+            </div>
+          </div>
+          <button class="calc-btn" onclick="calcPayoff()"><i class="ti ti-calculator"></i> Calculate Payoff Timeline</button>
+
+          <div class="result-panel" id="result-payoff">
+            <div class="result-header"><i class="ti ti-chart-bar"></i> Your Payoff Results</div>
+            <div class="result-grid">
+              <div class="result-card">
+                <div class="r-label">Months to Pay Off</div>
+                <div class="r-value" id="r-months">—</div>
+              </div>
+              <div class="result-card highlight">
+                <div class="r-label">Debt-Free Date</div>
+                <div class="r-value" id="r-date" style="font-size:1.1rem;">—</div>
+              </div>
+              <div class="result-card alert">
+                <div class="r-label">Total Interest Paid</div>
+                <div class="r-value" id="r-interest">—</div>
+              </div>
+              <div class="result-card">
+                <div class="r-label">Total Amount Paid</div>
+                <div class="r-value" id="r-total">—</div>
+              </div>
+            </div>
+            <div class="result-note" id="r-note"></div>
+            <button class="amort-toggle" onclick="toggleAmort('amort-payoff')">
+              <i class="ti ti-table"></i> Show full payment schedule
+            </button>
+            <div class="amort-wrap" id="amort-payoff"></div>
+          </div>
+        </div>
+
+        <!-- TAB 2: MONTHLY PAYMENT -->
+        <div class="calc-panel" id="panel-payment">
+          <p class="panel-intro">Know when you want to be debt-free? Enter your balance, APR, and target number of months to find out the exact monthly payment required.</p>
+          <div class="fields-grid">
+            <div class="field">
+              <label>Current Balance</label>
+              <div class="input-wrap"><span class="input-prefix">$</span>
+                <input type="number" id="m-balance" placeholder="3,500" min="1">
+              </div>
+            </div>
+            <div class="field">
+              <label>Interest Rate (APR)</label>
+              <div class="input-wrap">
+                <input type="number" id="m-apr" placeholder="22.99" min="0.01" max="99" class="has-suffix">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label>Target Months to Pay Off</label>
+              <div class="input-wrap">
+                <input type="number" id="m-months" placeholder="24" min="1" max="360" class="no-prefix">
+              </div>
+            </div>
+          </div>
+          <button class="calc-btn" onclick="calcPayment()"><i class="ti ti-calculator"></i> Calculate Required Payment</button>
+
+          <div class="result-panel" id="result-payment">
+            <div class="result-header"><i class="ti ti-chart-bar"></i> Your Payment Results</div>
+            <div class="result-grid">
+              <div class="result-card highlight">
+                <div class="r-label">Required Monthly Payment</div>
+                <div class="r-value" id="m-r-payment">—</div>
+              </div>
+              <div class="result-card">
+                <div class="r-label">Debt-Free Date</div>
+                <div class="r-value" id="m-r-date" style="font-size:1.1rem;">—</div>
+              </div>
+              <div class="result-card alert">
+                <div class="r-label">Total Interest Paid</div>
+                <div class="r-value" id="m-r-interest">—</div>
+              </div>
+              <div class="result-card">
+                <div class="r-label">Total Amount Paid</div>
+                <div class="r-value" id="m-r-total">—</div>
+              </div>
+            </div>
+            <div class="result-note" id="m-note"></div>
+            <button class="amort-toggle" onclick="toggleAmort('amort-payment')">
+              <i class="ti ti-table"></i> Show full payment schedule
+            </button>
+            <div class="amort-wrap" id="amort-payment"></div>
+          </div>
+        </div>
+
+        <!-- TAB 3: BALANCE TRANSFER -->
+        <div class="calc-panel" id="panel-transfer">
+          <p class="panel-intro">See how much a 0% balance transfer could save you. Enter your current situation and the transfer offer details to compare the total cost of each option.</p>
+          <div class="fields-grid three-col">
+            <div class="field">
+              <label>Current Balance</label>
+              <div class="input-wrap"><span class="input-prefix">$</span>
+                <input type="number" id="bt-balance" placeholder="4,000" min="1">
+              </div>
+            </div>
+            <div class="field">
+              <label>Current APR</label>
+              <div class="input-wrap">
+                <input type="number" id="bt-apr" placeholder="22.99" min="0.01" max="99" class="has-suffix">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label>Monthly Payment</label>
+              <div class="input-wrap"><span class="input-prefix">$</span>
+                <input type="number" id="bt-payment" placeholder="200" min="1">
+              </div>
+            </div>
+            <div class="field">
+              <label>Transfer Fee</label>
+              <div class="input-wrap">
+                <input type="number" id="bt-fee" placeholder="3" min="0" max="10" class="has-suffix">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label>0% Intro Period</label>
+              <div class="input-wrap">
+                <input type="number" id="bt-months" placeholder="18" min="1" max="36" class="no-prefix">
+                <span class="input-suffix" style="right:0.5rem;">mo</span>
+              </div>
+            </div>
+            <div class="field">
+              <label>APR After Intro</label>
+              <div class="input-wrap">
+                <input type="number" id="bt-revert" placeholder="22.99" min="0.01" max="99" class="has-suffix">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+          </div>
+          <button class="calc-btn" onclick="calcTransfer()"><i class="ti ti-calculator"></i> Compare Balance Transfer Saving</button>
+
+          <div class="result-panel" id="result-transfer">
+            <div class="result-header"><i class="ti ti-chart-bar"></i> Balance Transfer Comparison</div>
+            <div class="result-grid">
+              <div class="result-card">
+                <div class="r-label">Staying Put — Total Interest</div>
+                <div class="r-value" id="bt-r-stay">—</div>
+                <div class="r-sub" id="bt-r-stay-months"></div>
+              </div>
+              <div class="result-card good">
+                <div class="r-label">After Transfer — Total Cost</div>
+                <div class="r-value" id="bt-r-transfer">—</div>
+                <div class="r-sub" id="bt-r-transfer-sub"></div>
+              </div>
+            </div>
+            <div class="bt-comparison" id="bt-comparison-box">
+              <h4>Your Saving with a Balance Transfer</h4>
+              <div class="bt-row">
+                <div class="bt-col">
+                  <div class="bt-col-label">Keep Current Card</div>
+                  <div class="bt-col-value" id="bt-current-cost">—</div>
+                  <div class="bt-col-sub">Total interest paid</div>
+                </div>
+                <div class="bt-col better">
+                  <div class="bt-col-label">After Balance Transfer</div>
+                  <div class="bt-col-value" id="bt-new-cost">—</div>
+                  <div class="bt-col-sub">Transfer fee only</div>
+                </div>
+              </div>
+              <p class="bt-saving" id="bt-saving-text"></p>
+            </div>
+            <div class="result-note" id="bt-note"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="how-it-works">
+      <h2>How to Use This Calculator</h2>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-icon hi-blue"><i class="ti ti-calendar-due"></i></div>
+          <h4>Payoff Timeline</h4>
+          <p>Know your balance, APR, and what you pay monthly? This tab tells you exactly when you'll be debt-free and the total interest cost.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-icon hi-gold"><i class="ti ti-currency-dollar"></i></div>
+          <h4>Monthly Payment</h4>
+          <p>Have a target date in mind? Enter your balance, APR, and number of months — we calculate the exact payment needed to hit that target.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-icon hi-green"><i class="ti ti-transfer"></i></div>
+          <h4>Balance Transfer</h4>
+          <p>Compare your current card against a 0% balance transfer offer. See the exact saving after the transfer fee — in pounds and in months.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <strong>✅ Getting the Most Accurate Results</strong>
+      <p>Find your exact APR on your monthly statement or in your online account — it's usually listed as "Purchase APR" or "Variable APR." Use your actual minimum payment or the fixed amount you plan to pay each month for the most accurate payoff timeline.</p>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="quick-facts">
+      <h4>US Credit Card Averages</h4>
+      <div class="qf-item">
+        <div class="qf-label">Average APR</div>
+        <div class="qf-value">~21.5%</div>
+        <div class="qf-note">As of early 2026</div>
+      </div>
+      <div class="qf-item">
+        <div class="qf-label">Average Balance</div>
+        <div class="qf-value">~$6,500</div>
+        <div class="qf-note">Per cardholder</div>
+      </div>
+      <div class="qf-item">
+        <div class="qf-label">Best 0% BT Period</div>
+        <div class="qf-value">21 months</div>
+        <div class="qf-note">Current market best</div>
+      </div>
+      <div class="qf-item">
+        <div class="qf-label">Typical Transfer Fee</div>
+        <div class="qf-value">3–5%</div>
+        <div class="qf-note">Of amount transferred</div>
+      </div>
+    </div>
+
+    <div class="sidebar-box">
+      <h4>Related Guides</h4>
+      <ul>
+        <li><a href="/credit-card-interest-explained.html"><i class="ti ti-chevron-right"></i> How Interest is Calculated</a></li>
+        <li><a href="/balance-transfer-cards.html"><i class="ti ti-chevron-right"></i> Best Balance Transfer Cards</a></li>
+        <li><a href="/how-credit-cards-work.html"><i class="ti ti-chevron-right"></i> How Credit Cards Work</a></li>
+        <li><a href="/credit-card-glossary.html"><i class="ti ti-chevron-right"></i> Credit Card Glossary</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-box">
+      <h4>Related Blog Posts</h4>
+      <ul>
+        <li><a href="/blog/blog-post-2-how-credit-card-interest-works.html"><i class="ti ti-chevron-right"></i> How Interest Works</a></li>
+        <li><a href="/blog/blog-post-5-best-balance-transfer-cards.html"><i class="ti ti-chevron-right"></i> Best Balance Transfer Cards</a></li>
+        <li><a href="/blog/blog-post-10-how-to-avoid-credit-card-debt.html"><i class="ti ti-chevron-right"></i> Avoid Credit Card Debt</a></li>
+      </ul>
+    </div>
+
+  </aside>
+</div>
+
+<div class="disclaimer-bar">
+  <strong>Calculator Disclaimer:</strong> Results are estimates based on fixed APR and consistent monthly payments. Actual amounts may vary. This tool does not constitute financial advice.
+  <a href="/disclaimer.html" style="color:var(--gold-dark);font-weight:600;">Full Disclaimer</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">MyCard<span>Rates</span>.com</span>
+        <p>Independent credit card guides and tools for US consumers. Plain-English advice — no jargon, no pressure.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <a href="/best-credit-cards.html">Best Credit Cards</a>
+        <a href="/credit-card-rewards.html">Rewards Cards</a>
+        <a href="/balance-transfer-cards.html">Balance Transfer</a>
+        <a href="/credit-cards-for-bad-credit.html">Bad Credit Cards</a>
+        <a href="/how-credit-cards-work.html">How They Work</a>
+        <a href="/credit-card-glossary.html">Glossary</a>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <a href="/credit-card-calculator.html">Calculator</a>
+        <a href="/blog/index.html">Blog</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/terms-of-use.html">Terms of Use</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="dyn-year">2026</span> MyCardRates.com — All rights reserved</span>
+      <div class="footer-legal">
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/terms-of-use.html">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Dynamic dates
+(function(){
+  var now=new Date(); var year=now.getFullYear();
+  var month=now.toLocaleString("en-US",{month:"long"});
+  document.querySelectorAll(".dyn-year").forEach(function(el){el.textContent=year});
+  document.querySelectorAll(".dyn-monthyear").forEach(function(el){el.textContent=month+" "+year});
+})();
+
+// Tab switcher
+function switchTab(tab){
+  document.querySelectorAll('.calc-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.calc-tab').forEach(function(t){t.classList.remove('active');});
+  document.getElementById('panel-'+tab).classList.add('active');
+  document.getElementById('tab-'+tab).classList.add('active');
+}
+
+// Helpers
+function fmtD(n){ return '$'+Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','); }
+function fmtC(n){ return '$'+n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
+function debtFreeDate(months){
+  var d=new Date(); d.setMonth(d.getMonth()+Math.ceil(months));
+  return d.toLocaleString("en-US",{month:"long",year:"numeric"});
+}
+function buildAmort(balance,apr,payment,maxRows){
+  var rate=(apr/100)/12; var rows=[]; var m=0; var totalInt=0;
+  while(balance>0.01 && m<360){
+    m++;
+    var interest=balance*rate;
+    var principal=Math.min(payment-interest,balance);
+    if(payment<=interest){ break; }
+    balance=balance-principal;
+    totalInt+=interest;
+    if(rows.length<(maxRows||240)){
+      rows.push({month:m,payment:payment,principal:principal,interest:interest,balance:Math.max(balance,0)});
+    }
+  }
+  return rows;
+}
+function renderAmort(tableId,rows){
+  var html='<table class="amort-table"><thead><tr><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead><tbody>';
+  rows.forEach(function(r){
+    html+='<tr><td>'+r.month+'</td><td>'+fmtC(r.payment)+'</td><td>'+fmtC(r.principal)+'</td><td>'+fmtC(r.interest)+'</td><td>'+fmtD(r.balance)+'</td></tr>';
+  });
+  // Totals row
+  var totPay=rows.reduce(function(a,r){return a+r.payment;},0);
+  var totPri=rows.reduce(function(a,r){return a+r.principal;},0);
+  var totInt=rows.reduce(function(a,r){return a+r.interest;},0);
+  html+='<tr><td>Total</td><td>'+fmtC(totPay)+'</td><td>'+fmtC(totPri)+'</td><td>'+fmtC(totInt)+'</td><td>$0</td></tr>';
+  html+='</tbody></table>';
+  document.getElementById(tableId).innerHTML=html;
+}
+function toggleAmort(id){
+  var el=document.getElementById(id);
+  el.classList.toggle('show');
+  var btn=el.previousElementSibling;
+  btn.innerHTML=el.classList.contains('show')
+    ?'<i class="ti ti-table"></i> Hide payment schedule'
+    :'<i class="ti ti-table"></i> Show full payment schedule';
+}
+
+// TAB 1 — Payoff Timeline
+function calcPayoff(){
+  var balance=parseFloat(document.getElementById('p-balance').value);
+  var apr=parseFloat(document.getElementById('p-apr').value);
+  var payment=parseFloat(document.getElementById('p-payment').value);
+  if(!balance||!apr||!payment){ alert('Please fill in all three fields.'); return; }
+  var rate=(apr/100)/12;
+  var result=document.getElementById('result-payoff');
+  if(payment<=balance*rate){
+    result.classList.add('show');
+    document.getElementById('r-months').textContent='∞';
+    document.getElementById('r-date').textContent='Never';
+    document.getElementById('r-interest').textContent='—';
+    document.getElementById('r-total').textContent='—';
+    document.getElementById('r-note').textContent='Your monthly payment is too low to cover the interest — the balance will grow. Increase your payment above '+fmtC(balance*rate)+' to start reducing the balance.';
+    return;
+  }
+  var months=Math.ceil(-Math.log(1-(rate*balance)/payment)/Math.log(1+rate));
+  var totalPaid=payment*months;
+  var totalInterest=totalPaid-balance;
+  document.getElementById('r-months').textContent=months+' months';
+  document.getElementById('r-date').textContent=debtFreeDate(months);
+  document.getElementById('r-interest').textContent=fmtD(totalInterest);
+  document.getElementById('r-total').textContent=fmtD(totalPaid);
+  document.getElementById('r-note').textContent='Based on a fixed monthly payment of '+fmtC(payment)+' at '+apr+'% APR. Results are estimates — actual totals may vary slightly with rounding.';
+  var rows=buildAmort(balance,apr,payment);
+  renderAmort('amort-payoff',rows);
+  result.classList.add('show');
+}
+
+// TAB 2 — Monthly Payment
+function calcPayment(){
+  var balance=parseFloat(document.getElementById('m-balance').value);
+  var apr=parseFloat(document.getElementById('m-apr').value);
+  var months=parseFloat(document.getElementById('m-months').value);
+  if(!balance||!apr||!months){ alert('Please fill in all three fields.'); return; }
+  var rate=(apr/100)/12;
+  var payment=(balance*rate*Math.pow(1+rate,months))/(Math.pow(1+rate,months)-1);
+  var totalPaid=payment*months;
+  var totalInterest=totalPaid-balance;
+  document.getElementById('m-r-payment').textContent=fmtC(payment);
+  document.getElementById('m-r-date').textContent=debtFreeDate(months);
+  document.getElementById('m-r-interest').textContent=fmtD(totalInterest);
+  document.getElementById('m-r-total').textContent=fmtD(totalPaid);
+  document.getElementById('m-note').textContent='To clear '+fmtD(balance)+' at '+apr+'% APR in exactly '+months+' months, pay '+fmtC(payment)+' each month. Set up autopay for this amount to guarantee you hit your target.';
+  var rows=buildAmort(balance,apr,payment);
+  renderAmort('amort-payment',rows);
+  document.getElementById('result-payment').classList.add('show');
+}
+
+// TAB 3 — Balance Transfer
+function calcTransfer(){
+  var balance=parseFloat(document.getElementById('bt-balance').value);
+  var apr=parseFloat(document.getElementById('bt-apr').value);
+  var payment=parseFloat(document.getElementById('bt-payment').value);
+  var feePct=parseFloat(document.getElementById('bt-fee').value)||0;
+  var introMonths=parseFloat(document.getElementById('bt-months').value);
+  var revertApr=parseFloat(document.getElementById('bt-revert').value);
+  if(!balance||!apr||!payment||!introMonths||!revertApr){ alert('Please fill in all fields.'); return; }
+
+  // Current card — no transfer
+  var rate=(apr/100)/12;
+  var stayMonths=0; var stayInterest=0; var bal=balance;
+  while(bal>0.01&&stayMonths<360){
+    var int=bal*rate;
+    if(payment<=int){ stayInterest=999999; break; }
+    stayInterest+=int;
+    bal-=(payment-int);
+    stayMonths++;
+  }
+
+  // Balance transfer scenario
+  var fee=balance*(feePct/100);
+  var newBalance=balance+fee;
+  var btInterest=fee; // fee is the only upfront cost during 0% period
+  var rateAfter=(revertApr/100)/12;
+
+  // Pay during 0% intro period
+  var btBal=newBalance;
+  var monthsPaid=0;
+  for(var i=0;i<introMonths&&btBal>0;i++){
+    btBal-=payment;
+    monthsPaid++;
+  }
+
+  // Pay remaining at revert rate
+  var remainingInterest=0;
+  if(btBal>0){
+    var m2=0;
+    while(btBal>0.01&&m2<360){
+      var int2=btBal*rateAfter;
+      if(payment<=int2){ remainingInterest=999999; break; }
+      remainingInterest+=int2;
+      btBal-=(payment-int2);
+      m2++;
+    }
+  }
+
+  var btTotalCost=fee+remainingInterest;
+  var saving=stayInterest-btTotalCost;
+
+  document.getElementById('bt-r-stay').textContent=stayInterest>99000?'Very high':fmtD(stayInterest);
+  document.getElementById('bt-r-stay-months').textContent=stayMonths>0?'Over '+stayMonths+' months':'';
+  document.getElementById('bt-r-transfer').textContent=fmtD(btTotalCost);
+  document.getElementById('bt-r-transfer-sub').textContent=feePct+'% fee + remaining interest';
+  document.getElementById('bt-current-cost').textContent=stayInterest>99000?'High':fmtD(stayInterest);
+  document.getElementById('bt-new-cost').textContent=fmtD(fee);
+  document.getElementById('bt-saving-text').innerHTML=saving>0
+    ?'Estimated saving: <strong>'+fmtD(saving)+'</strong> by doing the balance transfer'
+    :'In this scenario the balance transfer does not save money — consider a longer intro period or lower fee.';
+  document.getElementById('bt-note').textContent='Transfer fee of '+fmtC(fee)+' ('+feePct+'%) applies immediately. During the '+introMonths+'-month 0% period, '+fmtC(payment)+'/month reduces your principal directly. Any remaining balance after the intro period accrues at '+revertApr+'% APR.';
+  document.getElementById('result-transfer').classList.add('show');
+}
+</script>
+</body>
+</html>
