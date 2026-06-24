@@ -9,163 +9,161 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPBDSS7G07"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QPBDSS7G07');
-</script>
-<!-- AdSense -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-QPBDSS7G07');</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723787015797542" crossorigin="anonymous"></script>
 <style>
-  :root {
-    --navy:#0f2557; --navy-mid:#1a3a6b; --navy-light:#e8eef7;
-    --gold:#c9a84c; --gold-dark:#a07c28; --gold-light:#f5ecd4;
-    --bg:#f9f8f6; --text:#1a1a2e; --text-muted:#5f5e5a; --white:#ffffff;
-    --radius:10px; --shadow:0 4px 24px rgba(15,37,87,0.10);
-  }
-  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
-  a { color:inherit; text-decoration:none; }
-  .top-bar { background:var(--navy); padding:0 2rem; display:flex; align-items:center; justify-content:space-between; min-height:64px; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,0.18); }
-  .logo { font-family:'DM Serif Display',serif; font-size:1.35rem; color:var(--white); }
-  .logo span { color:var(--gold); }
-  .top-nav { display:flex; gap:2rem; align-items:center; }
-  .top-nav a { color:rgba(255,255,255,0.85); font-size:0.92rem; font-weight:500; transition:color 0.2s; }
-  .top-nav a:hover { color:var(--gold); }
-  .top-cta { background:var(--gold); color:var(--navy) !important; font-weight:700 !important; padding:0.55rem 1.25rem; border-radius:6px; white-space:nowrap; }
-  .top-cta:hover { background:var(--gold-dark) !important; color:var(--white) !important; }
-  .sec-nav { background:var(--white); border-bottom:2px solid var(--navy-light); padding:0 2rem; display:flex; overflow-x:auto; scrollbar-width:none; }
-  .sec-nav::-webkit-scrollbar { display:none; }
-  .sec-nav a { padding:0.85rem 1.1rem; font-size:0.88rem; font-weight:500; color:var(--text-muted); white-space:nowrap; border-bottom:3px solid transparent; transition:color 0.2s,border-color 0.2s; margin-bottom:-2px; }
-  .sec-nav a:hover,.sec-nav a.active { color:var(--navy); border-bottom-color:var(--gold); font-weight:700; }
-  .post-hero { background:var(--navy); padding:3.5rem 2rem 3rem; position:relative; overflow:hidden; }
-  .post-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 60% 0%,rgba(201,168,76,0.12) 0%,transparent 65%); pointer-events:none; }
-  .post-hero-inner { max-width:820px; margin:0 auto; text-align:center; position:relative; }
-  .breadcrumb { display:flex; align-items:center; justify-content:center; gap:0.5rem; font-size:0.8rem; color:rgba(255,255,255,0.55); margin-bottom:1rem; flex-wrap:wrap; }
-  .breadcrumb a { color:rgba(255,255,255,0.55); transition:color 0.2s; }
-  .breadcrumb a:hover { color:var(--gold); }
-  .breadcrumb i { font-size:0.75rem; }
-  .post-cat-badge { display:inline-block; background:rgba(201,168,76,0.2); color:var(--gold); border:1px solid rgba(201,168,76,0.4); border-radius:4px; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; padding:0.25rem 0.75rem; margin-bottom:1rem; }
-  .post-hero h1 { font-family:'DM Serif Display',serif; font-size:clamp(1.75rem,4vw,2.5rem); color:var(--white); line-height:1.2; margin-bottom:1rem; text-align:center; }
-  .post-meta-bar { display:flex; flex-wrap:wrap; gap:1.25rem; align-items:center; justify-content:center; margin-top:1.25rem; }
-  .post-meta-bar span { font-size:0.83rem; color:rgba(255,255,255,0.65); display:flex; align-items:center; gap:0.35rem; }
-  .post-meta-bar i { color:var(--gold); }
-  .content-wrap { max-width:1100px; margin:0 auto; padding:3rem 2rem; display:grid; grid-template-columns:1fr 300px; gap:2.5rem; align-items:start; }
-  @media(max-width:900px){ .content-wrap { grid-template-columns:1fr; } }
-  .main-content { min-width:0; }
-  .prose h2 { font-family:'DM Serif Display',serif; font-size:1.45rem; color:var(--navy); margin:2rem 0 0.6rem; }
-  .prose h3 { font-family:'DM Serif Display',serif; font-size:1.15rem; color:var(--navy); margin:1.5rem 0 0.5rem; }
-  .prose p { font-size:0.97rem; color:var(--text); margin-bottom:1rem; line-height:1.75; }
-  .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
-  .prose ul li,.prose ol li { font-size:0.97rem; color:var(--text); margin-bottom:0.5rem; line-height:1.65; }
-  .prose a { color:var(--gold-dark); font-weight:600; }
-  .prose a:hover { text-decoration:underline; }
-  .key-points { background:var(--navy); border-radius:var(--radius); padding:1.5rem 1.75rem; margin:0 0 2rem; }
-  .key-points h3 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--gold); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem; }
-  .key-points ul { list-style:none; padding:0; }
-  .key-points ul li { font-size:0.9rem; color:rgba(255,255,255,0.82); padding:0.4rem 0; border-bottom:1px solid rgba(255,255,255,0.08); display:flex; align-items:flex-start; gap:0.6rem; line-height:1.5; }
-  .key-points ul li:last-child { border-bottom:none; }
-  .key-points ul li i { color:var(--gold); flex-shrink:0; margin-top:2px; }
-
-  /* FICO FACTORS */
-  .fico-grid { display:grid; grid-template-columns:1fr; gap:0.75rem; margin:1.5rem 0 2rem; }
-  .fico-item { background:var(--white); border:1.5px solid var(--navy-light); border-radius:8px; padding:1rem 1.25rem; display:flex; align-items:center; gap:1rem; }
-  .fico-pct { font-family:'DM Serif Display',serif; font-size:1.5rem; color:var(--navy); min-width:52px; text-align:center; }
-  .fico-bar-wrap { flex:1; }
-  .fico-label { font-size:0.85rem; font-weight:700; color:var(--navy); margin-bottom:0.3rem; }
-  .fico-bar { height:8px; border-radius:4px; background:var(--navy-light); overflow:hidden; margin-bottom:0.3rem; }
-  .fico-fill { height:100%; border-radius:4px; }
-  .fill-35 { width:35%; background:var(--navy); }
-  .fill-30 { width:30%; background:var(--gold); }
-  .fill-15 { width:15%; background:#2980b9; }
-  .fill-10a { width:10%; background:#27ae60; }
-  .fill-10b { width:10%; background:#8e44ad; }
-  .fico-desc { font-size:0.8rem; color:var(--text-muted); }
-
-  /* HABITS TIMELINE */
-  .habits-wrap { margin:1.75rem 0 2.5rem; }
-  .habit { display:flex; gap:1.25rem; align-items:flex-start; padding-bottom:1.75rem; position:relative; }
-  .habit:not(:last-child)::after { content:''; position:absolute; left:19px; top:44px; bottom:0; width:2px; background:var(--navy-light); }
-  .habit-icon { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; z-index:1; }
-  .hi-1 { background:var(--navy); color:var(--white); }
-  .hi-2 { background:var(--gold); color:var(--navy); }
-  .hi-3 { background:#e6f4ec; color:#2d7a4f; }
-  .hi-4 { background:var(--navy-light); color:var(--navy); }
-  .hi-5 { background:var(--gold-light); color:var(--gold-dark); }
-  .habit-body { flex:1; padding-top:0.3rem; }
-  .habit-body h3 { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--navy); margin-bottom:0.4rem; }
-  .habit-body p { font-size:0.92rem; color:var(--text-muted); margin:0; line-height:1.65; }
-
-  /* TIMELINE PROGRESS */
-  .progress-timeline { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.5rem; margin:1.75rem 0; }
-  .progress-timeline h3 { font-family:'DM Serif Display',serif; font-size:1.05rem; color:var(--navy); margin-bottom:1.25rem; text-align:center; }
-  .pt-row { display:grid; grid-template-columns:repeat(4,1fr); gap:0.5rem; }
-  @media(max-width:580px){ .pt-row { grid-template-columns:1fr 1fr; } }
-  .pt-item { text-align:center; padding:0.85rem 0.5rem; border-radius:8px; }
-  .pt-item.m0  { background:#fdecea; }
-  .pt-item.m3  { background:#fef5e4; }
-  .pt-item.m6  { background:#e6f4ec; }
-  .pt-item.m12 { background:var(--navy-light); }
-  .pt-period { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:0.3rem; }
-  .pt-score { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--navy); margin-bottom:0.25rem; }
-  .pt-note { font-size:0.73rem; color:var(--text-muted); line-height:1.4; }
-
-  .info-box { background:var(--navy-light); border-left:4px solid var(--navy); border-radius:0 8px 8px 0; padding:1.1rem 1.25rem; margin:1.5rem 0; }
-  .info-box strong { display:block; color:var(--navy); font-size:0.88rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem; }
-  .info-box p { font-size:0.9rem; color:var(--text-muted); margin:0; }
-  .tip-box { background:var(--gold-light); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; padding:1.1rem 1.25rem; margin:1.5rem 0; }
-  .tip-box strong { display:block; color:var(--gold-dark); font-size:0.88rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem; }
-  .tip-box p { font-size:0.9rem; color:var(--text); margin:0; }
-  .warning-box { background:#fdecea; border-left:4px solid #c0392b; border-radius:0 8px 8px 0; padding:1.1rem 1.25rem; margin:1.5rem 0; }
-  .warning-box strong { display:block; color:#c0392b; font-size:0.88rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem; }
-  .warning-box p { font-size:0.9rem; color:var(--text); margin:0; }
-  .related-posts { margin-top:3rem; padding-top:2rem; border-top:2px solid var(--navy-light); }
-  .related-posts h3 { font-family:'DM Serif Display',serif; font-size:1.2rem; color:var(--navy); margin-bottom:1.25rem; }
-  .related-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; }
-  .related-card { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.1rem; transition:box-shadow 0.2s,border-color 0.2s; display:flex; flex-direction:column; }
-  .related-card:hover { box-shadow:var(--shadow); border-color:var(--gold); }
-  .related-cat { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--gold-dark); background:var(--gold-light); padding:0.2rem 0.55rem; border-radius:4px; display:inline-block; margin-bottom:0.5rem; }
-  .related-card h4 { font-family:'DM Serif Display',serif; font-size:0.95rem; color:var(--navy); margin-bottom:0.4rem; line-height:1.35; flex:1; }
-  .related-link { font-size:0.82rem; font-weight:700; color:var(--gold-dark); display:flex; align-items:center; gap:0.3rem; margin-top:0.5rem; }
-  .sidebar { display:flex; flex-direction:column; gap:1.5rem; }
-  .sidebar-box { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.35rem; }
-  .sidebar-box h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.85rem; padding-bottom:0.6rem; border-bottom:2px solid var(--navy-light); }
-  .sidebar-box ul { list-style:none; padding:0; }
-  .sidebar-box ul li { padding:0.45rem 0; border-bottom:1px solid var(--navy-light); font-size:0.88rem; }
-  .sidebar-box ul li:last-child { border-bottom:none; }
-  .sidebar-box ul li a { color:var(--navy-mid); font-weight:500; transition:color 0.2s; display:flex; align-items:center; gap:0.4rem; }
-  .sidebar-box ul li a:hover { color:var(--gold-dark); }
-  .sidebar-box ul li a i { font-size:0.85rem; color:var(--gold); }
-  .sidebar-cta { background:var(--navy); border-radius:var(--radius); padding:1.35rem; text-align:center; }
-  .sidebar-cta h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--white); margin-bottom:0.6rem; }
-  .sidebar-cta p { color:rgba(255,255,255,0.75); font-size:0.88rem; margin-bottom:1rem; line-height:1.55; }
-  .sidebar-cta a { display:inline-flex; align-items:center; gap:0.4rem; background:var(--gold); color:var(--navy); font-weight:700; font-size:0.88rem; padding:0.65rem 1.25rem; border-radius:6px; transition:background 0.2s; }
-  .sidebar-cta a:hover { background:var(--gold-dark); color:var(--white); }
-  .free-tools { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.35rem; }
-  .free-tools h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.85rem; padding-bottom:0.6rem; border-bottom:2px solid var(--navy-light); }
-  .tool-item { padding:0.5rem 0; border-bottom:1px solid var(--navy-light); font-size:0.85rem; display:flex; align-items:center; gap:0.5rem; color:var(--text-muted); }
-  .tool-item:last-child { border-bottom:none; }
-  .tool-item i { color:var(--gold); flex-shrink:0; }
-  .disclaimer-bar { background:var(--gold-light); border-top:2px solid var(--gold); padding:0.85rem 2rem; font-size:0.8rem; color:var(--text-muted); text-align:center; line-height:1.5; }
-  footer { background:var(--text); color:rgba(255,255,255,0.65); padding:3rem 2rem 1.5rem; }
-  .footer-inner { max-width:1100px; margin:0 auto; }
-  .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:2.5rem; margin-bottom:2rem; padding-bottom:2rem; border-bottom:1px solid rgba(255,255,255,0.1); }
-  @media(max-width:700px){ .footer-top { grid-template-columns:1fr; } }
-  .footer-brand .logo { font-size:1.15rem; display:block; margin-bottom:0.75rem; }
-  .footer-brand p { font-size:0.85rem; line-height:1.65; }
-  .footer-col h4 { color:var(--white); font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.85rem; }
-  .footer-col a { display:block; font-size:0.83rem; color:rgba(255,255,255,0.55); margin-bottom:0.45rem; transition:color 0.2s; }
-  .footer-col a:hover { color:var(--gold); }
-  .footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; font-size:0.78rem; }
-  .footer-legal { display:flex; gap:1.25rem; flex-wrap:wrap; }
-  .footer-legal a { color:rgba(255,255,255,0.45); transition:color 0.2s; }
-  .footer-legal a:hover { color:var(--gold); }
-  @media(max-width:768px){ .top-nav { display:none; } }
+  :root{--navy:#0f2557;--navy-mid:#1a3a6b;--navy-light:#e8eef7;--gold:#c9a84c;--gold-dark:#a07c28;--gold-light:#f5ecd4;--bg:#f9f8f6;--text:#1a1a2e;--text-muted:#5f5e5a;--white:#ffffff;--radius:10px;--shadow:0 4px 24px rgba(15,37,87,0.10);}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+  a{color:inherit;text-decoration:none;}
+  .top-bar{background:var(--navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;min-height:64px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.18);}
+  .logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--white);}
+  .logo span{color:var(--gold);}
+  .top-nav{display:flex;gap:2rem;align-items:center;}
+  .top-nav a{color:rgba(255,255,255,0.85);font-size:0.92rem;font-weight:500;transition:color 0.2s;}
+  .top-nav a:hover{color:var(--gold);}
+  .top-cta{background:var(--gold);color:var(--navy)!important;font-weight:700!important;padding:0.55rem 1.25rem;border-radius:6px;white-space:nowrap;}
+  .top-cta:hover{background:var(--gold-dark)!important;color:var(--white)!important;}
+  .sec-nav{background:var(--white);border-bottom:2px solid var(--navy-light);padding:0 2rem;display:flex;overflow-x:auto;scrollbar-width:none;}
+  .sec-nav::-webkit-scrollbar{display:none;}
+  .sec-nav a{padding:0.85rem 1.1rem;font-size:0.88rem;font-weight:500;color:var(--text-muted);white-space:nowrap;border-bottom:3px solid transparent;transition:color 0.2s,border-color 0.2s;margin-bottom:-2px;}
+  .sec-nav a:hover,.sec-nav a.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:700;}
+  .post-hero{background:var(--navy);padding:3.5rem 2rem 3rem;position:relative;overflow:hidden;}
+  .post-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 0%,rgba(201,168,76,0.12) 0%,transparent 65%);pointer-events:none;}
+  .post-hero-inner{max-width:820px;margin:0 auto;text-align:center;position:relative;}
+  .breadcrumb{display:flex;align-items:center;justify-content:center;gap:0.5rem;font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:1rem;flex-wrap:wrap;}
+  .breadcrumb a{color:rgba(255,255,255,0.55);transition:color 0.2s;}
+  .breadcrumb a:hover{color:var(--gold);}
+  .breadcrumb i{font-size:0.75rem;}
+  .post-cat-badge{display:inline-block;background:rgba(201,168,76,0.2);color:var(--gold);border:1px solid rgba(201,168,76,0.4);border-radius:4px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.25rem 0.75rem;margin-bottom:1rem;}
+  .post-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(1.75rem,4vw,2.5rem);color:var(--white);line-height:1.2;margin-bottom:1rem;text-align:center;}
+  .post-meta-bar{display:flex;flex-wrap:wrap;gap:1.25rem;align-items:center;justify-content:center;margin-top:1.25rem;}
+  .post-meta-bar span{font-size:0.83rem;color:rgba(255,255,255,0.65);display:flex;align-items:center;gap:0.35rem;}
+  .post-meta-bar i{color:var(--gold);}
+  .content-wrap{max-width:1100px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:1fr 300px;gap:2.5rem;align-items:start;}
+  @media(max-width:900px){.content-wrap{grid-template-columns:1fr;}}
+  .main-content{min-width:0;}
+  .prose h2{font-family:'DM Serif Display',serif;font-size:1.45rem;color:var(--navy);margin:2rem 0 0.6rem;}
+  .prose h3{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--navy);margin:1.5rem 0 0.5rem;}
+  .prose p{font-size:0.97rem;color:var(--text);margin-bottom:1rem;line-height:1.75;}
+  .prose ul,.prose ol{padding-left:1.5rem;margin-bottom:1rem;}
+  .prose ul li,.prose ol li{font-size:0.97rem;color:var(--text);margin-bottom:0.5rem;line-height:1.65;}
+  .prose a{color:var(--gold-dark);font-weight:600;}
+  .prose a:hover{text-decoration:underline;}
+  .key-points{background:var(--navy);border-radius:var(--radius);padding:1.5rem 1.75rem;margin:0 0 2rem;}
+  .key-points h3{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
+  .key-points ul{list-style:none;padding:0;}
+  .key-points ul li{font-size:0.9rem;color:rgba(255,255,255,0.82);padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:flex-start;gap:0.6rem;line-height:1.5;}
+  .key-points ul li:last-child{border-bottom:none;}
+  .key-points ul li i{color:var(--gold);flex-shrink:0;margin-top:2px;}
+  .fico-grid{display:grid;grid-template-columns:1fr;gap:0.75rem;margin:1.5rem 0 2rem;}
+  .fico-item{background:var(--white);border:1.5px solid var(--navy-light);border-radius:8px;padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;}
+  .fico-pct{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--navy);min-width:52px;text-align:center;}
+  .fico-bar-wrap{flex:1;}
+  .fico-label{font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:0.3rem;}
+  .fico-bar{height:8px;border-radius:4px;background:var(--navy-light);overflow:hidden;margin-bottom:0.3rem;}
+  .fico-fill{height:100%;border-radius:4px;}
+  .fill-35{width:35%;background:var(--navy);}
+  .fill-30{width:30%;background:var(--gold);}
+  .fill-15{width:15%;background:#2980b9;}
+  .fill-10a{width:10%;background:#27ae60;}
+  .fill-10b{width:10%;background:#8e44ad;}
+  .fico-desc{font-size:0.8rem;color:var(--text-muted);}
+  .habits-wrap{margin:1.75rem 0 2.5rem;}
+  .habit{display:flex;gap:1.25rem;align-items:flex-start;padding-bottom:1.75rem;position:relative;}
+  .habit:not(:last-child)::after{content:'';position:absolute;left:19px;top:44px;bottom:0;width:2px;background:var(--navy-light);}
+  .habit-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;z-index:1;}
+  .hi-1{background:var(--navy);color:var(--white);}
+  .hi-2{background:var(--gold);color:var(--navy);}
+  .hi-3{background:#e6f4ec;color:#2d7a4f;}
+  .hi-4{background:var(--navy-light);color:var(--navy);}
+  .hi-5{background:var(--gold-light);color:var(--gold-dark);}
+  .habit-body{flex:1;padding-top:0.3rem;}
+  .habit-body h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:0.4rem;}
+  .habit-body p{font-size:0.92rem;color:var(--text-muted);margin:0;line-height:1.65;}
+  .progress-timeline{background:var(--white);border:1.5px solid var(--navy-light);border-radius:var(--radius);padding:1.5rem;margin:1.75rem 0;}
+  .progress-timeline h3{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--navy);margin-bottom:1.25rem;text-align:center;}
+  .pt-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;}
+  @media(max-width:580px){.pt-row{grid-template-columns:1fr 1fr;}}
+  .pt-item{text-align:center;padding:0.85rem 0.5rem;border-radius:8px;}
+  .pt-item.m0{background:#fdecea;}
+  .pt-item.m3{background:#fef5e4;}
+  .pt-item.m6{background:#e6f4ec;}
+  .pt-item.m12{background:var(--navy-light);}
+  .pt-period{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:0.3rem;}
+  .pt-score{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:0.25rem;}
+  .pt-note{font-size:0.73rem;color:var(--text-muted);line-height:1.4;}
+  .info-box{background:var(--navy-light);border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:1.1rem 1.25rem;margin:1.5rem 0;}
+  .info-box strong{display:block;color:var(--navy);font-size:0.88rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;}
+  .info-box p{font-size:0.9rem;color:var(--text-muted);margin:0;line-height:1.65;}
+  .tip-box{background:var(--gold-light);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:1.1rem 1.25rem;margin:1.5rem 0;}
+  .tip-box strong{display:block;color:var(--gold-dark);font-size:0.88rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;}
+  .tip-box p{font-size:0.9rem;color:var(--text);margin:0;line-height:1.65;}
+  .warning-box{background:#fdecea;border-left:4px solid #c0392b;border-radius:0 8px 8px 0;padding:1.1rem 1.25rem;margin:1.5rem 0;}
+  .warning-box strong{display:block;color:#c0392b;font-size:0.88rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;}
+  .warning-box p{font-size:0.9rem;color:var(--text);margin:0;line-height:1.65;}
+  .faq-section{margin:3rem 0;}
+  .faq-section h2{font-family:'DM Serif Display',serif;font-size:1.45rem;color:var(--navy);margin-bottom:1.25rem;}
+  .faq-item{border:1.5px solid var(--navy-light);border-radius:var(--radius);margin-bottom:0.75rem;overflow:hidden;}
+  .faq-q{width:100%;background:var(--white);border:none;padding:1.1rem 1.25rem;text-align:left;font-family:'DM Sans',sans-serif;font-size:0.97rem;font-weight:600;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:background 0.2s;}
+  .faq-q:hover{background:var(--navy-light);}
+  .faq-q i{color:var(--gold);flex-shrink:0;transition:transform 0.25s;}
+  .faq-q[aria-expanded="true"] i{transform:rotate(180deg);}
+  .faq-a{display:none;padding:0 1.25rem 1.1rem;font-size:0.93rem;color:var(--text-muted);line-height:1.75;}
+  .faq-a a{color:var(--gold-dark);font-weight:600;}
+  .faq-a.open{display:block;}
+  .author-bio{background:var(--white);border:1.5px solid var(--navy-light);border-radius:var(--radius);padding:1.5rem;margin:3rem 0 1rem;display:flex;gap:1.25rem;align-items:flex-start;}
+  .author-avatar{width:52px;height:52px;background:var(--navy-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .author-avatar i{color:var(--navy);font-size:26px;}
+  .author-bio-text{flex:1;}
+  .author-bio-text strong{display:block;font-size:0.95rem;color:var(--navy);margin-bottom:0.2rem;}
+  .author-bio-text span{font-size:0.82rem;color:var(--gold-dark);font-weight:600;display:block;margin-bottom:0.5rem;}
+  .author-bio-text p{font-size:0.88rem;color:var(--text-muted);line-height:1.65;margin:0;}
+  .related-posts{margin-top:3rem;padding-top:2rem;border-top:2px solid var(--navy-light);}
+  .related-posts h3{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:1.25rem;}
+  .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;}
+  .related-card{background:var(--white);border:1.5px solid var(--navy-light);border-radius:var(--radius);padding:1.1rem;transition:box-shadow 0.2s,border-color 0.2s;display:flex;flex-direction:column;}
+  .related-card:hover{box-shadow:var(--shadow);border-color:var(--gold);}
+  .related-cat{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--gold-dark);background:var(--gold-light);padding:0.2rem 0.55rem;border-radius:4px;display:inline-block;margin-bottom:0.5rem;}
+  .related-card h4{font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--navy);margin-bottom:0.4rem;line-height:1.35;flex:1;}
+  .related-link{font-size:0.82rem;font-weight:700;color:var(--gold-dark);display:flex;align-items:center;gap:0.3rem;margin-top:0.5rem;}
+  .sidebar{display:flex;flex-direction:column;gap:1.5rem;}
+  .sidebar-box{background:var(--white);border:1.5px solid var(--navy-light);border-radius:var(--radius);padding:1.35rem;}
+  .sidebar-box h4{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--navy);margin-bottom:0.85rem;padding-bottom:0.6rem;border-bottom:2px solid var(--navy-light);}
+  .sidebar-box ul{list-style:none;padding:0;}
+  .sidebar-box ul li{padding:0.45rem 0;border-bottom:1px solid var(--navy-light);font-size:0.88rem;}
+  .sidebar-box ul li:last-child{border-bottom:none;}
+  .sidebar-box ul li a{color:var(--navy-mid);font-weight:500;transition:color 0.2s;display:flex;align-items:center;gap:0.4rem;}
+  .sidebar-box ul li a:hover{color:var(--gold-dark);}
+  .sidebar-box ul li a i{font-size:0.85rem;color:var(--gold);}
+  .sidebar-cta{background:var(--navy);border-radius:var(--radius);padding:1.35rem;text-align:center;}
+  .sidebar-cta h4{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--white);margin-bottom:0.6rem;}
+  .sidebar-cta p{color:rgba(255,255,255,0.75);font-size:0.88rem;margin-bottom:1rem;line-height:1.55;}
+  .sidebar-cta a{display:inline-flex;align-items:center;gap:0.4rem;background:var(--gold);color:var(--navy);font-weight:700;font-size:0.88rem;padding:0.65rem 1.25rem;border-radius:6px;transition:background 0.2s;}
+  .sidebar-cta a:hover{background:var(--gold-dark);color:var(--white);}
+  .free-tools{background:var(--white);border:1.5px solid var(--navy-light);border-radius:var(--radius);padding:1.35rem;}
+  .free-tools h4{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--navy);margin-bottom:0.85rem;padding-bottom:0.6rem;border-bottom:2px solid var(--navy-light);}
+  .tool-item{padding:0.5rem 0;border-bottom:1px solid var(--navy-light);font-size:0.85rem;display:flex;align-items:center;gap:0.5rem;color:var(--text-muted);}
+  .tool-item:last-child{border-bottom:none;}
+  .tool-item i{color:var(--gold);flex-shrink:0;}
+  .disclaimer-bar{background:var(--gold-light);border-top:2px solid var(--gold);padding:0.85rem 2rem;font-size:0.8rem;color:var(--text-muted);text-align:center;line-height:1.5;}
+  footer{background:var(--text);color:rgba(255,255,255,0.65);padding:3rem 2rem 1.5rem;}
+  .footer-inner{max-width:1100px;margin:0 auto;}
+  .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.1);}
+  @media(max-width:700px){.footer-top{grid-template-columns:1fr;}}
+  .footer-brand .logo{font-size:1.15rem;display:block;margin-bottom:0.75rem;}
+  .footer-brand p{font-size:0.85rem;line-height:1.65;}
+  .footer-col h4{color:var(--white);font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.85rem;}
+  .footer-col a{display:block;font-size:0.83rem;color:rgba(255,255,255,0.55);margin-bottom:0.45rem;transition:color 0.2s;}
+  .footer-col a:hover{color:var(--gold);}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:0.78rem;}
+  .footer-legal{display:flex;gap:1.25rem;flex-wrap:wrap;}
+  .footer-legal a{color:rgba(255,255,255,0.45);transition:color 0.2s;}
+  .footer-legal a:hover{color:var(--gold);}
+  @media(max-width:768px){.top-nav{display:none;}}
 </style>
-  <link rel="canonical" href="https://mycardrates.com/blog/blog-post-8-how-to-build-credit-with-a-card.html" />
+<link rel="canonical" href="https://mycardrates.com/blog/blog-post-8-how-to-build-credit-with-a-card.html" />
 </head>
 <body>
 <header class="top-bar">
@@ -201,14 +199,13 @@
     <div class="post-cat-badge">Bad Credit</div>
     <h1>How to Build Credit with a Credit Card</h1>
     <div class="post-meta-bar">
-      <span><i class="ti ti-calendar"></i> <span class="dyn-monthyear">May 2026</span></span>
       <span><i class="ti ti-clock"></i> 8 min read</span>
+      <span><i class="ti ti-user"></i> By Mike</span>
     </div>
   </div>
 </section>
 <div class="content-wrap">
   <main class="main-content">
-
     <div class="key-points">
       <h3><i class="ti ti-list-check"></i> Key Takeaways</h3>
       <ul>
@@ -219,14 +216,12 @@
         <li><i class="ti ti-check"></i> Don't apply for multiple cards at once — each application triggers a hard inquiry that temporarily lowers your score</li>
       </ul>
     </div>
-
     <div class="prose">
       <p>A credit card is one of the most effective credit-building tools available — but only when used in a specific way. The difference between a credit card that builds your score and one that damages it comes down to a handful of consistent habits that are genuinely straightforward to maintain once they're in place.</p>
       <p>This guide explains exactly what affects your score, the habits that produce the fastest results, and the timeline you can realistically expect.</p>
       <h2>Understanding Your FICO Score — The Five Factors</h2>
       <p>Your FICO score is calculated from five factors, each carrying a different weight. Knowing which factors matter most tells you exactly where to focus your energy.</p>
     </div>
-
     <div class="fico-grid">
       <div class="fico-item">
         <div class="fico-pct">35%</div>
@@ -269,10 +264,8 @@
         </div>
       </div>
     </div>
-
     <div class="prose"><h2>The 5 Habits That Build Credit Fastest</h2>
     <p>These aren't complicated — but they need to be consistent. One month of good behaviour followed by a missed payment wipes out significant progress.</p></div>
-
     <div class="habits-wrap">
       <div class="habit">
         <div class="habit-icon hi-1"><i class="ti ti-calendar-check"></i></div>
@@ -310,8 +303,6 @@
         </div>
       </div>
     </div>
-
-    <!-- REALISTIC TIMELINE -->
     <div class="progress-timeline">
       <h3>What to Expect — A Realistic Score Timeline</h3>
       <div class="pt-row">
@@ -337,36 +328,67 @@
         </div>
       </div>
     </div>
-
     <div class="info-box">
       <strong>📌 Score Improvements Are Not Linear</strong>
       <p>Your score won't rise by the same amount each month. Early improvements are often the most dramatic as your payment history establishes itself. Progress then slows as your score enters higher ranges — the difference between 700 and 750 takes longer to achieve than the difference between 550 and 600. This is normal and expected.</p>
     </div>
-
     <div class="prose">
       <h2>Common Mistakes That Slow Down Credit Building</h2>
-
       <h3>Carrying a high balance</h3>
       <p>Even if you pay on time every month, a balance that's close to your credit limit keeps your utilisation high and suppresses your score. On a $500 limit card, a $400 balance = 80% utilisation — highly damaging regardless of your payment history. Keep it below $50 if possible.</p>
-
       <h3>Closing your old card when you get a new one</h3>
       <p>Closing a card reduces your total available credit, increasing your overall utilisation ratio, and removes that account's history from your length of credit calculation. Keep old cards open — even if you stop using them actively — unless they carry an annual fee you're not getting value from.</p>
-
       <h3>Making only the minimum payment</h3>
       <p>Paying only the minimum keeps your account in good standing and avoids late fees — but it means you're carrying a balance and paying interest. For credit-building purposes, paying in full each month is far better: it keeps your utilisation low and avoids the cost of interest that could be better used elsewhere.</p>
-
       <h3>Applying for cards you won't qualify for</h3>
       <p>Each declined application still generates a hard inquiry that temporarily lowers your score. Check your score before applying and look for cards that match your current credit range. Many issuers now offer pre-qualification tools that show your likelihood of approval without a hard inquiry — use them.</p>
     </div>
-
     <div class="tip-box">
       <strong>✅ The Single Best Credit-Building Habit</strong>
       <p>Set up autopay for the full balance, make one small purchase per month, and don't look at your card again until your monthly statement arrives. That's it. Consistency over time — not clever tricks — is what builds a strong credit score.</p>
     </div>
-
     <div class="warning-box">
       <strong>⚠️ One Missed Payment Can Undo Months of Progress</strong>
       <p>A single 30-day late payment reported to the bureaus can drop a good score by 50–100 points and remains on your credit report for seven years. The damage is disproportionate to the offence — which is exactly why autopay exists. Set it up the day you get your card and never rely on memory alone.</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How long does it take to build credit from scratch?<i class="ti ti-chevron-down"></i></button>
+        <div class="faq-a">Most people with no credit history see a meaningful score (580+) appear within 3–6 months of opening and using a credit card responsibly. Reaching Good credit (670+) typically takes 12–18 months of consistent on-time payments and low utilisation. The process is gradual — early months often show the biggest gains as payment history establishes itself.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How much should I spend on my credit card to build credit?<i class="ti ti-chevron-down"></i></button>
+        <div class="faq-a">Small and regular is better than large and occasional. Keep your monthly spending below 10% of your credit limit — on a $500 card, that's under $50. One or two small recurring purchases each month (a streaming subscription, a tank of fuel) paid off in full works perfectly. You're building a payment history track record, not maximising rewards.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Does paying my bill early help my credit score?<i class="ti ti-chevron-down"></i></button>
+        <div class="faq-a">Yes, indirectly. Credit bureaus see your balance on your statement closing date — not your payment date. If you pay down your balance before your statement closes, the bureau sees a lower balance, which means lower utilisation and potentially a higher score. Paying early (before the statement date) rather than just on time (before the due date) can meaningfully reduce reported utilisation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Will checking my own credit score hurt it?<i class="ti ti-chevron-down"></i></button>
+        <div class="faq-a">No. Checking your own score is a soft inquiry and has no effect on your score. Only hard inquiries — triggered by credit applications — can temporarily lower your score. You can check your score as often as you like through Credit Karma, Experian, or your card issuer's app without any negative impact.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Should I keep old credit cards open even if I don't use them?<i class="ti ti-chevron-down"></i></button>
+        <div class="faq-a">Generally yes — keeping old cards open maintains your total available credit (keeping utilisation lower) and preserves your length of credit history. Closing an old account can temporarily reduce your score. The exception is if the card has an annual fee you're not getting value from. If keeping it open with zero activity, make one small purchase every few months to prevent the issuer closing it for inactivity.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How many credit cards should I have to build credit?<i class="ti ti-chevron-down"></i></button>
+        <div class="faq-a">One card used responsibly is all you need to build credit effectively. Adding a second card after 6–12 months can help — it increases your total available credit (lowering utilisation) and adds to your credit mix. But more cards means more complexity and more risk of missed payments. Start with one, build strong habits, then consider expanding. Never apply for multiple cards at once.</div>
+      </div>
+    </div>
+
+    <!-- AUTHOR BIO -->
+    <div class="author-bio">
+      <div class="author-avatar"><i class="ti ti-user"></i></div>
+      <div class="author-bio-text">
+        <strong>Written by Mike Lucas</strong>
+        <span>Founder, MyCardRates.com</span>
+        <p>Mike is a UK-based personal finance publisher who built MyCardRates.com to give US consumers the independent, plain-English credit card guidance he felt was missing from the market. All content is based on independent research — no card issuer pays to be featured or recommended. <a href="/about.html" style="color:var(--gold-dark);font-weight:600;">Learn more about us →</a></p>
+      </div>
     </div>
 
     <div class="related-posts">
@@ -389,7 +411,6 @@
         </a>
       </div>
     </div>
-
   </main>
   <aside class="sidebar">
     <div class="sidebar-cta">
@@ -419,9 +440,9 @@
     <div class="sidebar-box">
       <h4>More Blog Posts</h4>
       <ul>
-        <li><a href="/blog/blog-post-7-credit-cards-for-bad-credit.html"><i class="ti ti-chevron-right"></i> Best Cards for Bad Credit</a></li>
+        <li><a href="/blog/blog-post-7-credit-cards-for-bad-credit.html"><i class="ti ti-chevron-right"></i> Cards for Bad Credit</a></li>
         <li><a href="/blog/blog-post-2-how-credit-card-interest-works.html"><i class="ti ti-chevron-right"></i> How Interest Works</a></li>
-        <li><a href="/blog/blog-post-9-credit-card-fees-explained.html"><i class="ti ti-chevron-right"></i> Credit Card Fees Explained</a></li>
+        <li><a href="/blog/blog-post-10-how-to-avoid-credit-card-debt.html"><i class="ti ti-chevron-right"></i> Avoid Credit Card Debt</a></li>
       </ul>
     </div>
   </aside>
@@ -468,12 +489,8 @@
   </div>
 </footer>
 <script>
-(function(){
-  var now=new Date(); var year=now.getFullYear();
-  var month=now.toLocaleString("en-US",{month:"long"});
-  document.querySelectorAll(".dyn-year").forEach(function(el){el.textContent=year});
-  document.querySelectorAll(".dyn-monthyear").forEach(function(el){el.textContent=month+" "+year});
-})();
+(function(){var now=new Date();var year=now.getFullYear();var month=now.toLocaleString("en-US",{month:"long"});document.querySelectorAll(".dyn-year").forEach(function(el){el.textContent=year});document.querySelectorAll(".dyn-monthyear").forEach(function(el){el.textContent=month+" "+year});})();
+document.querySelectorAll('.faq-q').forEach(function(btn){btn.addEventListener('click',function(){var expanded=this.getAttribute('aria-expanded')==='true';document.querySelectorAll('.faq-q').forEach(function(b){b.setAttribute('aria-expanded','false');});document.querySelectorAll('.faq-a').forEach(function(a){a.classList.remove('open');});if(!expanded){this.setAttribute('aria-expanded','true');this.nextElementSibling.classList.add('open');}});});
 </script>
 </body>
 </html>
