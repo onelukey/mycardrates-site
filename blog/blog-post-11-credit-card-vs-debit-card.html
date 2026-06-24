@@ -6,446 +6,113 @@
   <title>Credit Card vs Debit Card: Which Should You Use? | MyCardRates.com</title>
   <meta name="description" content="Credit card vs debit card — what's the real difference and which one should you use? We break down protections, rewards, risks, and when each makes sense." />
   <link rel="canonical" href="https://mycardrates.com/blog/blog-post-11-credit-card-vs-debit-card.html" />
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Tabler Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
-
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPBDSS7G07"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-QPBDSS7G07');
-  </script>
-
-  <!-- AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723787015797542"
-     crossorigin="anonymous"></script>
-
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-QPBDSS7G07');</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723787015797542" crossorigin="anonymous"></script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy: #0f2557;
-      --navy-mid: #1a3a6b;
-      --navy-light: #e8eef7;
-      --gold: #c9a84c;
-      --gold-dark: #a07c28;
-      --gold-light: #f5ecd4;
-      --bg: #f9f8f6;
-      --text: #1a1a2e;
-      --text-muted: #5f5e5a;
-      --white: #ffffff;
-      --border: #dde3ef;
-      --radius: 10px;
-    }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    a { color: var(--navy-mid); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* ── NAV ── */
-    .site-nav {
-      background: var(--navy);
-      padding: 0 1.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-    }
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 62px;
-    }
-    .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.35rem;
-      color: var(--white);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .nav-logo span { color: var(--gold); }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,0.82);
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--gold); text-decoration: none; }
-    .nav-cta {
-      background: var(--gold);
-      color: var(--navy) !important;
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      font-weight: 600 !important;
-    }
-    .nav-cta:hover { background: var(--gold-dark); }
-
-    /* ── HERO ── */
-    .post-hero {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-      padding: 3.5rem 1.5rem 3rem;
-      text-align: center;
-    }
-    .post-hero-inner {
-      max-width: 820px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .breadcrumb {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 1.2rem;
-    }
-    .breadcrumb a { color: rgba(255,255,255,0.6); }
-    .breadcrumb a:hover { color: var(--gold); text-decoration: none; }
-    .breadcrumb i { font-size: 0.75rem; }
-
-    .post-cat-badge {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.85rem;
-      border-radius: 20px;
-      margin-bottom: 1.1rem;
-    }
-
-    .post-hero h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      color: var(--white);
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
-      text-align: center;
-    }
-
-    .post-meta-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.83rem;
-      color: rgba(255,255,255,0.65);
-    }
-    .post-meta-bar i { margin-right: 0.3rem; }
-
-    /* ── LAYOUT ── */
-    .post-wrap {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem 4rem;
-    }
-
-    /* ── ARTICLE BODY ── */
-    .post-body h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.55rem;
-      color: var(--navy);
-      margin: 2.5rem 0 0.8rem;
-      line-height: 1.25;
-    }
-    .post-body h3 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--navy-mid);
-      margin: 1.8rem 0 0.6rem;
-    }
-    .post-body p {
-      margin-bottom: 1.2rem;
-      font-size: 1.02rem;
-      color: var(--text);
-    }
-    .post-body ul, .post-body ol {
-      margin: 0.5rem 0 1.2rem 1.4rem;
-    }
-    .post-body li {
-      margin-bottom: 0.55rem;
-      font-size: 1.02rem;
-    }
-    .post-body strong { color: var(--navy); }
-
-    /* ── CALLOUT BOXES ── */
-    .callout {
-      border-left: 4px solid var(--gold);
-      background: var(--gold-light);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 1rem 1.25rem;
-      margin: 1.8rem 0;
-    }
-    .callout-title {
-      font-weight: 700;
-      color: var(--navy);
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.4rem;
-    }
-    .callout p { margin: 0; font-size: 0.97rem; }
-
-    .callout-navy {
-      border-left-color: var(--navy-mid);
-      background: var(--navy-light);
-    }
-    .callout-navy .callout-title { color: var(--navy); }
-
-    /* ── COMPARISON TABLE ── */
-    .compare-table-wrap {
-      overflow-x: auto;
-      margin: 1.8rem 0;
-      border-radius: var(--radius);
-      box-shadow: 0 2px 12px rgba(15,37,87,0.08);
-    }
-    .compare-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-      background: var(--white);
-    }
-    .compare-table thead {
-      background: var(--navy);
-      color: var(--white);
-    }
-    .compare-table thead th {
-      padding: 0.85rem 1rem;
-      text-align: left;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-    .compare-table thead th:first-child { border-radius: var(--radius) 0 0 0; }
-    .compare-table thead th:last-child { border-radius: 0 var(--radius) 0 0; }
-    .compare-table tbody tr:nth-child(even) { background: var(--navy-light); }
-    .compare-table tbody td {
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-    }
-    .compare-table tbody td:first-child {
-      font-weight: 600;
-      color: var(--navy);
-      white-space: nowrap;
-    }
-    .tick { color: #27a560; font-weight: 700; }
-    .cross { color: #c0392b; font-weight: 700; }
-
-    /* ── SCENARIO CARDS ── */
-    .scenario-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.1rem;
-      margin: 1.8rem 0;
-    }
-    @media(max-width: 580px) { .scenario-grid { grid-template-columns: 1fr; } }
-
-    .scenario-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.15rem 1.2rem;
-      box-shadow: 0 2px 8px rgba(15,37,87,0.06);
-    }
-    .scenario-card .sc-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      margin-bottom: 0.5rem;
-    }
-    .sc-credit .sc-label { color: var(--navy-mid); }
-    .sc-debit .sc-label { color: #5f6a7a; }
-    .sc-both .sc-label { color: var(--gold-dark); }
-
-    .scenario-card h4 {
-      font-size: 0.97rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 0.4rem;
-    }
-    .scenario-card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
-    /* ── KEY TAKEAWAY BOX ── */
-    .takeaway-box {
-      background: var(--navy);
-      color: var(--white);
-      border-radius: var(--radius);
-      padding: 1.5rem 1.6rem;
-      margin: 2.2rem 0;
-    }
-    .takeaway-box h3 {
-      color: var(--gold);
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.2rem;
-      margin-bottom: 0.8rem;
-    }
-    .takeaway-box ul {
-      margin: 0;
-      padding-left: 1.25rem;
-    }
-    .takeaway-box li {
-      color: rgba(255,255,255,0.88);
-      margin-bottom: 0.45rem;
-      font-size: 0.97rem;
-    }
-
-    /* ── POST FOOTER NAV ── */
-    .post-nav {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-    }
-    .post-nav-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--navy-mid);
-      padding: 0.6rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--white);
-      transition: border-color 0.2s, background 0.2s;
-      text-decoration: none;
-    }
-    .post-nav-link:hover {
-      border-color: var(--gold);
-      background: var(--gold-light);
-      text-decoration: none;
-    }
-    .post-nav-link .nav-label {
-      font-size: 0.75rem;
-      font-weight: 400;
-      color: var(--text-muted);
-      display: block;
-    }
-
-    /* ── RELATED POSTS ── */
-    .related-section { margin-top: 3rem; }
-    .related-section h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem;
-      color: var(--navy);
-      margin-bottom: 1.2rem;
-    }
-    .related-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-    .related-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.1rem 1.15rem;
-      box-shadow: 0 2px 8px rgba(15,37,87,0.05);
-      transition: box-shadow 0.2s, border-color 0.2s;
-      text-decoration: none;
-    }
-    .related-card:hover {
-      box-shadow: 0 4px 16px rgba(15,37,87,0.1);
-      border-color: var(--gold);
-      text-decoration: none;
-    }
-    .related-card .rc-cat {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--gold-dark);
-      margin-bottom: 0.4rem;
-    }
-    .related-card h4 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1.35;
-    }
-
-    /* ── FOOTER ── */
-    .site-footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.65);
-      padding: 2.5rem 1.5rem 1.5rem;
-      margin-top: 4rem;
-    }
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem 1.8rem;
-      margin-bottom: 1.5rem;
-    }
-    .footer-links a {
-      color: rgba(255,255,255,0.6);
-      font-size: 0.85rem;
-    }
-    .footer-links a:hover { color: var(--gold); text-decoration: none; }
-    .footer-copy {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 1rem;
-    }
-    .footer-disclaimer {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.35);
-      margin-top: 0.5rem;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 680px) {
-      .nav-links { display: none; }
-      .post-hero { padding: 2.5rem 1rem 2rem; }
-    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--navy:#0f2557;--navy-mid:#1a3a6b;--navy-light:#e8eef7;--gold:#c9a84c;--gold-dark:#a07c28;--gold-light:#f5ecd4;--bg:#f9f8f6;--text:#1a1a2e;--text-muted:#5f5e5a;--white:#ffffff;--border:#dde3ef;--radius:10px;}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
+    a{color:var(--navy-mid);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    .site-nav{background:var(--navy);padding:0 1.5rem;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.18);}
+    .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:62px;}
+    .nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:0.4rem;}
+    .nav-logo span{color:var(--gold);}
+    .nav-links{display:flex;gap:1.5rem;list-style:none;}
+    .nav-links a{color:rgba(255,255,255,0.82);font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+    .nav-links a:hover{color:var(--gold);text-decoration:none;}
+    .nav-cta{background:var(--gold);color:var(--navy)!important;padding:0.4rem 1rem;border-radius:6px;font-weight:600!important;}
+    .nav-cta:hover{background:var(--gold-dark);}
+    .post-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);padding:3.5rem 1.5rem 3rem;text-align:center;}
+    .post-hero-inner{max-width:820px;margin:0 auto;text-align:center;}
+    .breadcrumb{display:flex;align-items:center;justify-content:center;gap:0.5rem;font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:1.2rem;}
+    .breadcrumb a{color:rgba(255,255,255,0.6);}
+    .breadcrumb a:hover{color:var(--gold);text-decoration:none;}
+    .breadcrumb i{font-size:0.75rem;}
+    .post-cat-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.3rem 0.85rem;border-radius:20px;margin-bottom:1.1rem;}
+    .post-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(1.75rem,4vw,2.5rem);color:var(--white);line-height:1.2;margin-bottom:1.2rem;text-align:center;}
+    .post-meta-bar{display:flex;flex-wrap:wrap;gap:1.25rem;align-items:center;justify-content:center;font-size:0.83rem;color:rgba(255,255,255,0.65);}
+    .post-meta-bar i{margin-right:0.3rem;}
+    .post-wrap{max-width:820px;margin:0 auto;padding:2.5rem 1.5rem 4rem;}
+    .post-body h2{font-family:'DM Serif Display',serif;font-size:1.55rem;color:var(--navy);margin:2.5rem 0 0.8rem;line-height:1.25;}
+    .post-body h3{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:600;color:var(--navy-mid);margin:1.8rem 0 0.6rem;}
+    .post-body p{margin-bottom:1.2rem;font-size:1.02rem;color:var(--text);}
+    .post-body ul,.post-body ol{margin:0.5rem 0 1.2rem 1.4rem;}
+    .post-body li{margin-bottom:0.55rem;font-size:1.02rem;}
+    .post-body strong{color:var(--navy);}
+    .callout{border-left:4px solid var(--gold);background:var(--gold-light);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.25rem;margin:1.8rem 0;}
+    .callout-title{font-weight:700;color:var(--navy);font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;}
+    .callout p{margin:0;font-size:0.97rem;}
+    .callout-navy{border-left-color:var(--navy-mid);background:var(--navy-light);}
+    .callout-navy .callout-title{color:var(--navy);}
+    .compare-table-wrap{overflow-x:auto;margin:1.8rem 0;border-radius:var(--radius);box-shadow:0 2px 12px rgba(15,37,87,0.08);}
+    .compare-table{width:100%;border-collapse:collapse;font-size:0.95rem;background:var(--white);}
+    .compare-table thead{background:var(--navy);color:var(--white);}
+    .compare-table thead th{padding:0.85rem 1rem;text-align:left;font-weight:600;font-size:0.9rem;}
+    .compare-table thead th:first-child{border-radius:var(--radius) 0 0 0;}
+    .compare-table thead th:last-child{border-radius:0 var(--radius) 0 0;}
+    .compare-table tbody tr:nth-child(even){background:var(--navy-light);}
+    .compare-table tbody td{padding:0.75rem 1rem;border-bottom:1px solid var(--border);vertical-align:top;}
+    .compare-table tbody td:first-child{font-weight:600;color:var(--navy);white-space:nowrap;}
+    .tick{color:#27a560;font-weight:700;}
+    .cross{color:#c0392b;font-weight:700;}
+    .scenario-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin:1.8rem 0;}
+    @media(max-width:580px){.scenario-grid{grid-template-columns:1fr;}}
+    .scenario-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.15rem 1.2rem;box-shadow:0 2px 8px rgba(15,37,87,0.06);}
+    .scenario-card .sc-label{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.5rem;}
+    .sc-credit .sc-label{color:var(--navy-mid);}
+    .sc-debit .sc-label{color:#5f6a7a;}
+    .sc-both .sc-label{color:var(--gold-dark);}
+    .scenario-card h4{font-size:0.97rem;font-weight:600;color:var(--navy);margin-bottom:0.4rem;}
+    .scenario-card p{font-size:0.9rem;color:var(--text-muted);margin:0;}
+    .takeaway-box{background:var(--navy);color:var(--white);border-radius:var(--radius);padding:1.5rem 1.6rem;margin:2.2rem 0;}
+    .takeaway-box h3{color:var(--gold);font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:0.8rem;}
+    .takeaway-box ul{margin:0;padding-left:1.25rem;}
+    .takeaway-box li{color:rgba(255,255,255,0.88);margin-bottom:0.45rem;font-size:0.97rem;}
+    .post-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;}
+    .post-nav-link{display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;font-weight:500;color:var(--navy-mid);padding:0.6rem 1rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--white);transition:border-color 0.2s,background 0.2s;text-decoration:none;}
+    .post-nav-link:hover{border-color:var(--gold);background:var(--gold-light);text-decoration:none;}
+    .post-nav-link .nav-label{font-size:0.75rem;font-weight:400;color:var(--text-muted);display:block;}
+    .related-section{margin-top:3rem;}
+    .related-section h3{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--navy);margin-bottom:1.2rem;}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
+    .related-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.15rem;box-shadow:0 2px 8px rgba(15,37,87,0.05);transition:box-shadow 0.2s,border-color 0.2s;text-decoration:none;}
+    .related-card:hover{box-shadow:0 4px 16px rgba(15,37,87,0.1);border-color:var(--gold);text-decoration:none;}
+    .related-card .rc-cat{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--gold-dark);margin-bottom:0.4rem;}
+    .related-card h4{font-size:0.95rem;font-weight:600;color:var(--navy);line-height:1.35;}
+    .faq-section{margin:3rem 0;}
+    .faq-section h2{font-family:'DM Serif Display',serif;font-size:1.45rem;color:var(--navy);margin-bottom:1.25rem;}
+    .faq-item{border:1.5px solid var(--border);border-radius:var(--radius);margin-bottom:0.75rem;overflow:hidden;}
+    .faq-q{width:100%;background:var(--white);border:none;padding:1.1rem 1.25rem;text-align:left;font-family:'DM Sans',sans-serif;font-size:0.97rem;font-weight:600;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:background 0.2s;}
+    .faq-q:hover{background:var(--navy-light);}
+    .faq-q i{color:var(--gold);flex-shrink:0;transition:transform 0.25s;}
+    .faq-q[aria-expanded="true"] i{transform:rotate(180deg);}
+    .faq-a{display:none;padding:0 1.25rem 1.1rem;font-size:0.93rem;color:var(--text-muted);line-height:1.75;}
+    .faq-a a{color:var(--gold-dark);font-weight:600;}
+    .faq-a.open{display:block;}
+    .author-bio{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin:3rem 0 1rem;display:flex;gap:1.25rem;align-items:flex-start;}
+    .author-avatar{width:52px;height:52px;background:var(--navy-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .author-avatar i{color:var(--navy);font-size:26px;}
+    .author-bio-text{flex:1;}
+    .author-bio-text strong{display:block;font-size:0.95rem;color:var(--navy);margin-bottom:0.2rem;}
+    .author-bio-text span{font-size:0.82rem;color:var(--gold-dark);font-weight:600;display:block;margin-bottom:0.5rem;}
+    .author-bio-text p{font-size:0.88rem;color:var(--text-muted);line-height:1.65;margin:0;}
+    .site-footer{background:var(--navy);color:rgba(255,255,255,0.65);padding:2.5rem 1.5rem 1.5rem;margin-top:4rem;}
+    .footer-inner{max-width:1100px;margin:0 auto;}
+    .footer-links{display:flex;flex-wrap:wrap;gap:1rem 1.8rem;margin-bottom:1.5rem;}
+    .footer-links a{color:rgba(255,255,255,0.6);font-size:0.85rem;}
+    .footer-links a:hover{color:var(--gold);text-decoration:none;}
+    .footer-copy{font-size:0.8rem;color:rgba(255,255,255,0.4);border-top:1px solid rgba(255,255,255,0.1);padding-top:1rem;}
+    .footer-disclaimer{font-size:0.78rem;color:rgba(255,255,255,0.35);margin-top:0.5rem;line-height:1.6;}
+    @media(max-width:680px){.nav-links{display:none;}.post-hero{padding:2.5rem 1rem 2rem;}}
   </style>
-  <link rel="canonical" href="https://mycardrates.com/blog/blog-post-11-credit-card-vs-debit-card.html" />
 </head>
 <body>
-
-  <!-- ── NAV ── -->
   <nav class="site-nav">
     <div class="nav-inner">
       <a class="nav-logo" href="/index.html">MyCard<span>Rates</span>.com</a>
@@ -459,178 +126,71 @@
       </ul>
     </div>
   </nav>
-
-  <!-- ── HERO ── -->
   <section class="post-hero">
     <div class="post-hero-inner">
       <nav class="breadcrumb">
-        <a href="/index.html">Home</a>
-        <i class="ti ti-chevron-right"></i>
-        <a href="/blog/index.html">Blog</a>
-        <i class="ti ti-chevron-right"></i>
+        <a href="/index.html">Home</a><i class="ti ti-chevron-right"></i>
+        <a href="/blog/index.html">Blog</a><i class="ti ti-chevron-right"></i>
         <span>Credit Card vs Debit Card</span>
       </nav>
       <div class="post-cat-badge">Beginner's Guide</div>
       <h1>Credit Card vs Debit Card: Which Should You Use?</h1>
       <div class="post-meta-bar">
-        <span><i class="ti ti-calendar"></i> <span class="dyn-monthyear">June 2026</span></span>
         <span><i class="ti ti-clock"></i> 8 min read</span>
+        <span><i class="ti ti-user"></i> By Mike</span>
       </div>
     </div>
   </section>
-
-  <!-- ── MAIN CONTENT ── -->
   <main class="post-wrap">
     <article class="post-body">
-
       <p>Pull out your wallet and you'll probably find both: a credit card and a debit card, often from the same bank, often with the same Visa or Mastercard logo. They look nearly identical — but how they work, and what they protect you against, is very different.</p>
-
       <p>Choosing the right one for each situation can save you money, protect you from fraud, and even help you build credit. This guide breaks down exactly what sets them apart and when to reach for each one.</p>
-
-      <!-- AdSense ad slot -->
-      <ins class="adsbygoogle"
-           style="display:block;text-align:center;margin:1.5rem 0;"
-           data-ad-layout="in-article"
-           data-ad-format="fluid"
-           data-ad-client="ca-pub-3723787015797542"
-           data-ad-slot=""></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
       <h2>The Core Difference: Your Money vs. The Bank's Money</h2>
-
       <p>The most fundamental difference comes down to whose money you're spending.</p>
-
       <p>When you pay with a <strong>debit card</strong>, the money leaves your bank account almost immediately. It's your own cash — you can only spend what you have.</p>
-
       <p>When you pay with a <strong>credit card</strong>, you're borrowing money from the card issuer. You'll receive a bill at the end of the month, and if you pay in full, you owe nothing extra. If you carry a balance, interest kicks in.</p>
-
       <div class="callout">
         <div class="callout-title">💡 Quick Summary</div>
         <p>Debit card = spending your own money. Credit card = borrowing money and paying it back later. Same logos, very different mechanics.</p>
       </div>
-
       <h2>Head-to-Head Comparison</h2>
-
       <div class="compare-table-wrap">
         <table class="compare-table">
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th>Credit Card</th>
-              <th>Debit Card</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Feature</th><th>Credit Card</th><th>Debit Card</th></tr></thead>
           <tbody>
-            <tr>
-              <td>Whose money?</td>
-              <td>Bank's (borrowed)</td>
-              <td>Yours (from checking account)</td>
-            </tr>
-            <tr>
-              <td>Fraud protection</td>
-              <td><span class="tick">✔</span> Very strong (FCBA)</td>
-              <td><span class="cross">✗</span> Weaker (depends on timing)</td>
-            </tr>
-            <tr>
-              <td>Builds credit history</td>
-              <td><span class="tick">✔</span> Yes</td>
-              <td><span class="cross">✗</span> No</td>
-            </tr>
-            <tr>
-              <td>Rewards (cashback, points)</td>
-              <td><span class="tick">✔</span> Usually yes</td>
-              <td><span class="cross">✗</span> Rarely</td>
-            </tr>
-            <tr>
-              <td>Overspending risk</td>
-              <td><span class="cross">✗</span> Possible (if balance carried)</td>
-              <td><span class="tick">✔</span> Limited to account balance</td>
-            </tr>
-            <tr>
-              <td>Interest charges</td>
-              <td>Yes, if balance not paid in full</td>
-              <td>None</td>
-            </tr>
-            <tr>
-              <td>Annual fees</td>
-              <td>Some cards (many are free)</td>
-              <td>Usually none</td>
-            </tr>
-            <tr>
-              <td>Purchase protection</td>
-              <td><span class="tick">✔</span> Often included</td>
-              <td><span class="cross">✗</span> Rarely included</td>
-            </tr>
-            <tr>
-              <td>Chargeback rights</td>
-              <td><span class="tick">✔</span> Strong (Section 75 equivalent)</td>
-              <td><span class="cross">✗</span> Limited</td>
-            </tr>
-            <tr>
-              <td>Hotel / car rental holds</td>
-              <td><span class="tick">✔</span> Doesn't freeze real cash</td>
-              <td><span class="cross">✗</span> Locks real money in account</td>
-            </tr>
+            <tr><td>Whose money?</td><td>Bank's (borrowed)</td><td>Yours (from checking account)</td></tr>
+            <tr><td>Fraud protection</td><td><span class="tick">✔</span> Very strong (FCBA)</td><td><span class="cross">✗</span> Weaker (depends on timing)</td></tr>
+            <tr><td>Builds credit history</td><td><span class="tick">✔</span> Yes</td><td><span class="cross">✗</span> No</td></tr>
+            <tr><td>Rewards (cashback, points)</td><td><span class="tick">✔</span> Usually yes</td><td><span class="cross">✗</span> Rarely</td></tr>
+            <tr><td>Overspending risk</td><td><span class="cross">✗</span> Possible (if balance carried)</td><td><span class="tick">✔</span> Limited to account balance</td></tr>
+            <tr><td>Interest charges</td><td>Yes, if balance not paid in full</td><td>None</td></tr>
+            <tr><td>Annual fees</td><td>Some cards (many are free)</td><td>Usually none</td></tr>
+            <tr><td>Purchase protection</td><td><span class="tick">✔</span> Often included</td><td><span class="cross">✗</span> Rarely included</td></tr>
+            <tr><td>Chargeback rights</td><td><span class="tick">✔</span> Strong</td><td><span class="cross">✗</span> Limited</td></tr>
+            <tr><td>Hotel / car rental holds</td><td><span class="tick">✔</span> Doesn't freeze real cash</td><td><span class="cross">✗</span> Locks real money in account</td></tr>
           </tbody>
         </table>
       </div>
-
       <h2>Fraud Protection: Where Credit Cards Win Clearly</h2>
-
-      <p>This is the most important practical difference for most people. In the US, credit cards are protected by the <strong>Fair Credit Billing Act (FCBA)</strong>. If someone fraudulently charges your credit card, your maximum liability is just <strong>$50</strong> — and most major issuers offer $0 liability as standard.</p>
-
-      <p>Crucially, while a dispute is being investigated, <em>the money was never yours to begin with</em> — so you haven't lost anything from your bank account. The issuer absorbs the loss temporarily.</p>
-
-      <p>Debit cards are covered by the <strong>Electronic Fund Transfer Act (EFTA)</strong>, but the protection is weaker — and timing matters a lot:</p>
-
-      <ul>
-        <li>Report within 2 business days: liability capped at $50</li>
-        <li>Report within 60 days: liability up to $500</li>
-        <li>Report after 60 days: you could lose everything taken</li>
-      </ul>
-
-      <p>With a debit card, real cash has already left your account. Even if the bank refunds you, there's a gap where that money is gone — which can cause overdrafts, missed payments, and real stress.</p>
-
-      <div class="callout callout-navy">
-        <div class="callout-title">🛡️ Real World Example</div>
-        <p>Your card details are stolen and $1,200 is fraudulently charged. With a credit card, you report it, the charge is reversed, and you pay nothing while it's investigated. With a debit card, that $1,200 leaves your account immediately — and may take days or weeks to recover.</p>
-      </div>
-
+      <p>Under the Fair Credit Billing Act (FCBA), your liability for credit card fraud is capped at $50 — and most major issuers offer $0 liability as standard. More importantly, when your credit card is compromised, it's the bank's money at risk while the dispute is investigated. Your bank account is untouched.</p>
+      <p>Debit card fraud protection is weaker and timing-dependent. Report within 2 business days and liability is capped at $50. Wait more than 60 days and you could be liable for the full amount. When a debit card is compromised, real money leaves your checking account immediately — which can cause cascading problems with rent, bills, and other payments while the dispute is resolved.</p>
       <h2>Building Credit: Only Credit Cards Count</h2>
-
-      <p>Debit card usage is <strong>never reported to the credit bureaus</strong>. No matter how responsibly you use a debit card for years, it does nothing for your credit score.</p>
-
-      <p>Credit card usage is reported monthly to Experian, Equifax, and TransUnion. Every on-time payment, every low balance, every year of account history — it all builds your credit profile. A strong credit score affects your ability to get a mortgage, rent an apartment, get a car loan, and sometimes even land a job.</p>
-
-      <p>If you're new to credit or rebuilding after financial difficulties, a credit card used responsibly is one of the fastest ways to build your score. Use it for small, regular purchases, pay the full balance each month, and let time do the work.</p>
-
+      <p>Every on-time credit card payment is reported to the three major credit bureaus — Equifax, Experian, and TransUnion. Over time, this builds your credit score and credit history. Debit card transactions are not reported and have zero impact on your credit profile, regardless of how responsibly you manage your spending.</p>
+      <p>For anyone building or rebuilding credit, using a credit card responsibly — even for just one or two small monthly purchases paid off in full — is one of the most effective tools available. See our guide: <a href="/blog/blog-post-8-how-to-build-credit-with-a-card.html">How to Build Credit with a Credit Card</a>.</p>
       <h2>Rewards: Another Credit Card Advantage</h2>
-
-      <p>Most debit cards offer little to no rewards on everyday spending. Credit cards, by contrast, can earn you 1%–5% back on purchases — either as cashback, travel points, or other perks.</p>
-
-      <p>If you're paying your balance in full each month (so no interest), using a rewards credit card for all your regular spending is essentially free money. A 2% cashback card on $2,000/month of spending earns $480 a year — just for using the card instead of your debit card.</p>
-
+      <p>Credit cards earn rewards — cashback, points, or miles — on virtually every purchase. Debit cards offer no such benefit in most cases. If you're paying your balance in full each month (so no interest), using a rewards credit card for all your regular spending is essentially free money. A 2% cashback card on $2,000/month of spending earns $480 a year — just for using the card instead of your debit card.</p>
       <h2>The Overspending Trap: Where Debit Cards Win</h2>
-
       <p>The flip side is real. Credit cards can encourage overspending because the money doesn't leave your account immediately. If you're prone to spending more than you should, or you're working to pay down debt, the discipline built into a debit card — you can only spend what's there — is genuinely valuable.</p>
-
       <p>Credit cards are also dangerous if you carry a balance. APRs of 20%–30% mean a $1,000 balance can cost hundreds in interest if you only make minimum payments.</p>
-
       <div class="callout">
         <div class="callout-title">⚠️ The Golden Rule</div>
         <p>A credit card only beats a debit card financially if you pay your full statement balance every month. If you carry a balance, the interest will quickly wipe out any rewards you earned — and then some.</p>
       </div>
-
       <h2>Holds at Hotels and Car Rentals</h2>
-
       <p>Hotels and car rental companies routinely place a <strong>security hold</strong> on your card — often $200–$500 or more — to cover potential damages or extras. This hold is released when you check out.</p>
-
       <p>With a credit card, this hold is against your credit limit — invisible to your bank account. With a debit card, that amount is immediately frozen in your actual checking account. If you're travelling on a tight budget, this can leave you genuinely short of accessible cash for days.</p>
-
       <p>Most experienced travellers use a credit card specifically for hotel and car rental transactions for this reason.</p>
-
       <h2>When to Use Each One</h2>
-
       <div class="scenario-grid">
         <div class="scenario-card sc-credit">
           <div class="sc-label">💳 Use your Credit Card for...</div>
@@ -673,31 +233,15 @@
           <p>Either is fine; credit card earns rewards if you pay it off.</p>
         </div>
       </div>
-
-      <!-- AdSense ad slot -->
-      <ins class="adsbygoogle"
-           style="display:block;text-align:center;margin:1.5rem 0;"
-           data-ad-layout="in-article"
-           data-ad-format="fluid"
-           data-ad-client="ca-pub-3723787015797542"
-           data-ad-slot=""></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
       <h2>What About Prepaid Debit Cards?</h2>
-
       <p>There's a third option worth mentioning: prepaid debit cards. These are loaded with money upfront and work like debit cards — you spend what you've loaded. They're useful for people who can't qualify for a bank account or credit card, or as a controlled-spending tool for budgeting. However, they typically offer no credit-building benefits and fewer fraud protections than either regular debit or credit cards.</p>
-
       <h2>Can You Have Both? Should You?</h2>
-
       <p>Absolutely — and most financially confident adults do. The ideal setup for many people is:</p>
-
       <ul>
         <li>A <strong>no-annual-fee rewards credit card</strong> for most purchases — paid off in full every month</li>
         <li>A <strong>debit card</strong> for ATM cash withdrawals and as a backup</li>
       </ul>
-
       <p>This gives you the fraud protection and rewards of a credit card, without the debt risk, while keeping access to cash when you need it.</p>
-
       <div class="takeaway-box">
         <h3>Key Takeaways</h3>
         <ul>
@@ -709,32 +253,59 @@
           <li>Credit cards only make financial sense if you pay in full each month — otherwise interest erases all advantages</li>
         </ul>
       </div>
-
       <h2>The Bottom Line</h2>
-
       <p>Neither card is universally "better" — it depends on your habits and financial situation. But for most responsible adults who can pay their balance in full, a credit card offers stronger protection, valuable rewards, and credit-building benefits that a debit card simply can't match.</p>
-
       <p>If you're ready to explore credit cards that fit your lifestyle, our guides below can help you find the right one.</p>
 
-      <!-- POST NAVIGATION -->
+      <!-- FAQ -->
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Is it safer to use a credit card or debit card online?<i class="ti ti-chevron-down"></i></button>
+          <div class="faq-a">Credit card is safer for online shopping. Under the Fair Credit Billing Act, your fraud liability is capped at $50 — and most issuers offer $0 liability. If your credit card details are stolen, the money at risk is the bank's, not yours. With a debit card, real money leaves your account immediately. You can dispute it, but the recovery process takes longer and your account balance is affected in the meantime.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Does using a debit card help build credit?<i class="ti ti-chevron-down"></i></button>
+          <div class="faq-a">No. Debit card transactions are not reported to the credit bureaus and have zero impact on your credit score. Only credit products — credit cards, loans, mortgages — appear on your credit report. If building credit is a goal, a credit card (even a secured card) used responsibly and paid in full each month is the most accessible way to start.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">When should I use a debit card instead of a credit card?<i class="ti ti-chevron-down"></i></button>
+          <div class="faq-a">Use a debit card for ATM cash withdrawals (credit card cash advances carry high fees and interest from day one), when a merchant charges a credit card surcharge that exceeds your rewards earn rate, and when you need a hard limit on spending to stay on budget. For most other purchases — especially online shopping, hotels, car rentals, and large purchases — a credit card paid in full is the better choice.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can a hotel hold money on a debit card?<i class="ti ti-chevron-down"></i></button>
+          <div class="faq-a">Yes — and this is one of the main reasons experienced travellers prefer to use a credit card at check-in. Hotels typically place a security hold of $100–$500+ per night to cover incidentals. On a credit card, this hold is against your credit limit and doesn't touch your bank account. On a debit card, that money is immediately frozen in your checking account — potentially leaving you short of accessible funds until checkout, which can take several days to release.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What's the difference between a credit card and prepaid card?<i class="ti ti-chevron-down"></i></button>
+          <div class="faq-a">A prepaid card is loaded with money in advance — you can only spend what's on it, similar to a debit card. Unlike a debit card, it's not linked to a bank account. Unlike a credit card, it offers no borrowing, no credit building, and typically no rewards. Prepaid cards are useful for people who can't access a bank account or as a controlled-spending tool, but they lack the protections and benefits of either a regular debit or credit card.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Should I use a credit card for everyday spending?<i class="ti ti-chevron-down"></i></button>
+          <div class="faq-a">Yes — if you pay your full balance every month. Using a credit card for everyday purchases earns rewards, builds credit history, and provides stronger fraud protection than a debit card, all at no extra cost if you pay in full. The critical condition is discipline: set up autopay for the full statement balance to ensure you never carry a balance. If there's any risk of spending beyond your means, a debit card is the safer default until that habit is established.</div>
+        </div>
+      </div>
+
+      <!-- AUTHOR BIO -->
+      <div class="author-bio">
+        <div class="author-avatar"><i class="ti ti-user"></i></div>
+        <div class="author-bio-text">
+          <strong>Written by Mike Lucas</strong>
+          <span>Founder, MyCardRates.com</span>
+          <p>Mike is a UK-based personal finance publisher who built MyCardRates.com to give US consumers the independent, plain-English credit card guidance he felt was missing from the market. All content is based on independent research — no card issuer pays to be featured or recommended. <a href="/about.html">Learn more about us →</a></p>
+        </div>
+      </div>
+
       <nav class="post-nav">
         <a class="post-nav-link" href="/blog/blog-post-10-how-to-avoid-credit-card-debt.html">
           <i class="ti ti-arrow-left"></i>
-          <span>
-            <span class="nav-label">Previous</span>
-            How to Avoid Credit Card Debt
-          </span>
+          <span><span class="nav-label">Previous</span>How to Avoid Credit Card Debt</span>
         </a>
         <a class="post-nav-link" href="/blog/blog-post-12-maximise-credit-card-rewards.html">
-          <span>
-            <span class="nav-label">Next</span>
-            Maximise Your Credit Card Rewards
-          </span>
+          <span><span class="nav-label">Next</span>Maximise Your Credit Card Rewards</span>
           <i class="ti ti-arrow-right"></i>
         </a>
       </nav>
-
-      <!-- RELATED POSTS -->
       <section class="related-section">
         <h3>Keep Reading</h3>
         <div class="related-grid">
@@ -752,11 +323,8 @@
           </a>
         </div>
       </section>
-
     </article>
   </main>
-
-  <!-- ── FOOTER ── -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-links">
@@ -771,19 +339,12 @@
         <a href="/terms-of-use.html">Terms of Use</a>
       </div>
       <div class="footer-copy">© <span class="dyn-year">2026</span> MyCardRates.com — All rights reserved.</div>
-      <div class="footer-disclaimer">MyCardRates.com is an independent publisher. Content is for informational purposes only and does not constitute financial advice. Credit card offers and terms change frequently — always check the issuer's website for current details before applying.</div>
+      <div class="footer-disclaimer">MyCardRates.com is an independent publisher. Content is for informational purposes only and does not constitute financial advice.</div>
     </div>
   </footer>
-
-  <!-- Dynamic date script -->
   <script>
-  (function(){
-    var now=new Date(); var year=now.getFullYear();
-    var month=now.toLocaleString("en-US",{month:"long"});
-    document.querySelectorAll(".dyn-year").forEach(function(el){el.textContent=year});
-    document.querySelectorAll(".dyn-monthyear").forEach(function(el){el.textContent=month+" "+year});
-  })();
+  (function(){var now=new Date();var year=now.getFullYear();var month=now.toLocaleString("en-US",{month:"long"});document.querySelectorAll(".dyn-year").forEach(function(el){el.textContent=year});document.querySelectorAll(".dyn-monthyear").forEach(function(el){el.textContent=month+" "+year});})();
+  document.querySelectorAll('.faq-q').forEach(function(btn){btn.addEventListener('click',function(){var expanded=this.getAttribute('aria-expanded')==='true';document.querySelectorAll('.faq-q').forEach(function(b){b.setAttribute('aria-expanded','false');});document.querySelectorAll('.faq-a').forEach(function(a){a.classList.remove('open');});if(!expanded){this.setAttribute('aria-expanded','true');this.nextElementSibling.classList.add('open');}});});
   </script>
-
 </body>
 </html>
