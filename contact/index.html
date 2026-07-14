@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | MyCardRates.com</title>
+<meta name="description" content="Get in touch with the MyCardRates.com team. Questions, feedback, or editorial enquiries — we'd love to hear from you.">
+
+<link rel="canonical" href="https://mycardrates.com/contact/" />
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPBDSS7G07"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QPBDSS7G07');
+</script>
+
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3723787015797542" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<header class="top-bar">
+  <a href="/" class="logo">MyCard<span>Rates</span>.com</a>
+  <nav class="top-nav">
+    <a href="/best-credit-cards/">Best Cards</a>
+    <a href="/credit-card-rewards/">Rewards</a>
+    <a href="/balance-transfer-cards/">Balance Transfer</a>
+    <a href="/blog/">Blog</a>
+    <a href="/about/">About</a>
+    <a href="/contact/" class="active">Contact</a>
+    <a href="/credit-card-calculator/" class="top-cta"><i class="ti ti-calculator"></i> Card Calculator</a>
+  </nav>
+</header>
+
+<!-- SECONDARY NAV -->
+<nav class="sec-nav">
+  <a href="/">Home</a>
+  <a href="/best-credit-cards/">Best Credit Cards</a>
+  <a href="/credit-card-rewards/">Rewards Cards</a>
+  <a href="/balance-transfer-cards/">Balance Transfer</a>
+  <a href="/credit-cards-for-bad-credit/">Bad Credit</a>
+  <a href="/how-credit-cards-work/">How They Work</a>
+  <a href="/credit-card-interest-explained/">Interest Explained</a>
+  <a href="/credit-card-glossary/">Glossary</a>
+  <a href="/credit-card-calculator/">Calculator</a>
+  <a href="/blog/">Blog</a>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="post-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <i class="ti ti-chevron-right"></i>
+      <span>Contact</span>
+    </div>
+    <div class="page-badge">Get In Touch</div>
+    <h1>We'd Love to <span class="accent">Hear From You</span></h1>
+    <p class="hero-intro">Questions, feedback, corrections, or editorial enquiries — send us a message and we'll get back to you within 1–2 business days.</p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+  <main class="main-content">
+    <div class="form-card">
+      <h2>Send Us a Message</h2>
+      <p class="form-intro">Fill out the form below and we'll respond as soon as we can.</p>
+
+      <form id="contact-form" action="https://formspree.io/f/meewgkvn" method="POST" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject" required>
+            <option value="" disabled selected>Select a subject…</option>
+            <option value="General Question">General Question</option>
+            <option value="Editorial / Content Enquiry">Editorial / Content Enquiry</option>
+            <option value="Suggest a Correction">Suggest a Correction</option>
+            <option value="Advertising / Partnership">Advertising / Partnership</option>
+            <option value="Technical Issue">Technical Issue</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us how we can help…" required></textarea>
+        </div>
+
+        <!-- Honeypot — hidden from real users, catches basic spam bots -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+        <button type="submit" class="submit-btn">
+          <i class="ti ti-send"></i> Send Message
+        </button>
+      </form>
+
+      <!-- SUCCESS MESSAGE -->
+      <div class="success-msg" id="success-msg">
+        <div class="success-icon"><i class="ti ti-circle-check"></i></div>
+        <h3>Message sent!</h3>
+        <p>Thanks for getting in touch. We'll get back to you within 1–2 business days.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="info-box">
+      <h4>Contact Details</h4>
+      <div class="info-item">
+        <i class="ti ti-mail"></i>
+        <div>
+          <div class="ii-label">Email</div>
+          <div class="ii-value">contact@mycardrates.com</div>
+          <div class="ii-note">We aim to respond within 1–2 business days</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="ti ti-world"></i>
+        <div>
+          <div class="ii-label">Website</div>
+          <div class="ii-value">mycardrates.com</div>
+          <div class="ii-note">US credit card guides &amp; tools</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="ti ti-clock"></i>
+        <div>
+          <div class="ii-label">Response Time</div>
+          <div class="ii-value">1–2 business days</div>
+          <div class="ii-note">Monday–Friday</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-box">
+      <h4>💡 Looking for a quick answer?</h4>
+      <p>Our <a href="/credit-card-glossary/">glossary</a> and <a href="/blog/">blog guides</a> cover most common credit card questions — you might find what you need right away.</p>
+    </div>
+
+    <div class="info-box">
+      <h4>Editorial Policy</h4>
+      <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.65;">MyCardRates.com is an independent, educational publisher with no commission or affiliate relationships with any card issuer. Our content is for informational purposes only and does not constitute financial advice. If you spot an error or have a content suggestion, we welcome your feedback.</p>
+    </div>
+
+  </aside>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer-bar">
+  <strong>Editorial Disclaimer:</strong> MyCardRates.com is an independent, educational publisher. We have no commission or affiliate relationships with any card issuer, and this site is purely informational — nothing here is financial advice. Card details, rates, and offers are subject to change; always verify on the issuer's website before applying. Content is researched and edited by Mike Lucas, with the assistance of AI writing tools.
+  <a href="/disclaimer/" style="color:var(--gold-dark);font-weight:600;">Full Disclaimer</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">MyCard<span>Rates</span>.com</span>
+        <p>Independent credit card guides and tools for US consumers. Plain-English advice — no jargon, no pressure.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Guides</h4>
+        <a href="/best-credit-cards/">Best Credit Cards</a>
+        <a href="/credit-card-rewards/">Rewards Cards</a>
+        <a href="/balance-transfer-cards/">Balance Transfer</a>
+        <a href="/credit-cards-for-bad-credit/">Bad Credit Cards</a>
+        <a href="/how-credit-cards-work/">How They Work</a>
+        <a href="/credit-card-glossary/">Glossary</a>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <a href="/credit-card-calculator/">Calculator</a>
+        <a href="/blog/">Blog</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/disclaimer/">Disclaimer</a>
+        <a href="/terms-of-use/">Terms of Use</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="dyn-year">2026</span> MyCardRates.com — All rights reserved</span>
+      <div class="footer-legal">
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/disclaimer/">Disclaimer</a>
+        <a href="/terms-of-use/">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var now = new Date(); var year = now.getFullYear();
+  var month = now.toLocaleString("en-US", {month:"long"});
+  document.querySelectorAll(".dyn-year").forEach(function(el){ el.textContent = year; });
+  document.querySelectorAll(".dyn-monthyear").forEach(function(el){ el.textContent = month + " " + year; });
+})();
+
+async function handleSubmit(e) {
+  e.preventDefault();
+  var form = document.getElementById('contact-form');
+  var btn  = form.querySelector('.submit-btn');
+
+  btn.disabled = true;
+  btn.innerHTML = '<i class="ti ti-loader"></i> Sending…';
+
+  try {
+    var response = await fetch('https://formspree.io/f/meewgkvn', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      form.style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="ti ti-send"></i> Send Message';
+      alert('Something went wrong. Please try again or email us directly at contact@mycardrates.com');
+    }
+  } catch(err) {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="ti ti-send"></i> Send Message';
+    alert('Something went wrong. Please try again or email us directly at contact@mycardrates.com');
+  }
+}
+</script>
+
+</body>
+</html>
