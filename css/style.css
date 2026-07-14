@@ -1,0 +1,838 @@
+/* ============================================
+   MyCardRates.com — css/style.css
+   Single external stylesheet — replaces all
+   per-page inline <style> blocks.
+   Built 13 July 2026 during architecture rebuild.
+   ============================================ */
+
+/* ── ROOT VARIABLES (locked — see Component Library) ── */
+:root {
+  --navy:       #0f2557;
+  --navy-mid:   #1a3a6b;
+  --navy-light: #e8eef7;
+  --gold:       #c9a84c;
+  --gold-dark:  #a07c28;
+  --gold-light: #f5ecd4;
+  --bg:         #f9f8f6;
+  --bg2:        #f2f1ee;
+  --text:       #1a1a2e;
+  --text-muted: #5f5e5a;
+  --white:      #ffffff;
+  --border:     rgba(0,0,0,0.10);
+  --radius:     10px;
+  --shadow:     0 4px 24px rgba(15,37,87,0.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ============================================
+   SITEWIDE SHARED COMPONENTS
+   (used on every page — see Component Library)
+   ============================================ */
+
+/* ── TOP BAR ── */
+.top-bar {
+  background: var(--navy);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.35rem;
+  color: var(--white);
+  white-space: nowrap;
+}
+.logo span { color: var(--gold); }
+.top-nav { display: flex; gap: 2rem; align-items: center; }
+.top-nav a {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.top-nav a:hover { color: var(--gold); }
+.top-cta {
+  background: var(--gold);
+  color: var(--navy) !important;
+  font-weight: 700 !important;
+  padding: 0.55rem 1.25rem;
+  border-radius: 6px;
+  transition: background 0.2s !important;
+  white-space: nowrap;
+}
+.top-cta:hover { background: var(--gold-dark) !important; color: var(--white) !important; }
+
+/* ── SECONDARY NAV ── */
+.sec-nav {
+  background: var(--white);
+  border-bottom: 2px solid var(--navy-light);
+  padding: 0 2rem;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.sec-nav::-webkit-scrollbar { display: none; }
+.sec-nav a {
+  padding: 0.85rem 1.1rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  margin-bottom: -2px;
+}
+.sec-nav a:hover { color: var(--navy); border-bottom-color: var(--gold); }
+.sec-nav a.active { color: var(--navy); border-bottom-color: var(--gold); font-weight: 700; }
+
+/* ── PAGE HERO (inner pages — breadcrumb + H1 + intro, no date) ── */
+.page-hero { background: var(--navy); padding: 3.5rem 2rem 3rem; position: relative; overflow: hidden; }
+.page-hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 60% 0%, rgba(201,168,76,0.12) 0%, transparent 65%); pointer-events:none; }
+.post-hero-inner { max-width: 820px; margin: 0 auto; text-align: center; position: relative; }
+.breadcrumb { display:flex; align-items:center; justify-content:center; gap:0.5rem; font-size:0.8rem; color:rgba(255,255,255,0.55); margin-bottom:1rem; }
+.breadcrumb a { color: rgba(255,255,255,0.55); transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb i { font-size: 0.75rem; }
+.page-hero h1 { font-family:'DM Serif Display',serif; font-size:clamp(1.75rem,4vw,2.5rem); color:var(--white); line-height:1.2; margin-bottom:1rem; text-align:center; }
+.page-hero h1 .accent { color: var(--gold); }
+.post-meta-bar { display:flex; flex-wrap:wrap; gap:1.25rem; align-items:center; justify-content:center; margin-top:1.25rem; }
+.post-meta-bar span { font-size:0.83rem; color:rgba(255,255,255,0.65); display:flex; align-items:center; gap:0.35rem; }
+.post-meta-bar i { color: var(--gold); }
+.hero-intro { font-size:1.05rem; color:rgba(255,255,255,0.75); max-width:620px; margin:1.25rem auto 0; line-height:1.7; text-align:center; }
+
+/* ── PAGE BADGE (small eyebrow pill inside .page-hero, e.g. "About This Site") ── */
+.page-badge { display:inline-block; background:rgba(201,168,76,0.15); color:var(--gold); font-size:12px; padding:5px 16px; border-radius:20px; border:0.5px solid rgba(201,168,76,0.35); margin-bottom:1.25rem; letter-spacing:0.5px; }
+
+/* ── CONTENT LAYOUT (2-col: content + sidebar) ── */
+.content-wrap { max-width:1100px; margin:0 auto; padding:3rem 2rem; display:grid; grid-template-columns:1fr 300px; gap:2.5rem; align-items:start; }
+@media(max-width:900px){ .content-wrap { grid-template-columns:1fr; } }
+.main-content { min-width: 0; }
+
+/* ── FAQ ACCORDION ── */
+.faq-section { margin: 3rem 0; }
+.faq-section h2 { font-family:'DM Serif Display',serif; font-size:1.45rem; color:var(--navy); margin-bottom:1.25rem; }
+.faq-item { border:1.5px solid var(--navy-light); border-radius:var(--radius); margin-bottom:0.75rem; overflow:hidden; }
+.faq-q { width:100%; background:var(--white); border:none; padding:1.1rem 1.25rem; text-align:left; font-family:'DM Sans',sans-serif; font-size:0.97rem; font-weight:600; color:var(--navy); cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; transition:background 0.2s; }
+.faq-q:hover { background: var(--navy-light); }
+.faq-q i { color: var(--gold); flex-shrink: 0; transition: transform 0.25s; }
+.faq-q[aria-expanded="true"] i { transform: rotate(180deg); }
+.faq-a { display:none; padding:0 1.25rem 1.1rem; font-size:0.93rem; color:var(--text-muted); line-height:1.75; }
+.faq-a.open { display: block; }
+
+/* ── AUTHOR BIO ── */
+.author-bio { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.5rem; margin:3rem 0 1rem; display:flex; gap:1.25rem; align-items:flex-start; }
+.author-avatar { width:52px; height:52px; background:var(--navy-light); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.author-avatar i { color:var(--navy); font-size:26px; }
+.author-bio-text { flex: 1; }
+.author-bio-text strong { display:block; font-size:0.95rem; color:var(--navy); margin-bottom:0.2rem; }
+.author-bio-text span { font-size:0.82rem; color:var(--gold-dark); font-weight:600; display:block; margin-bottom:0.5rem; }
+.author-bio-text p { font-size:0.88rem; color:var(--text-muted); line-height:1.65; margin:0; }
+
+/* ── DISCLAIMER BANNER ── */
+.disclaimer-bar {
+  background: var(--gold-light);
+  border-top: 2px solid var(--gold);
+  padding: 0.85rem 2rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ── SECTION SHARED (used on homepage + guide pages) ── */
+.section { padding: 4rem 2rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-dark);
+  margin-bottom: 0.6rem;
+}
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+.section-sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 560px;
+  margin-bottom: 2.5rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.65);
+  padding: 3rem 2rem 1.5rem;
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+@media(max-width:700px){ .footer-top { grid-template-columns: 1fr; } }
+.footer-brand .logo { font-size: 1.15rem; display: block; margin-bottom: 0.75rem; }
+.footer-brand p { font-size: 0.85rem; line-height: 1.65; }
+.footer-col h4 {
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.85rem;
+}
+.footer-col a {
+  display: block;
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 0.45rem;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.78rem;
+}
+.footer-legal { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.footer-legal a { color: rgba(255,255,255,0.45); transition: color 0.2s; }
+.footer-legal a:hover { color: var(--gold); }
+
+/* ============================================
+   HOMEPAGE-SPECIFIC (index.html only)
+   ============================================ */
+
+/* ── HERO (homepage) ── */
+.hero {
+  background: var(--navy);
+  padding: 4rem 2rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 0%, rgba(201,168,76,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 820px; margin: 0 auto; position: relative; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1.5px solid rgba(201,168,76,0.5);
+  border-radius: 999px;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.hero-badge i { color: var(--gold); font-size: 1rem; }
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+.hero h1 .accent { color: var(--gold); }
+.hero-sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.75);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+/* ── PAYOFF CALCULATOR (homepage widget) ── */
+.calc-wrap {
+  background: var(--white);
+  border-radius: var(--radius) var(--radius) 0 0;
+  box-shadow: var(--shadow);
+  max-width: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.calc-tabs { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 2px solid var(--navy-light); }
+.calc-tab {
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  background: var(--navy-light);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+.calc-tab i { font-size: 1.1rem; }
+.calc-tab.active {
+  background: var(--white);
+  color: var(--navy);
+  border-bottom: 3px solid var(--gold);
+  margin-bottom: -2px;
+}
+.calc-body { padding: 1.75rem; }
+.calc-panel { display: none; }
+.calc-panel.active { display: block; }
+.calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+@media(max-width:560px){ .calc-grid { grid-template-columns: 1fr; } }
+.field label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.input-wrap { position: relative; display: flex; align-items: center; }
+.input-prefix { position: absolute; left: 0.75rem; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; pointer-events: none; }
+.input-suffix { position: absolute; right: 0.75rem; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; pointer-events: none; }
+.field input {
+  width: 100%;
+  padding: 0.7rem 2rem 0.7rem 1.75rem;
+  border: 1.5px solid var(--navy-light);
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--bg);
+  transition: border-color 0.2s;
+}
+.field input:focus { outline: none; border-color: var(--gold); }
+.calc-btn {
+  width: 100%;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  padding: 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.calc-btn:hover { background: var(--navy-mid); }
+.calc-result { display: none; margin-top: 1.25rem; background: var(--navy-light); border-radius: 8px; padding: 1.25rem; }
+.calc-result.show { display: block; }
+.result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media(max-width:480px){ .result-grid { grid-template-columns: 1fr; } }
+.result-item { text-align: center; }
+.result-label { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.3rem; }
+.result-value { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--navy); }
+.result-value.highlight { color: var(--gold-dark); }
+.result-note { margin-top: 0.85rem; font-size: 0.82rem; color: var(--text-muted); text-align: center; border-top: 1px solid rgba(15,37,87,0.1); padding-top: 0.75rem; }
+
+/* ── PILLAR GRID (homepage core-guides section) ── */
+.pillar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+.pillar-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1.5px solid var(--navy-light);
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+}
+.pillar-card:hover { box-shadow: var(--shadow); border-color: var(--gold); transform: translateY(-2px); }
+.pillar-icon { width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.4rem; }
+.ic-blue   { background: var(--navy-light); color: var(--navy); }
+.ic-gold   { background: var(--gold-light); color: var(--gold-dark); }
+.ic-green  { background: #e6f4ec; color: #2d7a4f; }
+.ic-red    { background: #fdecea; color: #c0392b; }
+.ic-teal   { background: #e4f4f4; color: #1a7a7a; }
+.ic-purple { background: #f0eaf8; color: #6b3fa0; }
+.pillar-content h3 { font-family:'DM Serif Display',serif; font-size:1.05rem; color:var(--navy); margin-bottom:0.35rem; }
+.pillar-content p { font-size:0.88rem; color:var(--text-muted); line-height:1.55; margin-bottom:0.6rem; }
+.pillar-link { font-size:0.83rem; font-weight:700; color:var(--gold-dark); display:flex; align-items:center; gap:0.3rem; transition:gap 0.2s; }
+.pillar-card:hover .pillar-link { gap: 0.55rem; }
+
+/* ── TRUST STRIP (homepage) ── */
+.trust-strip { background: var(--navy); padding: 2.5rem 2rem; }
+.trust-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
+.trust-item i { font-size: 1.8rem; color: var(--gold); margin-bottom: 0.5rem; display: block; }
+.trust-item strong { display: block; color: var(--white); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.2rem; }
+.trust-item span { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+
+/* ── BLOG PREVIEW CARDS (homepage) ── */
+.blog-section { background: var(--white); }
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
+.blog-card { border: 1.5px solid var(--navy-light); border-radius: var(--radius); overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; display: flex; flex-direction: column; }
+.blog-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.blog-thumb { height: 80px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+.bt1 { background: var(--navy-light); color: var(--navy); }
+.bt2 { background: var(--gold-light); color: var(--gold-dark); }
+.bt3 { background: #e6f4ec; color: #2d7a4f; }
+.bt4 { background: #fdecea; color: #c0392b; }
+.blog-body { padding: 1.1rem; flex: 1; display: flex; flex-direction: column; }
+.blog-meta { display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; }
+.blog-cat {
+  font-size: 0.73rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gold-dark);
+  background: var(--gold-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+.blog-date, .blog-read { font-size: 0.78rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.25rem; }
+.blog-body h3 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.4rem; line-height:1.35; }
+.blog-body p { font-size: 0.85rem; color: var(--text-muted); flex: 1; margin-bottom: 0.75rem; }
+.blog-link { font-size: 0.83rem; font-weight: 700; color: var(--gold-dark); display: flex; align-items: center; gap: 0.3rem; }
+.view-all-wrap { text-align: center; }
+.view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--navy);
+  color: var(--white);
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+.view-all-btn:hover { background: var(--navy-mid); }
+
+/* ── CALCULATOR CTA STRIP (homepage) ── */
+.calc-cta { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 3.5rem 2rem; text-align: center; }
+.calc-cta h2 { font-family:'DM Serif Display',serif; font-size:clamp(1.4rem,3vw,1.9rem); color:var(--white); margin-bottom:0.75rem; }
+.calc-cta p { color: rgba(255,255,255,0.7); font-size: 0.97rem; margin-bottom: 1.5rem; }
+.calc-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  padding: 0.85rem 2rem;
+  border-radius: 6px;
+  font-size: 0.97rem;
+  transition: background 0.2s;
+}
+.calc-cta a:hover { background: var(--gold-dark); color: var(--white); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .top-nav { display: none; }
+  .hero { padding: 2.5rem 1.25rem 0; }
+  .page-hero { padding: 2.5rem 1.25rem 2.5rem; }
+  .section { padding: 2.5rem 1.25rem; }
+}
+
+/* ============================================
+   ABOUT PAGE — SPECIFIC
+   Section/heading classes are prefixed "about-"
+   because About uses a narrower 900px single-column
+   layout, distinct from the shared 1100px .section
+   grid system used elsewhere — same names would
+   collide and one page would silently break.
+   ============================================ */
+
+.founder-wrap { max-width:900px; margin:0 auto; padding:4rem 2rem; }
+.founder-card { background:var(--white); border:0.5px solid var(--border); border-radius:18px; padding:2.5rem 2.75rem; position:relative; box-shadow:0 4px 24px rgba(15,37,87,0.07); }
+.founder-card::before { content:''; position:absolute; top:0; left:2.75rem; right:2.75rem; height:3px; background:linear-gradient(90deg,var(--gold),var(--navy)); border-radius:0 0 4px 4px; }
+.founder-eyebrow { font-size:12px; font-weight:600; color:var(--gold-dark); text-transform:uppercase; letter-spacing:0.8px; margin-bottom:1rem; }
+.founder-card h2 { font-family:'DM Serif Display',serif; font-size:1.65rem; font-weight:400; color:var(--text); margin-bottom:1.5rem; line-height:1.3; }
+.founder-body { font-size:1rem; color:var(--text-muted); line-height:1.85; }
+.founder-body p { margin-bottom:1.2rem; }
+.founder-body p:last-of-type { margin-bottom:0; }
+.founder-body strong { color:var(--text); font-weight:600; }
+.founder-sig { margin-top:2rem; padding-top:1.5rem; border-top:0.5px solid var(--border); display:flex; align-items:center; gap:1.25rem; }
+.founder-avatar { width:54px; height:54px; background:var(--navy-light); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.founder-avatar i { color:var(--navy); font-size:28px; }
+.founder-sig-name { font-weight:600; font-size:15px; color:var(--text); }
+.founder-sig-role { font-size:13px; color:var(--text-muted); }
+.founder-sig-flag { font-size:12px; color:var(--text-muted); margin-top:2px; }
+
+.insight-band { background:var(--gold-light); border-top:0.5px solid rgba(201,168,76,0.3); border-bottom:0.5px solid rgba(201,168,76,0.3); padding:2.25rem 2rem; }
+.insight-inner { max-width:900px; margin:0 auto; display:flex; gap:1.5rem; align-items:flex-start; }
+.insight-icon { color:var(--gold-dark); font-size:30px; flex-shrink:0; margin-top:2px; }
+.insight-inner h3 { font-size:1rem; font-weight:600; color:var(--navy); margin-bottom:0.4rem; }
+.insight-inner p { font-size:0.9rem; color:var(--text-muted); line-height:1.75; margin:0; }
+
+.about-section { max-width:900px; margin:0 auto; padding:3.5rem 2rem; }
+.about-section-label { font-size:12px; color:var(--gold-dark); font-weight:600; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:0.5rem; }
+.about-section-title { font-family:'DM Serif Display',serif; font-size:1.75rem; font-weight:400; color:var(--text); margin-bottom:0.75rem; line-height:1.25; }
+.about-section-body { font-size:1rem; color:var(--text-muted); line-height:1.8; max-width:700px; }
+hr { border:none; border-top:0.5px solid var(--border); }
+
+.values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2.5rem; }
+@media(max-width:640px){ .values-grid { grid-template-columns:1fr; } }
+.value-card { background:var(--white); border:0.5px solid var(--border); border-radius:14px; padding:1.4rem; }
+.value-icon { width:44px; height:44px; background:var(--navy-light); border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; }
+.value-icon i { color:var(--navy); font-size:22px; }
+.value-card h3 { font-size:15px; font-weight:600; color:var(--text); margin-bottom:0.4rem; }
+.value-card p { font-size:13px; color:var(--text-muted); line-height:1.65; }
+
+.research-list { list-style:none; margin-top:2rem; display:flex; flex-direction:column; gap:0.75rem; }
+.research-item { display:flex; align-items:flex-start; gap:12px; background:var(--white); border:0.5px solid var(--border); border-radius:12px; padding:1rem 1.25rem; }
+.research-item i { color:var(--gold-dark); font-size:22px; flex-shrink:0; margin-top:1px; }
+.research-item h4 { font-size:15px; font-weight:600; color:var(--text); margin-bottom:2px; }
+.research-item p { font-size:13px; color:var(--text-muted); line-height:1.6; margin:0; }
+
+.commitments-box { background:var(--navy); border-radius:var(--radius); padding:2rem; margin-top:2rem; }
+.commitments-box h3 { font-family:'DM Serif Display',serif; font-size:1.15rem; color:var(--white); margin-bottom:1.25rem; }
+.t-row { display:flex; gap:1rem; align-items:flex-start; padding:0.85rem 0; border-bottom:1px solid rgba(255,255,255,0.1); }
+.t-row:last-child { border-bottom:none; padding-bottom:0; }
+.t-icon { color:var(--gold); font-size:1.2rem; flex-shrink:0; margin-top:2px; }
+.t-text strong { display:block; color:var(--white); font-size:0.9rem; margin-bottom:0.2rem; }
+.t-text span { font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.5; }
+
+.disclaimer-band { background:var(--navy-light); border-top:0.5px solid rgba(15,37,87,0.12); border-bottom:0.5px solid rgba(15,37,87,0.12); padding:2rem; }
+.disclaimer-inner { max-width:900px; margin:0 auto; display:flex; gap:1.25rem; align-items:flex-start; }
+.disclaimer-inner i { color:var(--navy); font-size:26px; flex-shrink:0; margin-top:2px; }
+.disclaimer-inner h3 { font-size:15px; font-weight:600; color:var(--navy); margin-bottom:0.4rem; }
+.disclaimer-inner p { font-size:13px; color:var(--text-muted); line-height:1.7; }
+.disclaimer-inner a { color:var(--gold-dark); font-weight:600; }
+
+.cta-section { background:var(--gold-light); border-top:0.5px solid rgba(201,168,76,0.3); padding:3rem 2rem; text-align:center; }
+.cta-section h2 { font-family:'DM Serif Display',serif; font-size:1.5rem; color:var(--navy); margin-bottom:0.6rem; }
+.cta-section p { font-size:0.95rem; color:var(--text-muted); margin-bottom:1.5rem; }
+.cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.btn-primary { display:inline-flex; align-items:center; gap:0.45rem; background:var(--navy); color:var(--white); font-weight:700; padding:0.75rem 1.5rem; border-radius:6px; font-size:0.92rem; transition:background 0.2s; }
+.btn-primary:hover { background:var(--navy-mid); }
+.btn-secondary { display:inline-flex; align-items:center; gap:0.45rem; border:2px solid var(--navy); color:var(--navy); font-weight:700; padding:0.7rem 1.5rem; border-radius:6px; font-size:0.92rem; transition:background 0.2s,color 0.2s; }
+.btn-secondary:hover { background:var(--navy); color:var(--white); }
+
+/* ============================================
+   CONTACT PAGE — SPECIFIC
+   Nav/footer/hero/layout all reuse the shared
+   .top-bar / .sec-nav / .page-hero / .content-wrap
+   components — only the form card and sidebar
+   info boxes are unique to this page.
+   ============================================ */
+
+.form-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 2rem; box-shadow: 0 4px 24px rgba(15,37,87,0.07); }
+.form-card h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: var(--navy); margin-bottom: 0.4rem; }
+.form-card .form-intro { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.8rem; }
+
+.form-group { margin-bottom: 1.3rem; }
+.form-group label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--bg);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--navy-mid);
+  box-shadow: 0 0 0 3px rgba(26,58,107,0.1);
+  background: var(--white);
+}
+.form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235f5e5a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.9rem center; padding-right: 2.2rem; cursor: pointer; }
+.form-group textarea { resize: vertical; min-height: 130px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media(max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+
+.submit-btn { width: 100%; padding: 0.85rem; background: var(--navy); color: var(--white); border: none; border-radius: 7px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.5rem; }
+.submit-btn:hover { background: var(--navy-mid); }
+.submit-btn i { font-size: 1.1rem; }
+.submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.success-msg { display: none; text-align: center; padding: 2rem 1rem; }
+.success-msg .success-icon { font-size: 3rem; color: #27a560; margin-bottom: 1rem; }
+.success-msg h3 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 0.6rem; }
+.success-msg p { color: var(--text-muted); font-size: 0.97rem; }
+
+.sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+.info-box { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.3rem; }
+.info-box h4 { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--navy); margin-bottom: 0.85rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--navy-light); }
+.info-item { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; }
+.info-item:last-child { margin-bottom: 0; }
+.info-item i { font-size: 1.2rem; color: var(--gold); flex-shrink: 0; margin-top: 0.1rem; }
+.info-item .ii-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.15rem; }
+.info-item .ii-value { font-size: 0.92rem; color: var(--navy); font-weight: 500; }
+.info-item .ii-note { font-size: 0.82rem; color: var(--text-muted); }
+
+.callout-box { background: var(--gold-light); border: 1px solid var(--gold); border-radius: var(--radius); padding: 1.2rem; }
+.callout-box h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+.callout-box p { font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.6; }
+.callout-box a { color: var(--gold-dark); font-weight: 600; }
+
+/* ============================================
+   GUIDE / PILLAR PAGES — SHARED
+   Discovered on best-credit-cards/, but generic
+   enough to expect reuse on credit-card-rewards/,
+   balance-transfer-cards/, credit-cards-for-bad-credit/,
+   how-credit-cards-work/, credit-card-interest-explained/.
+   Confirm/extend as each of those migrates.
+   ============================================ */
+
+/* Category quick-nav pills */
+.category-nav { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.85rem; margin-bottom:3rem; }
+.cat-pill { background:var(--white); border:1.5px solid var(--navy-light); border-radius:8px; padding:0.85rem 1rem; display:flex; align-items:center; gap:0.65rem; font-size:0.88rem; font-weight:600; color:var(--navy); transition:border-color 0.2s,box-shadow 0.2s; }
+.cat-pill:hover { border-color:var(--gold); box-shadow:var(--shadow); }
+.cat-pill i { font-size:1.1rem; color:var(--gold-dark); }
+
+/* Ranked card picks */
+.pick-section { margin-bottom:3rem; }
+.pick-section h2 { font-family:'DM Serif Display',serif; font-size:1.5rem; color:var(--navy); margin-bottom:0.4rem; display:flex; align-items:center; gap:0.6rem; }
+.pick-section h2 i { color:var(--gold); font-size:1.3rem; }
+.pick-intro { font-size:0.95rem; color:var(--text-muted); margin-bottom:1.25rem; border-left:3px solid var(--gold); padding-left:1rem; line-height:1.65; }
+
+.card-pick { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.5rem 1.6rem; margin-bottom:1.25rem; display:flex; gap:1.25rem; align-items:flex-start; transition:box-shadow 0.2s,border-color 0.2s; }
+.card-pick:hover { box-shadow:var(--shadow); border-color:var(--gold); }
+.pick-rank { width:36px; height:36px; border-radius:50%; background:var(--navy); color:var(--white); display:flex; align-items:center; justify-content:center; font-family:'DM Serif Display',serif; font-size:1rem; flex-shrink:0; margin-top:2px; }
+.pick-rank.gold-rank { background:var(--gold); color:var(--navy); }
+.pick-body { flex:1; min-width:0; }
+.pick-body h3 { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--navy); margin-bottom:0.4rem; }
+.pick-body p { font-size:0.9rem; color:var(--text-muted); margin-bottom:0.75rem; line-height:1.65; }
+.pick-tags { display:flex; flex-wrap:wrap; gap:0.45rem; margin-bottom:0.85rem; }
+.pick-tag { font-size:0.75rem; font-weight:700; padding:0.2rem 0.6rem; border-radius:4px; }
+.tag-green { background:#e6f4ec; color:#2d7a4f; }
+.tag-blue  { background:var(--navy-light); color:var(--navy); }
+.tag-gold  { background:var(--gold-light); color:var(--gold-dark); }
+.tag-red   { background:#fdecea; color:#c0392b; }
+
+/* Card detail table */
+.card-detail { width:100%; border-collapse:collapse; font-size:0.85rem; margin-top:0.25rem; }
+.card-detail tr { border-bottom:1px solid var(--navy-light); }
+.card-detail tr:last-child { border-bottom:none; }
+.card-detail td { padding:0.45rem 0.5rem; line-height:1.5; }
+.card-detail td:first-child { color:var(--text-muted); font-weight:500; width:42%; }
+.card-detail td:last-child { color:var(--text); font-weight:600; }
+
+/* Pros / cons */
+.pros-cons { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-top:0.85rem; }
+@media(max-width:600px){ .pros-cons { grid-template-columns:1fr; } }
+.pros, .cons { border-radius:8px; padding:0.85rem 1rem; }
+.pros { background:#e6f4ec; }
+.cons { background:#fdecea; }
+.pros h4 { font-size:0.8rem; font-weight:700; color:#2d7a4f; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5rem; }
+.cons h4 { font-size:0.8rem; font-weight:700; color:#c0392b; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5rem; }
+.pros ul, .cons ul { list-style:none; padding:0; }
+.pros ul li, .cons ul li { font-size:0.83rem; color:var(--text); padding:0.25rem 0; display:flex; gap:0.5rem; align-items:flex-start; line-height:1.5; }
+.pros ul li::before { content:'✓'; color:#2d7a4f; font-weight:700; flex-shrink:0; }
+.cons ul li::before { content:'✗'; color:#c0392b; font-weight:700; flex-shrink:0; }
+
+/* Prose (long-form body text within guide pages) */
+.prose h2 { font-family:'DM Serif Display',serif; font-size:1.45rem; color:var(--navy); margin:2rem 0 0.6rem; }
+.prose h3 { font-family:'DM Serif Display',serif; font-size:1.15rem; color:var(--navy); margin:1.5rem 0 0.5rem; }
+.prose p  { font-size:0.97rem; color:var(--text); margin-bottom:1rem; line-height:1.75; }
+.prose ul { padding-left:1.5rem; margin-bottom:1rem; }
+.prose ul li { font-size:0.97rem; color:var(--text); margin-bottom:0.45rem; line-height:1.65; }
+
+/* Info / tip callouts (renamed from the source page's ".info-box" —
+   that name was already taken by Contact's sidebar boxes, different design) */
+.note-box { background:var(--navy-light); border-left:4px solid var(--navy); border-radius:0 8px 8px 0; padding:1.1rem 1.25rem; margin:1.5rem 0; }
+.note-box strong { display:block; color:var(--navy); font-size:0.88rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem; }
+.note-box p { font-size:0.9rem; color:var(--text-muted); margin:0; line-height:1.65; }
+.tip-box { background:var(--gold-light); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; padding:1.1rem 1.25rem; margin:1.5rem 0; }
+.tip-box strong { display:block; color:var(--gold-dark); font-size:0.88rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem; }
+.tip-box p { font-size:0.9rem; color:var(--text); margin:0; line-height:1.65; }
+
+/* Sidebar boxes (distinct from Contact's .info-box/.callout-box, same .sidebar wrapper) */
+.sidebar-box { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.35rem; }
+.sidebar-box h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.85rem; padding-bottom:0.6rem; border-bottom:2px solid var(--navy-light); }
+.sidebar-box ul { list-style:none; padding:0; }
+.sidebar-box ul li { padding:0.45rem 0; border-bottom:1px solid var(--navy-light); font-size:0.88rem; }
+.sidebar-box ul li:last-child { border-bottom:none; }
+.sidebar-box ul li a { color:var(--navy-mid); font-weight:500; transition:color 0.2s; display:flex; align-items:center; gap:0.4rem; }
+.sidebar-box ul li a:hover { color:var(--gold-dark); }
+.sidebar-box ul li a i { font-size:0.85rem; color:var(--gold); }
+.sidebar-cta { background:var(--navy); border-radius:var(--radius); padding:1.35rem; text-align:center; }
+.sidebar-cta p { color:rgba(255,255,255,0.75); font-size:0.88rem; margin-bottom:1rem; line-height:1.55; }
+.sidebar-cta a { display:inline-flex; align-items:center; gap:0.4rem; background:var(--gold); color:var(--navy); font-weight:700; font-size:0.88rem; padding:0.65rem 1.25rem; border-radius:6px; transition:background 0.2s; }
+.sidebar-cta a:hover { background:var(--gold-dark); color:var(--white); }
+.sidebar-cta h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--white); margin-bottom:0.6rem; }
+
+/* Score badge (inline rating chip) */
+.score-badge { display:inline-flex; align-items:center; gap:0.3rem; background:var(--gold-light); color:var(--gold-dark); font-size:0.78rem; font-weight:700; padding:0.2rem 0.6rem; border-radius:4px; margin-left:0.5rem; }
+
+/* ── Reward-type cards (credit-card-rewards/, possibly reused elsewhere) ── */
+.rewards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.25rem; margin:1.75rem 0 2.5rem; }
+.reward-card { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.5rem; transition:box-shadow 0.2s,border-color 0.2s; }
+.reward-card:hover { box-shadow:var(--shadow); border-color:var(--gold); }
+.reward-icon { width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:1rem; }
+.ri-gold   { background:var(--gold-light); color:var(--gold-dark); }
+.ri-blue   { background:var(--navy-light); color:var(--navy); }
+.ri-green  { background:#e6f4ec; color:#2d7a4f; }
+.reward-card h3 { font-family:'DM Serif Display',serif; font-size:1.05rem; color:var(--navy); margin-bottom:0.4rem; }
+.reward-card p { font-size:0.88rem; color:var(--text-muted); line-height:1.55; margin-bottom:0.75rem; }
+.reward-card .verdict { font-size:0.8rem; font-weight:700; padding:0.25rem 0.65rem; border-radius:4px; display:inline-block; }
+.v-best  { background:#e6f4ec; color:#2d7a4f; }
+.v-good  { background:var(--navy-light); color:var(--navy); }
+
+/* ── Comparison table (generic — likely reused on other guide pages) ── */
+.compare-table { width:100%; border-collapse:collapse; margin:1.5rem 0 2rem; font-size:0.9rem; }
+.compare-table th { background:var(--navy); color:var(--white); padding:0.75rem 1rem; text-align:left; font-size:0.83rem; font-weight:600; }
+.compare-table th:first-child { border-radius:8px 0 0 0; }
+.compare-table th:last-child  { border-radius:0 8px 0 0; }
+.compare-table td { padding:0.75rem 1rem; border-bottom:1px solid var(--navy-light); color:var(--text); vertical-align:top; }
+.compare-table tr:last-child td { border-bottom:none; }
+.compare-table tr:nth-child(even) td { background:var(--bg); }
+.compare-table .check { color:#2d7a4f; font-weight:700; }
+.compare-table .cross { color:#c0392b; }
+
+/* ── Numbered steps (likely reused on how-credit-cards-work/, balance-transfer/) ── */
+.steps { counter-reset:step; margin:1.5rem 0 2rem; }
+.step { display:flex; gap:1.1rem; align-items:flex-start; margin-bottom:1.25rem; }
+.step-num { counter-increment:step; content:counter(step); width:36px; height:36px; border-radius:50%; background:var(--navy); color:var(--white); display:flex; align-items:center; justify-content:center; font-family:'DM Serif Display',serif; font-size:1rem; flex-shrink:0; }
+.step-body h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.25rem; }
+.step-body p { font-size:0.9rem; color:var(--text-muted); margin:0; line-height:1.6; }
+
+/* ── Connected-line step timeline (balance-transfer-cards/ — a second
+   step pattern alongside .steps/.step above; that one is discrete circles,
+   this one is a connected vertical line. Kept as separate components
+   rather than forcing one page to match the other's exact visual style. ── */
+.how-steps { margin:1.75rem 0 2.5rem; display:flex; flex-direction:column; gap:0; }
+.how-step { display:flex; gap:1.25rem; align-items:flex-start; position:relative; padding-bottom:1.5rem; }
+.how-step:last-child { padding-bottom:0; }
+.how-step:not(:last-child)::after { content:''; position:absolute; left:18px; top:42px; bottom:0; width:2px; background:var(--navy-light); }
+.step-circle { width:38px; height:38px; border-radius:50%; background:var(--navy); color:var(--white); display:flex; align-items:center; justify-content:center; font-family:'DM Serif Display',serif; font-size:1rem; flex-shrink:0; z-index:1; }
+.step-text h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.3rem; padding-top:0.5rem; }
+.step-text p { font-size:0.9rem; color:var(--text-muted); margin:0; line-height:1.6; }
+
+/* ── Savings comparison box (before/after style, likely reused on debt-focused content) ── */
+.savings-box { background:var(--navy); border-radius:var(--radius); padding:1.75rem; margin:1.75rem 0; }
+.savings-box h3 { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--white); margin-bottom:1.25rem; text-align:center; }
+.savings-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+@media(max-width:500px){ .savings-grid { grid-template-columns:1fr; } }
+.savings-col { background:rgba(255,255,255,0.08); border-radius:8px; padding:1rem; text-align:center; }
+.savings-col.highlight { background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); }
+.savings-col .s-label { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:rgba(255,255,255,0.55); margin-bottom:0.4rem; }
+.savings-col .s-value { font-family:'DM Serif Display',serif; font-size:1.5rem; color:var(--white); }
+.savings-col.highlight .s-value { color:var(--gold); }
+.savings-note { margin-top:1rem; font-size:0.8rem; color:rgba(255,255,255,0.5); text-align:center; }
+
+/* ── Warning callout (distinct from note-box/tip-box — for genuine risk warnings) ── */
+.warning-box { background:#fdecea; border-left:4px solid #c0392b; border-radius:0 8px 8px 0; padding:1.1rem 1.25rem; margin:1.5rem 0; }
+.warning-box strong { display:block; color:#c0392b; font-size:0.88rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem; }
+.warning-box p { font-size:0.9rem; color:var(--text); margin:0; }
+
+/* ── Score band meter (credit-cards-for-bad-credit/) ── */
+.score-bands { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:0.75rem; margin:1.5rem 0 2.5rem; }
+.score-band { border-radius:8px; padding:1rem; text-align:center; }
+.sb-poor      { background:#fdecea; border-top:4px solid #c0392b; }
+.sb-fair      { background:#fef5e4; border-top:4px solid #e67e22; }
+.sb-good      { background:#e6f4ec; border-top:4px solid #27ae60; }
+.sb-very-good { background:#e8f4fd; border-top:4px solid #2980b9; }
+.sb-excellent { background:var(--navy-light); border-top:4px solid var(--navy); }
+.score-band .sb-range { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--text); margin-bottom:0.2rem; }
+.score-band .sb-label { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:0.4rem; }
+.score-band .sb-note  { font-size:0.78rem; color:var(--text-muted); line-height:1.4; }
+
+/* ── Third timeline variant: dotted-line with colored numbered dots.
+   (Distinct from .steps/.step-num and .how-steps/.step-circle above —
+   three step patterns now exist site-wide; all kept, none collide.)
+   NOTE: source page had a numbering bug (1,2,3,3,4 with a duplicated
+   dot color) — fixed to 1–5 here, added a 5th dot color to support it. ── */
+.timeline { margin:1.75rem 0 2rem; position:relative; }
+.timeline::before { content:''; position:absolute; left:18px; top:0; bottom:0; width:2px; background:var(--navy-light); }
+.tl-item { display:flex; gap:1.25rem; align-items:flex-start; padding-bottom:1.5rem; position:relative; }
+.tl-item:last-child { padding-bottom:0; }
+.tl-dot { width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.85rem; font-weight:700; flex-shrink:0; z-index:1; }
+.tl-dot-1 { background:#fdecea; color:#c0392b; border:2px solid #c0392b; }
+.tl-dot-2 { background:#fef5e4; color:#e67e22; border:2px solid #e67e22; }
+.tl-dot-3 { background:#e6f4ec; color:#27ae60; border:2px solid #27ae60; }
+.tl-dot-4 { background:var(--navy-light); color:var(--navy); border:2px solid var(--navy); }
+.tl-dot-5 { background:#f0eaf8; color:#6b3fa0; border:2px solid #6b3fa0; }
+.tl-body h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.25rem; padding-top:0.5rem; }
+.tl-body p { font-size:0.88rem; color:var(--text-muted); margin:0; line-height:1.6; }
+
+/* ── Score-check sidebar box ── */
+.score-check { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.35rem; margin-bottom:1.5rem; }
+.score-check h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.5rem; }
+.score-check p { font-size:0.85rem; color:var(--text-muted); margin-bottom:0.85rem; line-height:1.55; }
+.score-sources { display:flex; flex-direction:column; gap:0.4rem; }
+.score-source { font-size:0.82rem; color:var(--navy-mid); font-weight:500; display:flex; align-items:center; gap:0.4rem; }
+.score-source i { color:var(--gold); font-size:0.85rem; }
+
+/* ── Concept cards (how-credit-cards-work/) ── */
+.concept-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.1rem; margin:1.75rem 0 2.5rem; }
+.concept-card { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.35rem; transition:box-shadow 0.2s,border-color 0.2s; }
+.concept-card:hover { box-shadow:var(--shadow); border-color:var(--gold); }
+.concept-icon { width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:0.85rem; }
+.ci-blue   { background:var(--navy-light); color:var(--navy); }
+.ci-gold   { background:var(--gold-light); color:var(--gold-dark); }
+.ci-green  { background:#e6f4ec; color:#2d7a4f; }
+.ci-red    { background:#fdecea; color:#c0392b; }
+.ci-teal   { background:#e4f4f4; color:#1a7a7a; }
+.ci-purple { background:#f0eaf8; color:#6b3fa0; }
+.concept-card h3 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.35rem; }
+.concept-card p { font-size:0.86rem; color:var(--text-muted); line-height:1.55; margin:0; }
+
+/* ── Billing cycle / horizontal timeline diagram ── */
+.cycle-diagram { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.75rem; margin:1.75rem 0 2.5rem; }
+.cycle-diagram h3 { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--navy); margin-bottom:1.25rem; text-align:center; }
+.cycle-steps { display:flex; align-items:center; gap:0; overflow-x:auto; padding-bottom:0.5rem; }
+.cycle-step { flex:1; min-width:110px; text-align:center; position:relative; }
+.cycle-step:not(:last-child)::after { content:'→'; position:absolute; right:-10px; top:50%; transform:translateY(-50%); color:var(--gold); font-size:1.2rem; font-weight:700; z-index:1; }
+.cs-box { background:var(--navy-light); border-radius:8px; padding:0.85rem 0.5rem; margin:0 0.5rem; }
+.cs-day { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); display:block; }
+.cs-label { font-size:0.75rem; color:var(--text-muted); font-weight:600; }
+.cs-note { font-size:0.72rem; color:var(--text-muted); margin-top:0.5rem; padding:0 0.25rem; line-height:1.4; }
+
+/* ── APR type cards (credit-card-interest-explained/) ── */
+.apr-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1.1rem; margin:1.75rem 0 2.5rem; }
+.apr-card { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.35rem; }
+.apr-card h3 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.35rem; display:flex; align-items:center; gap:0.5rem; }
+.apr-card h3 i { color:var(--gold); font-size:1rem; }
+.apr-card .apr-rate { font-family:'DM Serif Display',serif; font-size:1.5rem; color:var(--gold-dark); margin-bottom:0.4rem; }
+.apr-card p { font-size:0.85rem; color:var(--text-muted); line-height:1.55; margin:0; }
+
+/* ── Formula / worked-example box (monospace calc display) ── */
+.formula-box { background:var(--navy); border-radius:var(--radius); padding:1.75rem; margin:1.75rem 0; }
+.formula-box h3 { font-family:'DM Serif Display',serif; font-size:1.05rem; color:var(--white); margin-bottom:1.25rem; }
+.formula { background:rgba(255,255,255,0.08); border-radius:8px; padding:1.25rem; margin-bottom:1rem; font-family:monospace; font-size:0.95rem; color:var(--gold); line-height:1.8; }
+.formula-example { background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.3); border-radius:8px; padding:1rem 1.25rem; }
+.formula-example p { font-size:0.88rem; color:rgba(255,255,255,0.8); margin-bottom:0.4rem; line-height:1.6; }
+.formula-example p:last-child { margin:0; }
+.formula-example strong { color:var(--gold); }
