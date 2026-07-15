@@ -1249,3 +1249,56 @@ hr { border:none; border-top:0.5px solid var(--border); }
 .ds-body { flex:1; padding-top:0.25rem; }
 .ds-body h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.3rem; }
 .ds-body p { font-size:0.9rem; color:var(--text-muted); margin:0; line-height:1.6; }
+
+/* ── Callout box (inline within prose — quick summary / warning) ── */
+.prose .callout { border-left:4px solid var(--gold); background:var(--gold-light); border-radius:0 var(--radius) var(--radius) 0; padding:1rem 1.25rem; margin:1.8rem 0; }
+.prose .callout-title { font-weight:700; color:var(--navy); font-size:0.9rem; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.4rem; }
+.prose .callout p { margin:0; font-size:0.97rem; }
+.prose .callout-navy { border-left-color:var(--navy-mid); background:var(--navy-light); }
+.prose .callout-navy .callout-title { color:var(--navy); }
+
+/* ── Distinctly-named comparison table (dv- prefix) — this is a DIFFERENT
+   design (thead/tbody structured, tick/cross icons) than the already-shared
+   .compare-table used elsewhere. Renamed rather than reused to avoid a
+   real specificity/structure collision with that component. ── */
+.prose .dv-compare-table-wrap { overflow-x:auto; margin:1.8rem 0; border-radius:var(--radius); box-shadow:0 2px 12px rgba(15,37,87,0.08); }
+.prose .dv-compare-table { width:100%; border-collapse:collapse; font-size:0.95rem; background:var(--white); }
+.prose .dv-compare-table thead { background:var(--navy); color:var(--white); }
+.prose .dv-compare-table thead th { padding:0.85rem 1rem; text-align:left; font-weight:600; font-size:0.9rem; }
+.prose .dv-compare-table thead th:first-child { border-radius:var(--radius) 0 0 0; }
+.prose .dv-compare-table thead th:last-child { border-radius:0 var(--radius) 0 0; }
+.prose .dv-compare-table tbody tr:nth-child(even) { background:var(--navy-light); }
+.prose .dv-compare-table tbody td { padding:0.75rem 1rem; border-bottom:1px solid var(--border); vertical-align:top; }
+.prose .dv-compare-table tbody td:first-child { font-weight:600; color:var(--navy); white-space:nowrap; }
+.dv-tick { color:#27a560; font-weight:700; }
+.dv-cross { color:#c0392b; font-weight:700; }
+
+/* ── Scenario cards ("use credit for X / use debit for Y") ── */
+.prose .scenario-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; margin:1.8rem 0; }
+@media(max-width:580px){ .prose .scenario-grid { grid-template-columns:1fr; } }
+.scenario-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius); padding:1.15rem 1.2rem; box-shadow:0 2px 8px rgba(15,37,87,0.06); }
+.scenario-card .sc-label { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:0.5rem; }
+.sc-credit .sc-label { color:var(--navy-mid); }
+.sc-debit .sc-label { color:#5f6a7a; }
+.sc-both .sc-label { color:var(--gold-dark); }
+.scenario-card h4 { font-size:0.97rem; font-weight:600; color:var(--navy); margin-bottom:0.4rem; }
+.scenario-card p { font-size:0.9rem; color:var(--text-muted); margin:0; }
+
+/* ── Takeaway box (bulleted variant of the key-points pattern — kept
+   distinct rather than merged, since its list style is intentionally
+   different: plain bullets vs. key-points' divided rows) ── */
+.prose .takeaway-box { background:var(--navy); color:var(--white); border-radius:var(--radius); padding:1.5rem 1.6rem; margin:2.2rem 0; }
+.prose .takeaway-box h3 { color:var(--gold); font-family:'DM Serif Display',serif; font-size:1.2rem; margin-bottom:0.8rem; }
+.prose .takeaway-box ul { margin:0; padding-left:1.25rem; }
+.prose .takeaway-box li { color:rgba(255,255,255,0.88); margin-bottom:0.45rem; font-size:0.97rem; }
+
+/* ── Prev/next post navigation (first use of this pattern — a genuinely
+   useful feature not yet present on other posts; worth considering
+   sitewide later, not retrofitted here to avoid scope creep) ── */
+.post-nav { display:flex; justify-content:space-between; gap:1rem; margin-top:3rem; padding-top:2rem; border-top:1px solid var(--navy-light); flex-wrap:wrap; }
+.post-nav-link { display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; font-weight:500; color:var(--navy-mid); padding:0.6rem 1rem; border:1px solid var(--navy-light); border-radius:var(--radius); background:var(--white); transition:border-color 0.2s,background 0.2s; }
+.post-nav-link:hover { border-color:var(--gold); background:var(--gold-light); }
+.post-nav-link .nav-label { font-size:0.75rem; font-weight:400; color:var(--text-muted); display:block; }
+
+/* Small typography enhancement applied sitewide: bold text in prose reads navy, matching brand */
+.prose strong { color: var(--navy); }
