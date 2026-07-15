@@ -1130,3 +1130,57 @@ hr { border:none; border-top:0.5px solid var(--border); }
 .check-item { display:flex; align-items:flex-start; gap:0.75rem; padding:0.55rem 0; border-bottom:1px solid var(--navy-light); font-size:0.9rem; color:var(--text); line-height:1.5; }
 .check-item:last-child { border-bottom:none; padding-bottom:0; }
 .check-item i { color:var(--gold-dark); flex-shrink:0; margin-top:2px; font-size:1rem; }
+
+/* ── FICO score factor breakdown (horizontal bar chart) ── */
+.fico-grid { display:grid; grid-template-columns:1fr; gap:0.75rem; margin:1.5rem 0 2rem; }
+.fico-item { background:var(--white); border:1.5px solid var(--navy-light); border-radius:8px; padding:1rem 1.25rem; display:flex; align-items:center; gap:1rem; }
+.fico-pct { font-family:'DM Serif Display',serif; font-size:1.5rem; color:var(--navy); min-width:52px; text-align:center; }
+.fico-bar-wrap { flex:1; }
+.fico-label { font-size:0.85rem; font-weight:700; color:var(--navy); margin-bottom:0.3rem; }
+.fico-bar { height:8px; border-radius:4px; background:var(--navy-light); overflow:hidden; margin-bottom:0.3rem; }
+.fico-fill { height:100%; border-radius:4px; }
+.fill-35 { width:35%; background:var(--navy); }
+.fill-30 { width:30%; background:var(--gold); }
+.fill-15 { width:15%; background:#2980b9; }
+.fill-10a { width:10%; background:#27ae60; }
+.fill-10b { width:10%; background:#8e44ad; }
+.fico-desc { font-size:0.8rem; color:var(--text-muted); }
+
+/* ── Fourth step-timeline variant: numbered circular icons, connected
+   line, distinct icon per step (vs the discrete/connected/dotted
+   variants already shared). Unique class names, no collision — kept
+   as its own pattern since "building credit habits" reads better as
+   icon-per-habit than a plain numbered list. ── */
+.habits-wrap { margin:1.75rem 0 2.5rem; }
+.habit { display:flex; gap:1.25rem; align-items:flex-start; padding-bottom:1.75rem; position:relative; }
+.habit:not(:last-child)::after { content:''; position:absolute; left:19px; top:44px; bottom:0; width:2px; background:var(--navy-light); }
+.habit-icon { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; z-index:1; }
+.hi-1 { background:var(--navy); color:var(--white); }
+.hi-2 { background:var(--gold); color:var(--navy); }
+.hi-3 { background:#e6f4ec; color:#2d7a4f; }
+.hi-4 { background:var(--navy-light); color:var(--navy); }
+.hi-5 { background:var(--gold-light); color:var(--gold-dark); }
+.habit-body { flex:1; padding-top:0.3rem; }
+.habit-body h3 { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--navy); margin-bottom:0.4rem; }
+.habit-body p { font-size:0.92rem; color:var(--text-muted); margin:0; line-height:1.65; }
+
+/* ── Score-improvement progress timeline (0/3/6/12 month milestones) ── */
+.progress-timeline { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.5rem; margin:1.75rem 0; }
+.progress-timeline h3 { font-family:'DM Serif Display',serif; font-size:1.05rem; color:var(--navy); margin-bottom:1.25rem; text-align:center; }
+.pt-row { display:grid; grid-template-columns:repeat(4,1fr); gap:0.5rem; }
+@media(max-width:580px){ .pt-row { grid-template-columns:1fr 1fr; } }
+.pt-item { text-align:center; padding:0.85rem 0.5rem; border-radius:8px; }
+.pt-item.m0 { background:#fdecea; }
+.pt-item.m3 { background:#fef5e4; }
+.pt-item.m6 { background:#e6f4ec; }
+.pt-item.m12 { background:var(--navy-light); }
+.pt-period { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:0.3rem; }
+.pt-score { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--navy); margin-bottom:0.25rem; }
+.pt-note { font-size:0.73rem; color:var(--text-muted); line-height:1.4; }
+
+/* ── Free-tools sidebar list ── */
+.free-tools { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.3rem; }
+.free-tools h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.85rem; padding-bottom:0.6rem; border-bottom:2px solid var(--navy-light); }
+.tool-item { padding:0.5rem 0; border-bottom:1px solid var(--navy-light); font-size:0.85rem; display:flex; align-items:center; gap:0.5rem; color:var(--text-muted); }
+.tool-item:last-child { border-bottom:none; }
+.tool-item i { color:var(--gold); flex-shrink:0; }
