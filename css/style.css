@@ -1215,3 +1215,37 @@ hr { border:none; border-top:0.5px solid var(--border); }
 .fee-table tr:nth-child(even) td { background:var(--bg); }
 .fee-table .avoidable { color:#2d7a4f; font-weight:700; }
 .fee-table .depends { color:var(--gold-dark); font-weight:700; }
+
+/* ── Strategy card grid (icon + title + description, generic — likely reused) ── */
+.strategy-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.1rem; margin:1.75rem 0 2.5rem; }
+.strategy-card { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.4rem; transition:box-shadow 0.2s,border-color 0.2s; }
+.strategy-card:hover { box-shadow:var(--shadow); border-color:var(--gold); }
+.sc-icon { width:46px; height:46px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:0.85rem; }
+.sc-blue   { background:var(--navy-light); color:var(--navy); }
+.sc-gold   { background:var(--gold-light); color:var(--gold-dark); }
+.sc-green  { background:#e6f4ec; color:#2d7a4f; }
+.sc-purple { background:#f0eaf8; color:#6b3fa0; }
+.sc-teal   { background:#e4f4f4; color:#1a7a7a; }
+.sc-red    { background:#fdecea; color:#c0392b; }
+.strategy-card h3 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.4rem; }
+.strategy-card p { font-size:0.86rem; color:var(--text-muted); line-height:1.6; margin:0; }
+
+/* ── Warning-signs list (dark card, red-icon list items) ── */
+.warning-signs { background:var(--navy); border-radius:var(--radius); padding:1.75rem; margin:1.75rem 0; }
+.warning-signs h3 { font-family:'DM Serif Display',serif; font-size:1.05rem; color:var(--white); margin-bottom:1.25rem; display:flex; align-items:center; gap:0.5rem; }
+.warning-signs h3 i { color:var(--gold); }
+.ws-item { display:flex; align-items:flex-start; gap:0.85rem; padding:0.65rem 0; border-bottom:1px solid rgba(255,255,255,0.08); }
+.ws-item:last-child { border-bottom:none; padding-bottom:0; }
+.ws-item i { color:#e74c3c; flex-shrink:0; font-size:1.1rem; margin-top:2px; }
+.ws-item span { font-size:0.88rem; color:rgba(255,255,255,0.8); line-height:1.5; }
+
+/* ── Fifth step-timeline variant: gold numbered circles, connected line.
+   Yet another non-colliding variant (.debt-step vs .step/.how-step/
+   .habit) — same pattern of content-specific step designs continuing. ── */
+.debt-steps { margin:1.75rem 0 2rem; }
+.debt-step { display:flex; gap:1.25rem; align-items:flex-start; padding-bottom:1.5rem; position:relative; }
+.debt-step:not(:last-child)::after { content:''; position:absolute; left:18px; top:40px; bottom:0; width:2px; background:var(--navy-light); }
+.ds-num { width:38px; height:38px; border-radius:50%; background:var(--gold); color:var(--navy); display:flex; align-items:center; justify-content:center; font-family:'DM Serif Display',serif; font-size:1rem; flex-shrink:0; z-index:1; font-weight:700; }
+.ds-body { flex:1; padding-top:0.25rem; }
+.ds-body h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--navy); margin-bottom:0.3rem; }
+.ds-body p { font-size:0.9rem; color:var(--text-muted); margin:0; line-height:1.6; }
