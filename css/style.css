@@ -19,6 +19,10 @@
   --text-muted: #5f5e5a;
   --white:      #ffffff;
   --border:     rgba(0,0,0,0.10);
+  --green:      #2d7a4f;
+  --green-light:#e6f4ec;
+  --red:        #c0392b;
+  --red-light:  #fdecea;
   --radius:     10px;
   --shadow:     0 4px 24px rgba(15,37,87,0.10);
 }
@@ -124,6 +128,8 @@ a { color: inherit; text-decoration: none; }
 .content-wrap { max-width:1100px; margin:0 auto; padding:3rem 2rem; display:grid; grid-template-columns:1fr 300px; gap:2.5rem; align-items:start; }
 @media(max-width:900px){ .content-wrap { grid-template-columns:1fr; } }
 .main-content { min-width: 0; }
+#glossary-main { min-width: 0; }
+.calc-page-wrap > main { min-width: 0; }
 
 /* ── FAQ ACCORDION ── */
 .faq-section { margin: 3rem 0; }
@@ -836,3 +842,291 @@ hr { border:none; border-top:0.5px solid var(--border); }
 .formula-example p { font-size:0.88rem; color:rgba(255,255,255,0.8); margin-bottom:0.4rem; line-height:1.6; }
 .formula-example p:last-child { margin:0; }
 .formula-example strong { color:var(--gold); }
+
+/* ============================================
+   GLOSSARY PAGE — SPECIFIC
+   Uses its own .glossary-wrap layout (280px sidebar,
+   vs the shared .content-wrap's 300px) since it's a
+   distinct reference-page format with sticky alpha-nav
+   and live search — kept separate rather than forced
+   into the standard content-wrap grid.
+   ============================================ */
+
+.alpha-nav { background:var(--white); border-bottom:2px solid var(--navy-light); padding:0.85rem 2rem; display:flex; flex-wrap:wrap; gap:0.35rem; justify-content:center; position:sticky; top:64px; z-index:90; }
+.alpha-btn { width:32px; height:32px; border-radius:6px; border:1.5px solid var(--navy-light); background:transparent; font-family:'DM Sans',sans-serif; font-size:0.82rem; font-weight:700; color:var(--text-muted); cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; }
+.alpha-btn:hover { background:var(--navy-light); color:var(--navy); border-color:var(--navy); }
+.alpha-btn.has-terms { color:var(--navy); border-color:var(--navy-light); }
+.alpha-btn.has-terms:hover { background:var(--gold-light); border-color:var(--gold); color:var(--gold-dark); }
+
+.search-wrap { max-width:600px; margin:2rem auto 0; padding:0 2rem; }
+.search-inner { position:relative; }
+.search-inner i { position:absolute; left:1rem; top:50%; transform:translateY(-50%); color:var(--text-muted); font-size:1.1rem; }
+.search-inner input { width:100%; padding:0.85rem 1rem 0.85rem 2.75rem; border:1.5px solid var(--navy-light); border-radius:8px; font-family:'DM Sans',sans-serif; font-size:0.97rem; color:var(--text); background:var(--white); transition:border-color 0.2s; }
+.search-inner input:focus { outline:none; border-color:var(--gold); }
+.search-count { text-align:center; font-size:0.82rem; color:var(--text-muted); margin-top:0.6rem; }
+
+.glossary-wrap { max-width:1100px; margin:0 auto; padding:2.5rem 2rem 3rem; display:grid; grid-template-columns:1fr 280px; gap:2.5rem; align-items:start; }
+@media(max-width:900px){ .glossary-wrap { grid-template-columns:1fr; } }
+
+.glossary-section { margin-bottom:2.5rem; }
+.letter-header { font-family:'DM Serif Display',serif; font-size:2rem; color:var(--navy); border-bottom:3px solid var(--gold); padding-bottom:0.4rem; margin-bottom:1.25rem; display:flex; align-items:center; gap:0.75rem; }
+.letter-header span { font-size:0.8rem; font-weight:600; color:var(--text-muted); font-family:'DM Sans',sans-serif; }
+
+.term-item { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.25rem 1.4rem; margin-bottom:0.85rem; transition:border-color 0.2s,box-shadow 0.2s; }
+.term-item:hover { border-color:var(--gold); box-shadow:var(--shadow); }
+.term-name { font-family:'DM Serif Display',serif; font-size:1.05rem; color:var(--navy); margin-bottom:0.4rem; display:flex; align-items:center; gap:0.6rem; }
+.term-name i { color:var(--gold); font-size:0.95rem; }
+.term-def { font-size:0.92rem; color:var(--text); line-height:1.7; margin-bottom:0.5rem; }
+.term-example { font-size:0.83rem; color:var(--text-muted); background:var(--bg); border-left:3px solid var(--gold-light); padding:0.5rem 0.85rem; border-radius:0 6px 6px 0; line-height:1.6; }
+.term-example strong { color:var(--gold-dark); }
+.term-tag { display:inline-block; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; background:var(--navy-light); color:var(--navy); padding:0.15rem 0.5rem; border-radius:4px; margin-bottom:0.5rem; }
+
+.no-results { text-align:center; padding:3rem 1rem; color:var(--text-muted); display:none; }
+.no-results i { font-size:2.5rem; color:var(--navy-light); display:block; margin-bottom:0.75rem; }
+
+/* ============================================
+   CREDIT-CARD-CALCULATOR PAGE — SPECIFIC
+   This page reuses .calc-tabs/.calc-body/.result-grid/
+   .result-note — same class names as the homepage's
+   embedded 2-tab hero calculator, but this is a wider
+   3-tab standalone tool with a different grid layout.
+   Rather than rename (the JS in both places selects
+   .calc-tab/.calc-panel directly, so renaming risks
+   breaking tab-switching), these three are scoped under
+   .calc-container so they only apply on this page and
+   never touch the homepage's version of the same names.
+   ============================================ */
+
+.calc-page-wrap { max-width:1100px; margin:0 auto; padding:3rem 2rem; display:grid; grid-template-columns:1fr 300px; gap:2.5rem; align-items:start; }
+@media(max-width:900px){ .calc-page-wrap { grid-template-columns:1fr; } }
+
+.calc-container { background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; border:1.5px solid var(--navy-light); }
+.calc-container .calc-tabs { grid-template-columns:1fr 1fr 1fr; }
+.calc-container .calc-tab { padding:1rem 0.75rem; font-size:0.88rem; border-bottom:3px solid transparent; }
+.calc-container .calc-tab:hover:not(.active) { background:#dde5f3; color:var(--navy); }
+.calc-container .calc-body { padding:2rem; }
+.calc-container .result-grid { grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); margin-bottom:1rem; }
+.calc-container .result-note { padding:0.85rem 1rem; background:var(--bg); border-radius:6px; border-top:none; text-align:center; }
+
+.panel-intro { font-size:0.9rem; color:var(--text-muted); margin-bottom:1.5rem; line-height:1.6; padding-bottom:1.25rem; border-bottom:1.5px solid var(--navy-light); }
+
+.fields-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; margin-bottom:1.25rem; }
+@media(max-width:580px){ .fields-grid { grid-template-columns:1fr; } }
+.fields-grid.three-col { grid-template-columns:1fr 1fr 1fr; }
+@media(max-width:680px){ .fields-grid.three-col { grid-template-columns:1fr 1fr; } }
+@media(max-width:480px){ .fields-grid.three-col { grid-template-columns:1fr; } }
+.field input.no-prefix { padding-left:0.85rem; }
+.field input.has-suffix { padding-right:2.25rem; padding-left:0.85rem; }
+.field select { padding-left:0.85rem; cursor:pointer; width:100%; padding-top:0.75rem; padding-bottom:0.75rem; border:1.5px solid var(--navy-light); border-radius:6px; font-family:'DM Sans',sans-serif; font-size:1rem; color:var(--text); background:var(--bg); }
+
+.result-panel { display:none; margin-top:1.75rem; }
+.result-panel.show { display:block; }
+.result-header { display:flex; align-items:center; gap:0.6rem; font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--navy); margin-bottom:1.1rem; padding-bottom:0.75rem; border-bottom:2px solid var(--navy-light); }
+.result-header i { color:var(--gold); }
+.result-card { background:var(--navy-light); border-radius:8px; padding:1rem; text-align:center; }
+.result-card.highlight { background:var(--gold-light); border:1.5px solid var(--gold); }
+.result-card.alert { background:var(--red-light); border:1.5px solid var(--red); }
+.result-card.good  { background:var(--green-light); border:1.5px solid var(--green); }
+.r-label { font-size:0.73rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); margin-bottom:0.35rem; }
+.r-value { font-family:'DM Serif Display',serif; font-size:1.55rem; color:var(--navy); line-height:1.1; }
+.result-card.highlight .r-value { color:var(--gold-dark); }
+.result-card.alert .r-value { color:var(--red); }
+.result-card.good .r-value  { color:var(--green); }
+.r-sub { font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem; }
+
+/* Amortisation schedule table */
+.amort-toggle { background:none; border:1.5px solid var(--navy-light); border-radius:6px; padding:0.6rem 1rem; font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:600; color:var(--navy); cursor:pointer; display:flex; align-items:center; gap:0.4rem; transition:all 0.2s; margin-top:1rem; }
+.amort-toggle:hover { border-color:var(--gold); color:var(--gold-dark); }
+.amort-wrap { display:none; margin-top:1rem; overflow-x:auto; }
+.amort-wrap.show { display:block; }
+.amort-table { width:100%; border-collapse:collapse; font-size:0.83rem; }
+.amort-table th { background:var(--navy); color:var(--white); padding:0.6rem 0.85rem; text-align:right; font-weight:600; font-size:0.78rem; }
+.amort-table th:first-child { text-align:left; border-radius:6px 0 0 0; }
+.amort-table th:last-child { border-radius:0 6px 0 0; }
+.amort-table td { padding:0.55rem 0.85rem; border-bottom:1px solid var(--navy-light); text-align:right; color:var(--text); }
+.amort-table td:first-child { text-align:left; font-weight:600; color:var(--navy); }
+.amort-table tr:last-child td { border-bottom:none; font-weight:700; background:var(--navy-light) !important; }
+.amort-table tr:nth-child(even) td { background:var(--bg); }
+
+/* Balance transfer comparison card */
+.bt-comparison { background:var(--navy); border-radius:8px; padding:1.25rem; margin-top:1rem; }
+.bt-comparison h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--white); margin-bottom:1rem; }
+.bt-row { display:grid; grid-template-columns:1fr 1fr; gap:0.85rem; }
+.bt-col { background:rgba(255,255,255,0.08); border-radius:6px; padding:0.85rem; text-align:center; }
+.bt-col.better { background:rgba(201,168,76,0.18); border:1px solid rgba(201,168,76,0.4); }
+.bt-col-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:rgba(255,255,255,0.55); margin-bottom:0.35rem; }
+.bt-col-value { font-family:'DM Serif Display',serif; font-size:1.25rem; color:var(--white); }
+.bt-col.better .bt-col-value { color:var(--gold); }
+.bt-col-sub { font-size:0.75rem; color:rgba(255,255,255,0.5); margin-top:0.2rem; }
+.bt-saving { text-align:center; margin-top:0.85rem; font-size:0.85rem; color:rgba(255,255,255,0.75); }
+.bt-saving strong { color:var(--gold); }
+
+/* "How it works" info cards below the calculator */
+.how-it-works { margin-top:2.5rem; }
+.how-it-works h2 { font-family:'DM Serif Display',serif; font-size:1.35rem; color:var(--navy); margin-bottom:1.25rem; }
+.how-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1rem; }
+.how-card { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.25rem; }
+.how-icon { width:42px; height:42px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:0.75rem; }
+.hi-blue   { background:var(--navy-light); color:var(--navy); }
+.hi-gold   { background:var(--gold-light); color:var(--gold-dark); }
+.hi-green  { background:var(--green-light); color:var(--green); }
+.how-card h4 { font-family:'DM Serif Display',serif; font-size:0.97rem; color:var(--navy); margin-bottom:0.3rem; }
+.how-card p { font-size:0.83rem; color:var(--text-muted); line-height:1.55; }
+
+/* Quick-facts sidebar box */
+.quick-facts { background:var(--navy); border-radius:var(--radius); padding:1.35rem; }
+.quick-facts h4 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--white); margin-bottom:1rem; }
+.qf-item { padding:0.6rem 0; border-bottom:1px solid rgba(255,255,255,0.1); }
+.qf-item:last-child { border-bottom:none; }
+.qf-label { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:rgba(255,255,255,0.5); margin-bottom:0.15rem; }
+.qf-value { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--gold); }
+.qf-note { font-size:0.75rem; color:rgba(255,255,255,0.45); }
+
+/* ============================================
+   BLOG INDEX PAGE — SPECIFIC
+   ============================================ */
+
+.blog-hero { background:var(--navy); padding:3.5rem 2rem 3rem; position:relative; overflow:hidden; }
+.blog-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 60% 0%,rgba(201,168,76,0.12) 0%,transparent 65%); pointer-events:none; }
+.blog-hero .hero-inner { max-width:820px; margin:0 auto; text-align:center; position:relative; }
+.blog-hero h1 { font-family:'DM Serif Display',serif; font-size:clamp(1.75rem,4vw,2.5rem); color:var(--white); line-height:1.2; margin-bottom:1rem; }
+.blog-hero h1 .accent { color:var(--gold); }
+.blog-hero p { font-size:1.05rem; color:rgba(255,255,255,0.75); max-width:580px; margin:0 auto 2rem; line-height:1.7; }
+
+.filter-bar { display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center; }
+.filter-pill { border:1.5px solid rgba(255,255,255,0.25); border-radius:999px; padding:0.4rem 1.1rem; font-size:0.83rem; font-weight:600; color:rgba(255,255,255,0.75); cursor:pointer; transition:all 0.2s; background:transparent; font-family:'DM Sans',sans-serif; }
+.filter-pill:hover { border-color:var(--gold); color:var(--gold); }
+.filter-pill.active { background:var(--gold); border-color:var(--gold); color:var(--navy); }
+
+.blog-wrap { max-width:1100px; margin:0 auto; padding:3rem 2rem; display:grid; grid-template-columns:1fr 300px; gap:2.5rem; align-items:start; }
+@media(max-width:900px){ .blog-wrap { grid-template-columns:1fr; } }
+
+.posts-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; flex-wrap:wrap; gap:0.75rem; }
+.posts-header h2 { font-family:'DM Serif Display',serif; font-size:1.3rem; color:var(--navy); }
+.post-count { font-size:0.85rem; color:var(--text-muted); background:var(--navy-light); padding:0.3rem 0.85rem; border-radius:999px; font-weight:600; }
+
+.posts-grid { display:flex; flex-direction:column; gap:1.25rem; }
+.post-card { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); display:flex; gap:1.25rem; align-items:flex-start; padding:1.35rem; transition:box-shadow 0.2s,border-color 0.2s,transform 0.2s; }
+.post-card:hover { box-shadow:var(--shadow); border-color:var(--gold); transform:translateY(-2px); }
+.post-thumb { width:72px; height:72px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.75rem; flex-shrink:0; }
+.t1 { background:var(--navy-light); color:var(--navy); }
+.t2 { background:var(--gold-light); color:var(--gold-dark); }
+.t3 { background:#e6f4ec; color:#2d7a4f; }
+.t4 { background:#fdecea; color:#c0392b; }
+.t5 { background:#e4f4f4; color:#1a7a7a; }
+.t6 { background:#f0eaf8; color:#6b3fa0; }
+.post-body { flex:1; min-width:0; }
+.post-meta { display:flex; flex-wrap:wrap; gap:0.65rem; align-items:center; margin-bottom:0.5rem; }
+.post-cat { font-size:0.73rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--gold-dark); background:var(--gold-light); padding:0.2rem 0.6rem; border-radius:4px; }
+.post-num { font-size:0.73rem; font-weight:700; color:var(--text-muted); background:var(--navy-light); padding:0.2rem 0.6rem; border-radius:4px; }
+.post-date, .post-read { font-size:0.78rem; color:var(--text-muted); display:flex; align-items:center; gap:0.25rem; }
+.post-body h2 { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--navy); margin-bottom:0.35rem; line-height:1.3; }
+.post-body p { font-size:0.88rem; color:var(--text-muted); line-height:1.55; margin-bottom:0.65rem; }
+.post-link { font-size:0.83rem; font-weight:700; color:var(--gold-dark); display:inline-flex; align-items:center; gap:0.3rem; transition:gap 0.2s; }
+.post-card:hover .post-link { gap:0.55rem; }
+
+.coming-soon { opacity:0.55; pointer-events:none; }
+.coming-badge { font-size:0.73rem; font-weight:700; color:var(--text-muted); background:var(--navy-light); padding:0.2rem 0.6rem; border-radius:4px; }
+.post-card.hidden { display:none; }
+
+.cat-count { font-size:0.75rem; font-weight:700; background:var(--navy-light); color:var(--text-muted); padding:0.15rem 0.5rem; border-radius:999px; }
+
+@media(max-width:500px){ .post-card { flex-direction:column; } .post-thumb { width:100%; height:60px; border-radius:8px; } }
+
+/* ============================================
+   BLOG POST — SHARED
+   Discovered on blog-post-1, likely reused across
+   the remaining 12 posts (all built from the same
+   template family as the guide pages).
+   ============================================ */
+
+/* Key-takeaways callout (dark card, top of post) */
+.key-points { background:var(--navy); border-radius:var(--radius); padding:1.5rem 1.75rem; margin:0 0 2rem; }
+.key-points h3 { font-family:'DM Serif Display',serif; font-size:1rem; color:var(--gold); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem; }
+.key-points ul { list-style:none; padding:0; }
+.key-points ul li { font-size:0.9rem; color:rgba(255,255,255,0.82); padding:0.4rem 0; border-bottom:1px solid rgba(255,255,255,0.08); display:flex; align-items:flex-start; gap:0.6rem; line-height:1.5; }
+.key-points ul li:last-child { border-bottom:none; }
+.key-points ul li i { color:var(--gold); flex-shrink:0; margin-top:2px; }
+
+/* Card-type grid (generic — 4-up icon+description cards within prose) */
+.card-type-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1.1rem; margin:1.5rem 0 2rem; }
+.card-type { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.25rem; transition:box-shadow 0.2s,border-color 0.2s; }
+.card-type:hover { box-shadow:var(--shadow); border-color:var(--gold); }
+.ct-icon { width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:0.75rem; }
+.card-type h4 { font-family:'DM Serif Display',serif; font-size:0.98rem; color:var(--navy); margin-bottom:0.3rem; }
+.card-type p { font-size:0.84rem; color:var(--text-muted); line-height:1.5; margin:0; }
+
+/* Post category badge (hero) */
+.post-cat-badge { display:inline-block; background:rgba(201,168,76,0.2); color:var(--gold); border:1px solid rgba(201,168,76,0.4); border-radius:4px; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; padding:0.25rem 0.75rem; margin-bottom:1rem; }
+
+/* Related posts (end of article) */
+.related-posts { margin-top:3rem; padding-top:2rem; border-top:2px solid var(--navy-light); }
+.related-posts h3 { font-family:'DM Serif Display',serif; font-size:1.2rem; color:var(--navy); margin-bottom:1.25rem; }
+.related-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; }
+.related-card { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.1rem; transition:box-shadow 0.2s,border-color 0.2s; display:flex; flex-direction:column; }
+.related-card:hover { box-shadow:var(--shadow); border-color:var(--gold); }
+.related-cat { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--gold-dark); background:var(--gold-light); padding:0.2rem 0.55rem; border-radius:4px; display:inline-block; margin-bottom:0.5rem; }
+.related-card h4 { font-family:'DM Serif Display',serif; font-size:0.95rem; color:var(--navy); margin-bottom:0.4rem; line-height:1.35; flex:1; }
+.related-link { font-size:0.82rem; font-weight:700; color:var(--gold-dark); display:flex; align-items:center; gap:0.3rem; margin-top:0.5rem; }
+
+/* Cost/impact table (distinct from .compare-table — highlight/good cell modifiers) */
+.cost-table { width:100%; border-collapse:collapse; margin:1.5rem 0 2rem; font-size:0.9rem; }
+.cost-table th { background:var(--navy); color:var(--white); padding:0.75rem 1rem; text-align:left; font-size:0.83rem; font-weight:600; }
+.cost-table th:first-child { border-radius:8px 0 0 0; }
+.cost-table th:last-child { border-radius:0 8px 0 0; }
+.cost-table td { padding:0.75rem 1rem; border-bottom:1px solid var(--navy-light); color:var(--text); }
+.cost-table tr:last-child td { border-bottom:none; }
+.cost-table tr:nth-child(even) td { background:var(--bg); }
+.cost-table .highlight { color:#c0392b; font-weight:700; }
+.cost-table .good { color:#2d7a4f; font-weight:700; }
+
+/* "Best for" line under a card-pick's tags */
+.best-for { font-size:0.82rem; color:var(--text-muted); margin-top:0.5rem; }
+.best-for strong { color:var(--navy); }
+
+/* Head-to-head comparison cards (e.g. cashback vs travel rewards) */
+.vs-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin:1.75rem 0 2.5rem; }
+@media(max-width:600px){ .vs-grid { grid-template-columns:1fr; } }
+.vs-card { border-radius:var(--radius); padding:1.5rem; }
+.vs-cashback { background:var(--navy-light); border:2px solid var(--navy); }
+.vs-travel { background:var(--gold-light); border:2px solid var(--gold); }
+.vs-card h3 { font-family:'DM Serif Display',serif; font-size:1.1rem; margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem; }
+.vs-cashback h3 { color:var(--navy); }
+.vs-travel h3 { color:var(--gold-dark); }
+.vs-card ul { list-style:none; padding:0; }
+.vs-card ul li { font-size:0.88rem; padding:0.4rem 0; border-bottom:1px solid rgba(0,0,0,0.07); display:flex; align-items:flex-start; gap:0.5rem; line-height:1.5; }
+.vs-card ul li:last-child { border-bottom:none; }
+.vs-card ul li i { flex-shrink:0; margin-top:2px; font-size:0.9rem; }
+.vs-cashback ul li i { color:var(--navy); }
+.vs-travel ul li i { color:var(--gold-dark); }
+
+/* ============================================
+   Connected-timeline steps, scoped to .steps-wrap.
+   This reuses .step/.step-num — the SAME class names
+   as the discrete-list .steps/.step/.step-num component
+   built earlier from credit-card-rewards/ — but wants a
+   different look (connected line, larger circles, a
+   "done" state). Rather than let a bare re-declaration
+   silently override that shared component sitewide,
+   scoped everything under .steps-wrap (unique to this
+   page) so it only applies here. Same technique used
+   for the credit-card-calculator/ collision.
+   ============================================ */
+.steps-wrap { margin:1.75rem 0 2.5rem; }
+.steps-wrap .step { display:flex; gap:1.35rem; align-items:flex-start; padding-bottom:2rem; position:relative; }
+.steps-wrap .step:not(:last-child)::after { content:''; position:absolute; left:19px; top:44px; bottom:0; width:2px; background:var(--navy-light); }
+.steps-wrap .step-num { width:40px; height:40px; border-radius:50%; background:var(--navy); color:var(--white); display:flex; align-items:center; justify-content:center; font-family:'DM Serif Display',serif; font-size:1.1rem; flex-shrink:0; z-index:1; }
+.steps-wrap .step-num.done { background:var(--gold); color:var(--navy); }
+.steps-wrap .step-content { flex:1; padding-top:0.3rem; }
+.steps-wrap .step-content h3 { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--navy); margin-bottom:0.5rem; }
+.steps-wrap .step-content p { font-size:0.93rem; color:var(--text-muted); margin-bottom:0.6rem; line-height:1.65; }
+.steps-wrap .step-content ul { padding-left:1.25rem; margin-bottom:0; }
+.steps-wrap .step-content ul li { font-size:0.9rem; color:var(--text-muted); margin-bottom:0.35rem; line-height:1.6; }
+
+/* Checklist box */
+.checklist { background:var(--white); border:1.5px solid var(--navy-light); border-radius:var(--radius); padding:1.5rem 1.75rem; margin:1.75rem 0; }
+.checklist h3 { font-family:'DM Serif Display',serif; font-size:1.05rem; color:var(--navy); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem; }
+.checklist h3 i { color:var(--gold); }
+.check-item { display:flex; align-items:flex-start; gap:0.75rem; padding:0.55rem 0; border-bottom:1px solid var(--navy-light); font-size:0.9rem; color:var(--text); line-height:1.5; }
+.check-item:last-child { border-bottom:none; padding-bottom:0; }
+.check-item i { color:var(--gold-dark); flex-shrink:0; margin-top:2px; font-size:1rem; }
