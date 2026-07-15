@@ -1302,3 +1302,24 @@ hr { border:none; border-top:0.5px solid var(--border); }
 
 /* Small typography enhancement applied sitewide: bold text in prose reads navy, matching brand */
 .prose strong { color: var(--navy); }
+
+/* ── Mistake-card grid (red-topped warning cards) ── */
+.prose .mistake-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.5rem 0; }
+@media(max-width:580px){ .prose .mistake-grid { grid-template-columns:1fr; } }
+.mistake-card { background:var(--white); border:1px solid var(--border); border-top:3px solid #c0392b; border-radius:var(--radius); padding:1.1rem 1.15rem; box-shadow:0 2px 8px rgba(15,37,87,0.05); }
+.mistake-card h4 { font-size:0.97rem; font-weight:600; color:var(--navy); margin-bottom:0.35rem; }
+.mistake-card p { font-size:0.88rem; color:var(--text-muted); margin:0; }
+
+/* ── Earnings breakdown box (running total calculation) ── */
+.prose .earnings-box { background:var(--gold-light); border:1px solid var(--gold); border-radius:var(--radius); padding:1.4rem 1.5rem; margin:1.8rem 0; }
+.earnings-box h4 { font-family:'DM Serif Display',serif; font-size:1.1rem; color:var(--navy); margin-bottom:1rem; }
+.earnings-row { display:flex; justify-content:space-between; align-items:center; padding:0.45rem 0; border-bottom:1px solid rgba(201,168,76,0.3); font-size:0.95rem; }
+.earnings-row:last-of-type { border-bottom:none; }
+.earnings-row .er-label { color:var(--text); }
+.earnings-row .er-value { font-weight:700; color:var(--navy); }
+.earnings-total { display:flex; justify-content:space-between; align-items:center; margin-top:0.8rem; padding-top:0.8rem; border-top:2px solid var(--gold); font-size:1.05rem; font-weight:700; color:var(--navy); }
+.earnings-total .et-value { color:var(--gold-dark); font-size:1.2rem; }
+
+/* Rate highlight spans (used inline within .dv-compare-table cells) */
+.rate-high { color:#27a560; font-weight:700; }
+.rate-med  { color:var(--gold-dark); font-weight:600; }
